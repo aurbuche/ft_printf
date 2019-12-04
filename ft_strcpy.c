@@ -6,10 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/04 13:25:37 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/04 13:26:23 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:03:04 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 char		*ft_strcpy(char *dest, const char *src)
 {

@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 17:42:31 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 15:56:21 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_init_struct(t_option *option)
+void			ft_init_struct(t_option *option)
 {
 	int i;
 
@@ -35,20 +35,66 @@ static void		ft_init_struct(t_option *option)
 	option->sign = 1;
 }
 
-static int      ft_check_error(const char *fmt, char **tab)
+int				ft_check_error(const char *fmt, char **tab)
 {
-    if (!fmt)
-        return (0);
-    if (fmt[0] == '%' && fmt[1] == '\0')
-        return (0);
+	if (!fmt)
+		return (0);
+	if (fmt[0] == '%' && fmt[1] == '\0')
+		return (0);
+	if (!(*tab = ft_strdup((char*)fmt)))
+		return (0);
+	return (1);
+}
+
+static void		ft_sort_type(char **fmt, t_option *option)
+{
+	while (**fmt && **fmt != '%')
+	{
+		ft_putchar(**fmt);
+		**fmt++;
+	}
+	**fmt++;
+	if (**fmt++ == 'c' || **fmt++ == 'i')
+		ft_putchar(**fmt);
 }
 
 int				ft_printf(const char *format, ...)
 {
 	t_option	option;
-    char        *tab;
+	char		*fmt = NULL;
 
 	option.len = 0;
-    if (ft_check_error(format, &tab) == 0)
-    ft_init_struct(&option);
+	va_start(option.ap, *fmt);
+	if (ft_check_error(format, &fmt) == 0)
+		return (0);
+	ft_init_struct(&option);
+	ft_sort_type(&fmt, &option);
+	return (ft_strlen(format));
 }
+/*
+void foo(char *fmt, ...)
+{
+	va_list ap, ap2;
+	int d;
+	char c, *s;
+
+	va_start(ap, fmt);
+	va_copy(ap2, ap);
+	while (*fmt)
+		switch(*fmt++) 
+		{
+
+			case 's':
+				s = va_arg(ap, char *);
+				printf("string %s\n", s);
+				break;
+			case 'd':
+				d = va_arg(ap, int);
+				printf("int %d\n", d);
+				break;
+			case 'c':
+				c = va_arg(ap, int);
+				printf("char %c\n", c);
+				break;
+		}
+	va_end(ap);*/

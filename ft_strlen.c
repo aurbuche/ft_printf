@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   ft_strlen.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 13:46:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:45:38 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:07:03 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t		ft_strlen(const char *str)
+size_t		ft_strlen(char *str)
 {
 	int i;
 

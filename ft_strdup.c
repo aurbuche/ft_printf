@@ -6,14 +6,14 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 17:47:51 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/04 13:27:54 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:07:08 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char		*ft_strdup(const char *s1)
+char		*ft_strdup(char *s1)
 {
 	char	*dst;
 

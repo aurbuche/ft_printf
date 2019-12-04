@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_putstr.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 10:55:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:48:52 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:03:08 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */

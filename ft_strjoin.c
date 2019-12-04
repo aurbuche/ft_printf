@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 11:05:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 10:31:54 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:02:56 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char			*ft_strjoin(char const *s1, char const *s2)
 {

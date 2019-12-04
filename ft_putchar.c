@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_putchar.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 10:48:10 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 16:48:01 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:04:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
