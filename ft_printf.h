@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:10:11 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 16:48:36 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,8 +22,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
-
-# define BUFFER_SIZE 10
 
 /*
 ** -------------------------- Structure Definition ---------------------------
@@ -43,7 +41,7 @@ typedef struct	s_option
 	char			*prefix;
 	char			*before;
 	char			*final;
-	char            *buffer[BUFFER_SIZE];
+	char            *buffer;
 	int				size_flags;
 	int				size_arg;
 	int				sign;
@@ -65,5 +63,9 @@ void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			ft_putnbr(int nb);
 void			ft_init_struct(t_option *option);
+void			ft_loop(char **fmt, t_option *option);
+void			ft_4_c(t_option *option);
+void			ft_4_s(t_option *option);
+void			ft_4_d(t_option *option);
 
 #endif

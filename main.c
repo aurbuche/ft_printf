@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 10:25:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 10:40:01 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 18:32:24 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -79,8 +79,10 @@ int		main(int ac, char **av)
 	reset();
 	ft_printf("\033[0mft_printfs \t:\t|%s|\n", av[ac]);
 	printf("printf\t\t:\t|%s|\n", av[ac]);*/
-	ft_printf("ft_printcf: [%cds]\n", 'l');
-	printf("printf: [%cds]\n", 'l');
+	printf("printf: [%c]\n", 'l');
+	ft_printf("ft_printf: [%c]\n", 'l');
+	printf("printf: [%s]\n", "lel");
+	ft_printf("ft_printf: [%s]\n", "lel");
 
 	return(0);
 }
