@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 16:04:12 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 16:47:33 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -54,8 +54,8 @@ void			ft_defind_type(char *fmt, t_option *option, int i)
 		ft_4_s(option);
 	if (fmt[i] == 'd' || fmt[i] == 'i')
 		ft_4_d(option);
-	// if (fmt[i] == 'p')
-	// 	ft_4_p(option);
+	 if (fmt[i] == 'p')
+	 	ft_4_p(option);
 }
 
 void			ft_loop(char **fmt, t_option *option)
