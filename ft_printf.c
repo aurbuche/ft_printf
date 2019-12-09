@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 18:32:25 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 16:04:12 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,6 +52,10 @@ void			ft_defind_type(char *fmt, t_option *option, int i)
 		ft_4_c(option);
 	if (fmt[i] == 's')
 		ft_4_s(option);
+	if (fmt[i] == 'd' || fmt[i] == 'i')
+		ft_4_d(option);
+	// if (fmt[i] == 'p')
+	// 	ft_4_p(option);
 }
 
 void			ft_loop(char **fmt, t_option *option)
@@ -59,16 +63,14 @@ void			ft_loop(char **fmt, t_option *option)
 	int		i;
 
 	i = 0;
-	while ((*fmt)[i] && (*fmt)[i] != '%')
-	{
-		ft_putchar((*fmt)[i]);
-		i++;
-	}
-	i++;
-	ft_defind_type(*fmt, option, i);
-	i++;
 	while ((*fmt)[i])
 	{
+		if ((*fmt)[i] == '%')
+			if ((*fmt)[i + 1] != '\0')
+			{
+				ft_defind_type(*fmt, option, i + 1);
+				i += 2;
+			}
 		ft_putchar((*fmt)[i]);
 		i++;
 	}
