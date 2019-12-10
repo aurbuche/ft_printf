@@ -1,45 +1,48 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_put_to_buf.c                                  .::    .:/ .      .::   */
+/*   ft_itoa_base_all.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/03 16:35:03 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 13:42:08 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/10 09:55:49 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/10 13:27:57 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_char_to_buff(char c, t_option *option)
+static int		ft_digitlen_base(uintmax_t n, int baselen)
 {
-	option->buffer[option->b] = c;
-	option->b++;
-	if (option->b == BUFFER_SIZE)
+	uintmax_t	ret;
+
+	ret = 0;
+	while (n != 0)
 	{
-		write(1, &option->buffer, option->b);
-		option->b = 0;
-		ft_bzero(option->buffer, BUFFER_SIZE);
+		n = n / baselen;
+		ret++;
 	}
+	return (ret);
 }
 
-void	ft_to_buff(t_option *option)
+char			*ft_itoa_base_unsi(uintmax_t n, int baselen, char *base)
 {
-	int i;
+	uintmax_t		len;
+	uintmax_t		i;
+	char			*str;
 
 	i = 0;
-	while (i < option->final_len)
+	len = ft_digitlen_base(n, baselen);
+	if (!(str = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	if (n == 0)
+		return (ft_strcpy(str, "0"));
+	str[len] = '\0';
+	while (len > i)
 	{
-		option->buffer[option->b] = option->final[i];
-		option->b = option->b + 1;
-		if (option->b == BUFFER_SIZE)
-		{
-			write(1, &option->buffer, option->b);
-			option->b = 0;
-			ft_bzero(option->buffer, BUFFER_SIZE);
-		}
-		i++;
+		str[--len] = base[n % baselen];
+		n = n / baselen;
 	}
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 12:08:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 16:24:15 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,4 +17,9 @@ void		ft_4_d(t_option *option)
 {
 	option->b = va_arg(option->ap, int);
 	ft_putnbr(option->b);
+}
+
+void		ft_4_u(t_option *option)
+{
+	
 }

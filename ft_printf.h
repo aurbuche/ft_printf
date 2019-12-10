@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 16:48:36 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 09:52:28 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,6 +48,7 @@ typedef struct	s_option
 	int				final_len;
 	int				b;
 	int				sub_word;
+	unsigned int	u;
 }				t_option;
 
 /*
