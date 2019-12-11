@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_switch.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:24:02 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:48:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 15:59:38 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 16:24:40 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(unsigned int n, char *base)
+void		ft_switch(size_t c, t_option *option)
 {
-	static char	buf[12];
-	int			i;
-	int			len;
-
-	len = ft_strlen(base);
-	i = 10;
-	while (1)
-	{
-		buf[i--] = base[n % len];
-		n /= len;
-		if (n == 0)
-			break ;
-	}
-	return (ft_strdup(buf + 1 + i));
+	if (c == 'c' || c == 's')
+		ft_4_alpha(&option, c);
+	if (c == 'd' || c == 'i')
+		ft_4_digit(&option);
+	if (c == 'u')
+		ft_4_u(&option);
+	if (c == 'p')
+		ft_4_p(&option);
+	if (c == 'x' || c == 'X')
+		ft_4_x(&option, c);
 }

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_pf_digit.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:24:02 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:48:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 16:09:34 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(unsigned int n, char *base)
+void		ft_4_digit(t_option *option)
 {
-	static char	buf[12];
-	int			i;
-	int			len;
+	option->b = va_arg(option->ap, int);
+	ft_putnbr(option->b);
+}
 
-	len = ft_strlen(base);
-	i = 10;
-	while (1)
-	{
-		buf[i--] = base[n % len];
-		n /= len;
-		if (n == 0)
-			break ;
-	}
-	return (ft_strdup(buf + 1 + i));
+void		ft_4_u(t_option *option)
+{
+	
 }

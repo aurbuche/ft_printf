@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_pf_alpha.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:24:02 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:48:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 16:18:20 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(unsigned int n, char *base)
+void		ft_4_alpha(t_option *option, char c)
 {
-	static char	buf[12];
-	int			i;
-	int			len;
-
-	len = ft_strlen(base);
-	i = 10;
-	while (1)
+	if (c == 'c')
 	{
-		buf[i--] = base[n % len];
-		n /= len;
-		if (n == 0)
-			break ;
+		option->b = va_arg(option->ap, int);
+		ft_putchar(option->b);
 	}
-	return (ft_strdup(buf + 1 + i));
+	else
+	{
+		option->buffer = va_arg(option->ap, char *);
+		if (option->buffer == '\0')
+			ft_putchar('\0');
+		else
+			ft_putstr(option->buffer);
+	}
 }

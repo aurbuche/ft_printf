@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_memchr.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:24:02 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:48:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 14:17:11 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 10:13:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_itoa_base(unsigned int n, char *base)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	static char	buf[12];
-	int			i;
-	int			len;
+	const char	*src;
 
-	len = ft_strlen(base);
-	i = 10;
-	while (1)
+	src = s;
+	while (n)
 	{
-		buf[i--] = base[n % len];
-		n /= len;
-		if (n == 0)
-			break ;
+		if (*src == c)
+			return ((char*)src);
+		src++;
+		n--;
 	}
-	return (ft_strdup(buf + 1 + i));
+	return (NULL);
 }

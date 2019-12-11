@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 16:23:54 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 16:54:28 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,58 +35,65 @@ void			ft_init_struct(t_option *option)
 	option->sign = 1;
 }
 
-int				ft_check_error(const char *format, char **fmt)
+int				ft_check_error(const char *format, t_option **option)
 {
 	if (!format)
 		return (0);
 	if (format[0] == '%' && format[1] == '\0')
 		return (0);
-	if (!(*fmt = ft_strdup((char*)format)))
-		return (0);
+	ft_init_struct(&option);
 	return (1);
 }
 
-void			ft_defind_type(char *fmt, t_option *option, int i)
+char			ft_find_converter(char c)
 {
-	if (fmt[i] == 'c')
-		ft_4_c(option);
-	if (fmt[i] == 's')
-		ft_4_s(option);
-	if (fmt[i] == 'd' || fmt[i] == 'i')
-		ft_4_d(option);
-	// if (fmt[i] == 'p')
-	// 	ft_4_p(option);
+	char	*converter;
+	int		i;
+
+	converter = "cspdiuxX%";
+	i = 0;
+	while (converter[i])
+	{
+		if (converter[i] == c)
+			return (converter[i]);
+		i++;
+	}
+	return (0);
 }
 
-void			ft_loop(char **fmt, t_option *option)
+int			ft_loop(char **fmt, size_t i, t_option *option)
 {
 	int		i;
 
 	i = 0;
 	while ((*fmt)[i])
 	{
-		if ((*fmt)[i] == '%')
-			if ((*fmt)[i + 1] != '\0')
-			{
-				ft_defind_type(*fmt, option, i + 1);
-				i += 2;
-			}
+		if ((*fmt)[i] == '%' && (*fmt)[i + 1] != '\0')
+			ft_switch(ft_find_converter((*fmt)[i]), option);
 		ft_putchar((*fmt)[i]);
 		i++;
 	}
+	return (0);
 }
 
 int				ft_printf(const char *format, ...)
 {
-	t_option	option;
-	char		*fmt;
+	t_option	*option;
+	size_t		i;
 
-	fmt = NULL;
-	option.len = 0;
-	va_start(option.ap, format);
-	if (ft_check_error(format, &fmt) == 0)
+	option->len = 0;
+	i = 0;
+	va_start(option->ap, format);
+	if (ft_check_error(format, &option) == 0)
 		return (0);
-	ft_init_struct(&option);
-	ft_loop(&fmt, &option);
+	if (!ft_memchr(format, '%', ft_strlen(format)))
+	{
+		ft_putstr(format);
+		va_end(option->ap);
+		free(option);
+		return (ft_strlen(format));
+	}
+	i = ft_memchr(format, '%', ft_strlen(format));
+	i = ft_loop(format, i, option);
 	return (0);
 }
