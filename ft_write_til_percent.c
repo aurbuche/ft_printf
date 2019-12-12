@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memchr.c                                      .::    .:/ .      .::   */
+/*   ft_write_til_percent.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/09 14:17:11 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 09:28:08 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/12 12:20:37 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/12 13:04:46 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void		ft_write_til_percent(char *fmt, size_t i)
 {
-	const unsigned char	*src;
+	size_t	n;
 
-	src = (const unsigned char*)s;
-	while (n)
-	{
-		if (*src == (unsigned char)c)
-			return ((void*)src);
-		src++;
-		n--;
-	}
-	return (NULL);
+	n = 0;
+	while (n <= i)
+		ft_putchar(fmt[n++]);
 }

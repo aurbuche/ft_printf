@@ -6,14 +6,14 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:53:20 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:28:20 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_4_x(t_option *option, char c)
+void		ft_4_x(t_option *option, char c)
 {
 	char	*base;
 	int		n;
@@ -22,5 +22,5 @@ char		*ft_4_x(t_option *option, char c)
 	if (c == 'X')
 		base = "0123456789ABCDEF";
 	n = va_arg(option->ap, int);
-	return (ft_itoa_base(n, base));
+	ft_putstr(ft_itoa_base(n, base));
 }

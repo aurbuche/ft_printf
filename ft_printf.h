@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:50:22 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:02:25 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,20 +55,22 @@ typedef struct	s_option
 ** -------------------------- Function Definiton ----------------------------
 */
 
+t_option		*ft_init_struct(void);
 char			*ft_itoa_base(unsigned int n, char *base);
 char			*ft_strdup(char *s1);
 char			*ft_strcpy(char *dest, const char *src);
 char			ft_find_converter(char c);
 int				ft_printf(const char *format, ...);
-int				ft_loop(char **fmt, size_t i, t_option *option);
+int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap);
 size_t			ft_strlen(char *str);
 void			ft_bzero(void *b, size_t len);
+void			*ft_memchr(const void *s, int c, size_t n);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			ft_putnbr(int nb);
-void			ft_init_struct(t_option *option);
-void			ft_4_c(t_option *option);
-void			ft_4_s(t_option *option);
-void			ft_4_d(t_option *option);
+void			ft_switch(size_t c, t_option *option, va_list ap);
+void			ft_write_til_percent(char *fmt, size_t i);
+void			ft_4_alpha(t_option *option, char c, va_list ap);
+void			ft_4_digit(t_option *option, char c, va_list ap);
 
 #endif

@@ -6,18 +6,21 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:54:28 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 13:15:35 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_init_struct(t_option *option)
+t_option		*ft_init_struct(void)
 {
-	int i;
+	t_option	*option;
+	int			i;
 
 	i = -1;
+	if (!(option = malloc(sizeof(t_option))))
+		return (NULL);
 	while (++i < 6)
 		option->flags[i] = 0;
 	option->prefix = NULL;
@@ -33,15 +36,17 @@ void			ft_init_struct(t_option *option)
 	option->final_len = 0;
 	option->sub_word = 0;
 	option->sign = 1;
+	return (option);
 }
 
-int				ft_check_error(const char *format, t_option **option)
+int				ft_check_error(const char *format, char **fmt)
 {
 	if (!format)
 		return (0);
 	if (format[0] == '%' && format[1] == '\0')
 		return (0);
-	ft_init_struct(&option);
+	if (!((*fmt) = ft_strdup((char*)format)))
+		return (0);
 	return (1);
 }
 
@@ -61,16 +66,16 @@ char			ft_find_converter(char c)
 	return (0);
 }
 
-int			ft_loop(char **fmt, size_t i, t_option *option)
+int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
-	int		i;
-
-	i = 0;
-	while ((*fmt)[i])
+	while (fmt[i])
 	{
-		if ((*fmt)[i] == '%' && (*fmt)[i + 1] != '\0')
-			ft_switch(ft_find_converter((*fmt)[i]), option);
-		ft_putchar((*fmt)[i]);
+		if (fmt[i] == '%' && fmt[i + 1] != '\0')
+		{
+			ft_switch(ft_find_converter(fmt[i + 1]), option, ap);
+			i += 2;
+		}
+		ft_putchar(fmt[i]);
 		i++;
 	}
 	return (0);
@@ -78,22 +83,27 @@ int			ft_loop(char **fmt, size_t i, t_option *option)
 
 int				ft_printf(const char *format, ...)
 {
-	t_option	*option;
+	va_list		ap;
 	size_t		i;
+	char		*fmt;
+	t_option	*option;
 
-	option->len = 0;
+	va_start(ap, format);
 	i = 0;
-	va_start(option->ap, format);
-	if (ft_check_error(format, &option) == 0)
+	fmt = NULL;
+	if (!(option = ft_init_struct()))
 		return (0);
-	if (!ft_memchr(format, '%', ft_strlen(format)))
+	if (ft_check_error(format, &fmt) == 0)
+		return (0);
+	if (!ft_memchr(format, '%', ft_strlen((char*)format)))
 	{
-		ft_putstr(format);
+		ft_putstr((char*)format);
 		va_end(option->ap);
 		free(option);
-		return (ft_strlen(format));
+		return (ft_strlen((char*)format));
 	}
-	i = ft_memchr(format, '%', ft_strlen(format));
-	i = ft_loop(format, i, option);
+	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
+	ft_write_til_percent(fmt, i - 1);
+	i = ft_loop((char*)format, i, option, ap);
 	return (0);
 }
