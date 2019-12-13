@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strlcpy.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 13:31:37 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/21 13:08:05 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char	*base;
+	unsigned int i;
+	unsigned int j;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	i = 0;
+	j = ft_strlen((char*)src);
+	if (dstsize == 0)
+		return (j);
+	while (src[i] != '\0' && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (j);
 }

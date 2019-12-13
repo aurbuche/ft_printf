@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_atoi.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/07 15:19:51 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 16:38:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+int		ft_atoi(const char *str)
 {
-	char	*base;
+	int i;
+	int nb;
+	int s;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	i = 0;
+	nb = 0;
+	s = 1;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' || str[i] == '\v'
+	|| str[i] == '\f' || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		s = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + str[i] - '0';
+		i++;
+	}
+	return (nb * s);
 }

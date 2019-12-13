@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strrchr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 12:56:49 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/21 13:08:40 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+char	*ft_strrchr(const char *str, int c)
 {
-	char	*base;
+	size_t	i;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	i = ft_strlen(str);
+	while (str[i] != c && i)
+		i--;
+	if (str[i] == c)
+		return ((char*)str + i);
+	return (NULL);
 }

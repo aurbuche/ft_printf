@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 10:25:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:22:59 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 14:19:52 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,6 +53,7 @@ int		main(int ac, char **av)
 	j = 'a';
 	k = 'A';
 	ac = 1;
+	
 	red();
 	puts("---Test pour un caractères---\n");
 	while (j <= 'z')
@@ -89,13 +90,13 @@ int		main(int ac, char **av)
 		printf("printf\t\t:\t|%u|  |%u|  |%u|\n", i, i + 10, i + 20);
 		i++;
 	}
-/*
+
 	red();
 	printf("%s", "\n---Test pour une adresse---\n");
 	reset();
 	ft_printf("\033[0mft_printf \t:\t|%p|\n", &i);
 	printf("printf\t\t:\t|%p|\n", &i);
-*/
+
 	red();
 	printf("%s", "\n---Test pour l'hexa---\n");
 	reset();

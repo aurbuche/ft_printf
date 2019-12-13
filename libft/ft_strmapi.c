@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strmapi.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/17 15:49:04 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/24 10:31:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*base;
+	size_t	i;
+	size_t	len;
+	char	*tab;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	i = 0;
+	len = ft_strlen(s);
+	if (!(tab = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	while (s[i] && f)
+	{
+		tab[i] = f(i, s[i]);
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }

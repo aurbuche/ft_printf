@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:22:48 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 16:21:01 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,19 +23,11 @@ t_option		*ft_init_struct(void)
 		return (NULL);
 	while (++i < 6)
 		option->flags[i] = 0;
-	option->prefix = NULL;
-	option->final = NULL;
-	option->before = NULL;
-	option->word_c = NULL;
-	option->word_w = NULL;
 	option->width = 0;
 	option->preci = 0;
-	option->mod = 0;
-	option->size_flags = 0;
-	option->size_arg = 0;
-	option->final_len = 0;
-	option->sub_word = 0;
-	option->sign = 1;
+	option->buffer = NULL;
+	option->b = 0;
+	option->u = 0;
 	return (option);
 }
 
@@ -70,15 +62,21 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		if (fmt[i] == '%' && fmt[i + 1] != '\0')
+		if ((fmt[i] == '%') &&
+				(ft_find_converter(fmt[i + 1]), option, ap))
 		{
 			ft_switch(ft_find_converter(fmt[i + 1]), option, ap);
 			i += 2;
 		}
+		else if ((fmt[i] == '%') &&
+				!(ft_find_converter(fmt[i + 1]), option, ap))
+		{
+			ft_find_flag(option, ap, fmt);
+		}
 		ft_putchar(fmt[i]);
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
 int				ft_printf(const char *format, ...)
@@ -105,5 +103,7 @@ int				ft_printf(const char *format, ...)
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
 	ft_write_til_percent(fmt, i - 1);
 	i = ft_loop((char*)format, i, option, ap);
-	return (0);
+	va_end(ap);
+	free(option);
+	return (i);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_memset.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/07 16:03:51 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/09 15:43:46 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*base;
+	unsigned char *d;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	d = b;
+	while (len)
+	{
+		*d = c;
+		d++;
+		len--;
+	}
+	return (b);
 }

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strncmp.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/07 13:53:50 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/17 10:41:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*base;
+	size_t				i;
+	unsigned const char	*str1;
+	unsigned const char	*str2;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	str1 = (unsigned const char*)s1;
+	str2 = (unsigned const char*)s2;
+	i = 0;
+	if (n <= 0)
+		return (0);
+	while (str1[i] == str2[i] && i < (n - 1) && str1[i] && str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

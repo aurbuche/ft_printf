@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strnstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 17:52:30 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/09 11:25:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+char	*ft_strnstr(const char *haystack, const char *neddle, size_t len)
 {
-	char	*base;
+	int	i;
+	int	j;
+	int k;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	i = 0;
+	if (neddle[0] == '\0')
+		return ((char*)haystack);
+	while (haystack[i] != '\0' && len > 0)
+	{
+		j = 0;
+		k = len;
+		while (haystack[i + j] == neddle[j] && k > 0)
+		{
+			if (neddle[j + 1] == '\0')
+				return ((char*)haystack + i);
+			j++;
+			k--;
+		}
+		i++;
+		len--;
+	}
+	return (0);
 }

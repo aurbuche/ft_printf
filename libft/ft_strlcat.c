@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_strlcat.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 15:48:07 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/25 17:10:02 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*base;
+	unsigned int	i;
+	unsigned int	len;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	len = ft_strlen(dst);
+	i = 0;
+	if (len > size)
+		return (ft_strlen(src) + size);
+	while (src[i] && size - len > 1)
+	{
+		dst[len + i] = src[i];
+		size--;
+		i++;
+	}
+	dst[len + i] = '\0';
+	return (ft_strlen(src) + len);
 }

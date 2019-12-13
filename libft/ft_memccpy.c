@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_x.c                                         .::    .:/ .      .::   */
+/*   ft_memccpy.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:22:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 12:34:03 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/15 15:52:33 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_4_x(t_option *option, char c, va_list ap)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char	*base;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	base = "0123456789abcdef";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	option->b = va_arg(ap, int);
-	ft_putstr(ft_itoa_base(option->b, base));
+	if (src == NULL && dst == NULL && n != 0)
+		return (NULL);
+	d = (unsigned char*)dst;
+	s = (unsigned char*)src;
+	while (n)
+	{
+		*d = *s;
+		if (*s == (unsigned char)c)
+			return (d + 1);
+		s++;
+		d++;
+		n--;
+	}
+	return (0);
 }
