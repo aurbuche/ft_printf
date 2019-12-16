@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/13 14:50:50 by aurbuche    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/16 08:12:27 by aurbuche    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -33,7 +33,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-HEADER = ./ft_printf.h
+HEADER = ./libftprintf.h
 
 all :			 ${NAME}
 

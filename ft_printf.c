@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 16:21:01 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 15:54:51 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 t_option		*ft_init_struct(void)
 {
@@ -42,7 +42,7 @@ int				ft_check_error(const char *format, char **fmt)
 	return (1);
 }
 
-char			ft_find_converter(char c)
+int				ft_find_converter(char c, t_option *option)
 {
 	char	*converter;
 	int		i;
@@ -52,7 +52,10 @@ char			ft_find_converter(char c)
 	while (converter[i])
 	{
 		if (converter[i] == c)
-			return (converter[i]);
+		{
+			option->converter = converter[i];
+			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -62,17 +65,13 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		if ((fmt[i] == '%') &&
-				(ft_find_converter(fmt[i + 1]), option, ap))
+		if (fmt[i] == '%' && ft_find_converter(fmt[i + 1], option))
 		{
-			ft_switch(ft_find_converter(fmt[i + 1]), option, ap);
+			ft_switch(ft_find_converter(fmt[i + 1], option), option, ap);
 			i += 2;
 		}
-		else if ((fmt[i] == '%') &&
-				!(ft_find_converter(fmt[i + 1]), option, ap))
-		{
-			ft_find_flag(option, ap, fmt);
-		}
+		else
+			ft_find_flag(fmt[i + 1], option);
 		ft_putchar(fmt[i]);
 		i++;
 	}

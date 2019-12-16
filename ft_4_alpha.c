@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:22:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 08:07:18 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void		ft_4_alpha(t_option *option, char c, va_list ap)
 {

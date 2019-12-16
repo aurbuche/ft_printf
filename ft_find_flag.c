@@ -6,22 +6,31 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 16:20:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 16:33:45 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
-char	*ft_find_flag(t_option option, va_list ap, char *fmt)
+void	ft_find_flag(char c, t_option *option)
 {
-	size_t	i;
+	int		i;
+	int		j;
+	char	*flag;
 
+	flag = "-0*.";
 	i = 0;
-	while (fmt[i])
+	j = 0;
+	while (flag[i])
 	{
-		if (fmt[i] == '-' || fmt[i] == '*' || fmt[i] == '.' || fmt[i] == '0')
-			return (fmt[i]);
+		if (flag[i] == c)
+		{
+			option->flags[j] == flag[i];
+			i++;
+			j++;
+			break ;
+		}
 		i++;
 	}
 }

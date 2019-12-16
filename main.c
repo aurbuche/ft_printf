@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 10:25:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 14:19:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 13:40:31 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void red () 
 {
@@ -109,5 +109,6 @@ int		main(int ac, char **av)
 		printf("printf\t  X \t:\t|%X|\n", i);
 		i++;
 	}
+	printf("%-.d\n", 6);
 	return(0);
 }

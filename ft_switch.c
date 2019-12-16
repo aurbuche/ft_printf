@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 15:59:38 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 16:28:08 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 08:08:03 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void		ft_switch(size_t c, t_option *option, va_list ap)
 {

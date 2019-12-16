@@ -6,12 +6,12 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 13:24:02 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:22:47 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 08:07:48 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 char		*ft_itoa_base(unsigned int n, char *base)
 {
