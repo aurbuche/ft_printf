@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 10:25:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 13:40:31 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 10:19:03 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,8 @@ int		main(int ac, char **av)
 	j = 'a';
 	k = 'A';
 	ac = 1;
-	
+	printf("%s\n", av[ac]);
+	/*
 	red();
 	puts("---Test pour un caractères---\n");
 	while (j <= 'z')
@@ -108,7 +109,9 @@ int		main(int ac, char **av)
 		ft_printf("ft_printf X \t:\t|%X|\n", i);
 		printf("printf\t  X \t:\t|%X|\n", i);
 		i++;
-	}
-	printf("%-.d\n", 6);
+	}*/
+	printf("printf : %5d\n", 5);
+	ft_printf("ft_printf : %9d\n", 5);
+	
 	return(0);
 }

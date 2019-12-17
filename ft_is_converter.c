@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_digit.c                                     .::    .:/ .      .::   */
+/*   ft_is_converter.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 13:57:28 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/17 09:50:38 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/17 09:56:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_digit(t_option *option, va_list ap)
+int			ft_is_converter(char c)
 {
-	char	*base;
+	char	*converter;
 
-	base = "0123456789";
-	if (option->converter == 'u')
+	converter = "cspdiuxX%";
+	while (*converter)
 	{
-		option->u = va_arg(ap, unsigned int);
-		ft_putstr(ft_itoa_base(option->u, base));
+		if (*converter == c)
+			return (1);
+		converter++;
 	}
-	else
-	{
-		option->b = va_arg(ap, int);
-		ft_putnbr(option->b);
-	}
+	return (0);
 }

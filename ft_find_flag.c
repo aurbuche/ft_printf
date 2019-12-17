@@ -6,14 +6,14 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 16:33:45 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 16:03:40 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_find_flag(char c, t_option *option)
+void	ft_find_flag(char *fmt, t_option *option)
 {
 	int		i;
 	int		j;
@@ -22,14 +22,13 @@ void	ft_find_flag(char c, t_option *option)
 	flag = "-0*.";
 	i = 0;
 	j = 0;
-	while (flag[i])
+	while (!ft_is_converter(fmt[j]))
 	{
-		if (flag[i] == c)
+		if (fmt[j] == flag[i])
 		{
-			option->flags[j] == flag[i];
-			i++;
+			*option->flags = flag[i];
+			option->flags++;
 			j++;
-			break ;
 		}
 		i++;
 	}
