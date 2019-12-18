@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   width.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 12:54:33 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 16:15:19 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+int		get_width(t_option *option, char *fmt, int i)
 {
-	char	*buff;
-
-	option->accu = 1;
-	buff = ft_itoa_p_base(va_arg(ap, long long), "0123456789abcdef");
-	buff = ft_strjoin("0x", buff);
-	ft_putstr(buff);
+	while (ft_isdigit(fmt[i]))
+	{
+		option->width = fmt[i];
+	}
+	printf("/%d/", option->width);
+	return (1);
 }

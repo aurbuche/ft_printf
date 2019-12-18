@@ -6,30 +6,50 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:03:40 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 16:15:21 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_find_flag(char *fmt, t_option *option)
+int			ft_is_flag(char c)
 {
-	int		i;
-	int		j;
 	char	*flag;
+	int		i;
 
-	flag = "-0*.";
+	flag = "-.0*";
 	i = 0;
-	j = 0;
-	while (!ft_is_converter(fmt[j]))
+	while (flag[i])
 	{
-		if (fmt[j] == flag[i])
-		{
-			*option->flags = flag[i];
-			option->flags++;
-			j++;
-		}
+		if (c == flag[i])
+			return (1);
 		i++;
 	}
+	return (0);
+}
+
+void		ft_stock_flag(char fmt, t_option *option)
+{
+	*option->flags = fmt;
+}
+
+char		*get_flag(char *fmt, t_option *option, size_t i)
+{
+	if (fmt[i] == '0' || fmt[i] == '.' || fmt[i] == '*'
+		|| fmt[i] == '-')
+		*option->flags = fmt[i];
+	printf("__%c__", fmt[i]);
+	while (fmt[i++] == '.' || fmt[i++] == '*' || fmt[i++] == '-')
+	{
+		*option->flags++ = fmt[i++];
+	}
+	printf("(%c)", *option->flags);
+	printf("+%d+\n", 6);
+	if (ft_isdigit(fmt[i]))
+	{
+		printf("++%d++", 9);
+		get_width(option, fmt, i);
+	}
+	return (ft_strndup(fmt, i));
 }

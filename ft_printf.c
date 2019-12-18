@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 16:00:05 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 16:15:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,12 +21,14 @@ t_option		*ft_init_struct(void)
 	i = -1;
 	if (!(option = malloc(sizeof(t_option))))
 		return (NULL);
-	option->flags = 0;
+	if (!(option->flags = malloc(sizeof(char) * 7 + 1)))
+		return (NULL);
 	option->width = 0;
-	option->preci = 0;
+	option->accu = 0;
 	option->buffer = NULL;
 	option->b = 0;
 	option->u = 0;
+	option->rvalue = 0;
 	return (option);
 }
 
@@ -62,18 +64,17 @@ int				ft_find_converter(char c, t_option *option)
 
 int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
+	fmt = get_flag(fmt, option, i);
 	while (fmt[i])
 	{
-		ft_find_flag(fmt, option);
-		if (fmt[i] == '%' && ft_find_converter(fmt[i + 1], option))
+		if (ft_find_converter(fmt[i], option))
 		{
 			ft_switch(option, ap);
-			i += 2;
+			i++;
 		}
 		ft_putchar(fmt[i]);
 		i++;
 	}
-	printf("__%s__\n", option->flags);
 	return (i);
 }
 
@@ -100,7 +101,7 @@ int				ft_printf(const char *format, ...)
 	}
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
 	ft_write_til_percent(fmt, i - 1);
-	i = ft_loop((char*)format, i, option, ap);
+	ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
 	free(option);
 	return (i);

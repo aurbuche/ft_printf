@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/17 10:20:03 by aurbuche    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/18 16:15:18 by aurbuche    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,7 +14,7 @@
 SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_create_str.c\
 					ft_verif_char.c ft_4_alpha.c ft_4_p.c ft_itoa_base.c\
 					ft_itoa_p_base.c ft_switch.c ft_write_til_percent.c\
-					ft_find_flag.c ft_is_converter.c 
+					ft_find_flag.c ft_is_converter.c width.c 
 
 SRCS_LIB			=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 							ft_memccpy.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c\

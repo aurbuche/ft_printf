@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   ft_strndup.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 12:54:33 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 15:46:23 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/18 16:15:15 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+char	*ft_strndup(const char *str, size_t n)
 {
-	char	*buff;
+	char		*dst;
+	size_t		i;
 
-	option->accu = 1;
-	buff = ft_itoa_p_base(va_arg(ap, long long), "0123456789abcdef");
-	buff = ft_strjoin("0x", buff);
-	ft_putstr(buff);
+	i = 0;
+	if (!(dst = (char*)malloc(sizeof(char) * (ft_strnlen(str, n) + 1))))
+		return (NULL);
+	while (str[n])
+	{
+		dst[i] = str[n];
+		i++;
+		n++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
