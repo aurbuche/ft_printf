@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strndup.c                                     .::    .:/ .      .::   */
+/*   ft_width.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/18 15:46:23 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 11:44:18 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/08 11:41:00 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strndup(const char *str, size_t n)
+void	get_width(t_option *option, char *fmt, int i)
 {
-	char		*dst;
-	size_t		i;
-
-	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (ft_strnlen(str, n) + 1))))
-		return (NULL);
-	while (str[n])
-	{
-		dst[i] = str[n];
-		i++;
-		n++;
-	}
-	dst[i] = '\0';
-	free((char*)str);
-	return (dst);
+	while (ft_isdigit(fmt[i]))
+		option->width = fmt[i];
 }

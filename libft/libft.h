@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:27:42 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 13:55:12 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 11:43:49 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,6 +38,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *haystack, const char *neddle, size_t len);
+char	*ft_strndup(const char *str, size_t n);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
@@ -57,5 +58,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *str);
+size_t	ft_strnlen(const char *str, size_t n);
 
 #endif

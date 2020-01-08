@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 16:15:16 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:16:30 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,17 +64,20 @@ int				ft_find_converter(char c, t_option *option)
 
 int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
-	fmt = get_flag(fmt, option, i);
 	while (fmt[i])
 	{
+		if (ft_is_flag(fmt[i], i))
+		{
+			ft_stock_flag(fmt, option);
+		}
 		if (ft_find_converter(fmt[i], option))
 		{
 			ft_switch(option, ap);
 			i++;
 		}
-		ft_putchar(fmt[i]);
 		i++;
 	}
+	dprintf(1, "__%s__", option->flags);
 	return (i);
 }
 
