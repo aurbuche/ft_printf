@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 14:53:51 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:52:52 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,6 +62,6 @@ void			ft_4_digit(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
 void			get_width(t_option *option, char *fmt, int i);
-char			*get_flag(char *fmt, t_option *option, size_t i);
+char			*ft_stock_flag(char *str, size_t n);
 
 #endif
