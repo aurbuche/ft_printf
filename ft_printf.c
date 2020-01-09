@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 16:55:03 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 15:42:25 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,20 +66,18 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		ft_putchar(fmt[i]);
-		if (ft_is_flag(fmt[i], i))
-		{
-			printf("%d", 9);
-			option->flags = ft_stock_flag(fmt, i);
-		}
+		if (fmt[i] == '%' && ft_is_converter(fmt[i + 1]))
+			i++;
 		if (ft_find_converter(fmt[i], option))
 		{
 			ft_switch(option, ap);
-			i++;
 		}
+		// else if (ft_find_flag(fmt, i, option))
+		// 	ft_generate_str(fmt, option, ap);
+		else
+			ft_putchar(fmt[i]);
 		i++;
 	}
-	dprintf(1, "__%s__", option->flags);
 	return (i);
 }
 
@@ -105,7 +103,7 @@ int				ft_printf(const char *format, ...)
 		return (ft_strlen((char*)format));
 	}
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
-	ft_write_til_percent(fmt, i - 1);
+	ft_write_til_percent(fmt, i);
 	ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
 	free(option);

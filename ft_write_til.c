@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strndup.c                                     .::    .:/ .      .::   */
+/*   ft_write_til.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/18 15:46:23 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 11:33:03 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/12 12:20:37 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/09 13:13:26 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strndup(const char *str, size_t n)
+void		ft_write_til_percent(char *fmt, size_t i)
 {
-	char		*dst;
-	size_t		i;
+	size_t	n;
 
-	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (ft_strnlen(str, n) + 1))))
-		return (NULL);
-	while (str[n])
+	n = 0;
+	while (n < i)
 	{
-		dst[i] = str[n];
-		i++;
+		ft_putchar(fmt[n]);
 		n++;
 	}
-	dst[i] = '\0';
-	return (dst);
 }

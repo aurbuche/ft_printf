@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 16:52:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 11:52:20 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ typedef struct	s_option
 	va_list			ap;
 	char			*flags;
 	char			*buffer;
-	char			*stock;
+	char			*rprint;
 	char			converter;
 	int				b;
 	unsigned int	u;
@@ -56,6 +56,7 @@ int				ft_find_converter(char c, t_option *option);
 int				ft_is_converter(char c);
 int				ft_is_flag(char fmt, size_t i);
 void			ft_switch(t_option *option, va_list ap);
+void			ft_write_til_end(char *fmt, size_t i);
 void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_4_alpha(t_option *option, va_list ap);
 void			ft_4_digit(t_option *option, va_list ap);

@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strndup.c                                     .::    .:/ .      .::   */
+/*   ft_is_converter.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/18 15:46:23 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 11:33:03 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/17 09:50:38 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/09 13:15:02 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strndup(const char *str, size_t n)
+int			ft_is_converter(char c)
 {
-	char		*dst;
-	size_t		i;
+	char	*converter;
 
-	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (ft_strnlen(str, n) + 1))))
-		return (NULL);
-	while (str[n])
+	converter = "cspdiuxX%";
+	while (*converter)
 	{
-		dst[i] = str[n];
-		i++;
-		n++;
+		if (*converter == c)
+			return (1);
+		converter++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (0);
+}
+
+int			ft_is_flag(char c, size_t i)
+{
+	if ((i = 0) && (c == '0' || c == '.' || c == '*' || c == '-'))
+		return (1);
+	else if ((i != 0) && (c == '.' || c == '*' || c == '-'))
+		return (1);
+	return (0);
 }
