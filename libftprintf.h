@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 11:52:20 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:38:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 # define LIBFTPRINTF_H
 
 /*
-** -------------------------- External Headers ------------------------------
+** ---------------- ---------- External Headers ------------------------------
 */
 
 # include <stdlib.h>
@@ -47,22 +47,23 @@ typedef struct	s_option
 */
 
 t_option		*ft_init_struct(void);
-char			*ft_itoa_base(unsigned int n, char *base);
-char			*ft_itoa_p_base(unsigned long n, char *base);
 int				ft_printf(const char *format, ...);
 int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap);
 int				ft_verif_char(char c, char *str);
 int				ft_find_converter(char c, t_option *option);
 int				ft_is_converter(char c);
 int				ft_is_flag(char fmt, size_t i);
-void			ft_switch(t_option *option, va_list ap);
+int				ft_find_flag(char *str, size_t n, t_option *option, va_list ap);
+void			ft_switch(t_option *option, va_list ap, char *fmt);
 void			ft_write_til_end(char *fmt, size_t i);
 void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_4_alpha(t_option *option, va_list ap);
 void			ft_4_digit(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
-void			get_width(t_option *option, char *fmt, int i);
-char			*ft_stock_flag(char *str, size_t n);
+void			ft_4_percent(t_option *option, char *fmt);
+void			ft_width(t_option *option, va_list ap);
+char			*ft_ctos(char c);
+char			*ft_create_str(char c);
 
 #endif

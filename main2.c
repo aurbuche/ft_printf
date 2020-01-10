@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlen.c                                      .::    .:/ .      .::   */
+/*   main2.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 13:46:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 09:57:41 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/10 13:01:10 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/10 14:48:34 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-size_t		ft_strlen(const char *str)
+int		main(void)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	ft_printf("%*d", 6, 3);
 }

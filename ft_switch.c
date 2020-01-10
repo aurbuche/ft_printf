@@ -6,14 +6,14 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 15:59:38 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 15:21:53 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:34:54 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_switch(t_option *option, va_list ap)
+void		ft_switch(t_option *option, va_list ap, char *fmt)
 {
 	if (option->converter == 'c' || option->converter == 's')
 		ft_4_alpha(option, ap);
@@ -25,5 +25,5 @@ void		ft_switch(t_option *option, va_list ap)
 	else if (option->converter == 'x' || option->converter == 'X')
 		ft_4_x(option, ap);
 	else if (option->converter == '%')
-		ft_putchar('9');
+		ft_4_percent(option, fmt);
 }

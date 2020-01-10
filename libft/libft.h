@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:27:42 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 11:43:49 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 09:18:52 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_itoa(int n);
+char	*ft_itoa_base(unsigned int n, char *base);
+char	*ft_itoa_p_base(unsigned long n, char *base);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strcpy(char *dest, const char *src);

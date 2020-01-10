@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlen.c                                      .::    .:/ .      .::   */
+/*   ft_itoa_p_base.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 13:46:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 09:57:41 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/13 11:24:01 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/10 09:18:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+char		*ft_itoa_p_base(unsigned long n, char *base)
 {
-	int i;
+	static char	buf[18];
+	int			i;
+	int			len;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	len = ft_strlen(base);
+	i = 16;
+	while (1)
+	{
+		buf[i--] = base[n % len];
+		n /= len;
+		if (n == 0)
+			break ;
+	}
+	return (ft_strdup(buf + 1 + i));
 }

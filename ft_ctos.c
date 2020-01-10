@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlen.c                                      .::    .:/ .      .::   */
+/*   ft_ctos.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 13:46:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 09:57:41 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/13 12:50:30 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/10 11:21:28 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-size_t		ft_strlen(const char *str)
+char		*ft_ctos(char c)
 {
-	int i;
+	char	*str;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (!(str = ft_strdup("")))
+		return (0);
+	str[0] = c;
+	str[1] = '\0';
+	return (str);
 }

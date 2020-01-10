@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlen.c                                      .::    .:/ .      .::   */
+/*   ft_generate_str.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 13:46:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 09:57:41 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/10 13:26:59 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/10 13:43:54 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-size_t		ft_strlen(const char *str)
+void		ft_generate_str(char *fmt, t_option option, va_list ap)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	
 }

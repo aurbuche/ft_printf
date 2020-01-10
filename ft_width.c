@@ -6,15 +6,26 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 11:41:00 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:46:26 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	get_width(t_option *option, char *fmt, int i)
+void	ft_width(t_option *option, va_list ap)
 {
-	while (ft_isdigit(fmt[i]))
-		option->width = fmt[i];
+	int		tmp;
+	int		i;
+
+	tmp = va_arg(ap, int);
+	i = 0;
+	option->rprint = ft_strdup("999");
+	while (tmp)
+	{
+		option->rprint[i] = ' ';
+		tmp--;
+		i++;
+	}
+	option->rvalue = ft_strlen(option->rprint);
 }
