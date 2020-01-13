@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 16:20:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:09:30 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ t_option		*ft_init_struct(void)
 	if (!(option->flags = malloc(sizeof(char) * 7 + 1)))
 		return (NULL);
 	option->rprint = NULL;
-	option->width = 0;
+	option->width = NULL;
 	option->accu = 0;
 	option->buffer = NULL;
 	option->b = 0;
@@ -67,15 +67,13 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		dprintf(1, "__%d__", 1);
 		if (ft_find_flag(fmt, i, option, ap))
 		{
-			dprintf(1, "__%d__", 3);
 			i++;
+			option->rvalue += 2;
 		}
 		else if (ft_find_converter(fmt[i], option))
 		{
-			dprintf(1, "__%d__", 4);
 			ft_switch(option, ap, fmt);
 			i++;
 		}
@@ -111,7 +109,7 @@ int				ft_printf(const char *format, ...)
 	}
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
 	ft_write_til_percent(fmt, i);
-	i = ft_loop((char*)format, i + 1, option, ap);
+	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
 	free(option);
 	return (i);
