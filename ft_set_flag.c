@@ -5,18 +5,18 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/18 08:28:32 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 10:51:26 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/14 11:19:29 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/14 12:32:57 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_width(t_option *option)
+void		ft_set_flag(t_option *option)
 {
-	if (*option->flags == '-')
-	{
-		ft_write_dash(option);
-	}
+	if (option->flag == '*')
+		ft_set_width(option);
+	else if (option->flag == '-')
+		ft_set_hyphen(option);
 }

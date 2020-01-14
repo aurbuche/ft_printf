@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:09:30 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/14 15:36:36 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,12 @@ t_option		*ft_init_struct(void)
 	i = -1;
 	if (!(option = malloc(sizeof(t_option))))
 		return (NULL);
-	if (!(option->flags = malloc(sizeof(char) * 7 + 1)))
-		return (NULL);
 	option->rprint = NULL;
 	option->width = NULL;
 	option->accu = 0;
 	option->buffer = NULL;
-	option->b = 0;
+	option->flag = 0;
+	option->nflag = 0;
 	option->u = 0;
 	option->rvalue = 0;
 	return (option);
@@ -69,7 +68,8 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 	{
 		if (ft_find_flag(fmt, i, option, ap))
 		{
-			i++;
+			option->flag = fmt[i];
+			i += option->nflag;
 			option->rvalue += 2;
 		}
 		else if (ft_find_converter(fmt[i], option))
@@ -79,6 +79,7 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 		}
 		else
 		{
+			dprintf(1, "[%d]", 6);
 			ft_putchar(fmt[i]);
 			i++;
 		}
