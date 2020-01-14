@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   main2.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 13:01:10 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 16:01:48 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 20:53:21 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,8 @@ int		main(void)
 {
 	// char	*str = ft_strnjoin("      ", "101", 3);
 	// dprintf(1, "__|%s|__\n", str);
-	printf("__|%s|__", ft_itoa('4'));
+	int		i = 5;
+	printf("__|%*p|__", 16, &i);
 }
 
 

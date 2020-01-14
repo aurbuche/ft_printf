@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_width.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:06:49 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 18:31:08 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
