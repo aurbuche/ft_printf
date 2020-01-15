@@ -1,66 +1,54 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_hyphen.c                                      .::    .:/ .      .::   */
+/*   ft_precision.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/14 10:19:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 13:49:37 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/15 16:22:48 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void			ft_set_hyphen(t_option *option)
+void			ft_set_precision(t_option *option)
 {
 	size_t		tmp;
 	size_t		i;
 
 	i = 0;
-	option->rprint = ft_strdup(option->buffer);
-	if (ft_strlen(option->buffer) >= option->hyphen)
-		tmp = 0;
-	else
+	tmp = ft_strlen(option->buffer);
+	if (option->preci > tmp)
 	{
-		tmp = option->hyphen - ft_strlen(option->buffer);
-		option->buffer = malloc(sizeof(char) * tmp);
+		tmp = option->preci - tmp;
+		option->rprint = malloc(sizeof(char) * option->preci);
 		while (i < tmp)
 		{
-			option->buffer[i] = ' ';
+			option->rprint[i] = '0';
 			i++;
 		}
-		option->rprint = ft_strjoin(option->rprint, option->buffer);
+		option->rprint = ft_strnjoin(option->rprint, option->buffer, tmp);
 	}
+	else
+		option->rprint = option->buffer;
 }
 
-int				ft_len_nb(char *str, int i)
+void			ft_precision(t_option *option, char *str, size_t i)
 {
-	int		nb;
+	char		*buff;
+	int			j;
 
-	nb = 0;
-	while (ft_isdigit(str[i]))
-	{
-		nb++;
-		i++;
-	}
-	return (nb);
-}
-
-void			ft_hyphen(t_option *option, char *str, int i)
-{
-	int		j;
-	char	*buff;
-
+	j = 0;
 	buff = malloc(sizeof(char) * ft_len_nb(str, i) + 1);
 	option->nflag = ft_len_nb(str, i) + 1;
-	j = 0;
 	while (48 <= str[i] && str[i] <= 57)
 	{
 		buff[j] = str[i];
 		i++;
 		j++;
 	}
-	option->hyphen = ft_atoi(buff);
+	option->flag = '.';
+	option->preci = ft_atoi(buff);
 }

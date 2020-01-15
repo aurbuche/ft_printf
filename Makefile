@@ -6,14 +6,14 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/14 11:36:07 by aurbuche    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/15 15:10:30 by aurbuche    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
  
 SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
 						ft_4_percent.c ft_switch.c ft_write_til.c ft_find_flag.c\
-						ft_is.c ft_width.c ft_ctos.c ft_hyphen.c ft_set_flag.c
+						ft_is.c ft_width.c ft_ctos.c ft_hyphen.c ft_set_flag.c ft_precision.c
 
 SRCS_LIB			=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 							ft_memccpy.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c\
