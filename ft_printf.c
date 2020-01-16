@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:23:31 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 16:08:55 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ t_option		*ft_init_struct(void)
 	option->buffer = NULL;
 	option->flag = 0;
 	option->nflag = 0;
-	option->u = 0;
+	option->percent = 0;
 	option->rvalue = 0;
 	option->nflag = 0;
 	return (option);
@@ -67,15 +67,22 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		if (ft_find_flag(fmt, i, option, ap))
+		if (fmt[i - 1] == '%' && fmt[i] == '%')
+		{
+			ft_4_percent(option);
+			i++;
+		}
+		else if (fmt[i] == '%' && option->percent == 1)
+			option->percent = 0;
+		else if (ft_find_flag(fmt, i, option, ap) && option->percent == 0)
 		{
 			option->flag = fmt[i];
 			i += option->nflag;
-			option->rvalue += option->nflag;
+			option->rvalue++;
 		}
-		else if (ft_find_converter(fmt[i], option))
+		else if (ft_find_converter(fmt[i], option) && option->percent == 0)
 		{
-			ft_switch(option, ap, fmt);
+			ft_switch(option, ap);
 			i++;
 		}
 		else

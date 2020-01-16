@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:15:33 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 14:38:04 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,11 +33,18 @@ void		ft_4_alpha(t_option *option, va_list ap)
 		option->buffer = ft_ctos(va_arg(ap, int));
 	else
 		option->buffer = va_arg(ap, char *);
-	if (option->flag != 0 && option->flag != '.')
+	if (option->flag != 0 && option->flag != '.' && option->flag != '%')
 		ft_set_flag(option);
 	else
 	{
-		option->rprint = option->buffer;
+		if (option->buffer != NULL)
+		{
+			option->rprint = option->buffer;
+		}
+		else
+		{
+			option->rprint = ft_strdup("");
+		}
 		option->rvalue = 1;
 	}
 	ft_display(option);

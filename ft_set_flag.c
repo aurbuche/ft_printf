@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 11:19:29 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:55:01 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 14:06:13 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,7 @@ void		ft_set_flag(t_option *option)
 		ft_set_width(option);
 	else if (option->flag == '-')
 		ft_set_hyphen(option);
-	else if (option->flag == '.')
+	else if (option->flag == '.' && (option->converter != 'c' ||
+		option->converter != 's' || option->converter != 'p'))
 		ft_set_precision(option);
 }
