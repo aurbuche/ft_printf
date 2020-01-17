@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 14:26:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 14:21:02 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,11 @@ int			ft_find_flag(char *str, size_t i, t_option *option, va_list ap)
 	else if (str[i] == '.')
 	{
 		ft_precision(option, str, i + 1);
+		return (1);
+	}
+	else if (str[i] == 0 && str[i - 1] == '%' && option->percent == 0)
+	{
+		ft_zero(option, str, i + 1);
 		return (1);
 	}
 	return (0);

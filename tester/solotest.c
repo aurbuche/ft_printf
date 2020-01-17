@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:54:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 16:16:02 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 14:15:36 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -314,15 +314,11 @@ int		main(int ac, char **av)
 		printf("\n");
 	}	
 
-	printf("\033[0;35m\nTest pour |(%%pouet)|\033[0m\n\n");
-	i = printf("|%%pouet|\n");
-	j = ft_printf("|%%pouet|\n");
+	printf("\033[0;35m\nTest pour |(%%pouet)|%s\033[0m\n\n", "lel");
+	i = printf("|(%%pouet)|%s\n", "lel");
+	j = ft_printf("|(%%pouet)|%s\n", "lel");
 	if (i == j)
-	{
 		puts("\n\033[0;32m TEST OK");
-		printf("return printf :\t\t[%d]\n", i);
-		printf("return ft_printf :\t[%d]", j);
-	}
 	else
 	{
 		puts("\n\033[0;31mTEST FAILED");
@@ -331,15 +327,65 @@ int		main(int ac, char **av)
 		printf("\n");
 	}
 
-	printf("\033[0;35m\nTest pour |%%s %%s|\033[0m\n\n");
-	i = printf("|%s|\n", "lel");
-	j = ft_printf("|%s|\n", "lel");
+	printf("\033[0;35m\nTest pour |(%%pouet)|\033[0m\n\n");
+	i = printf("|(%%pouet)|\n");
+	j = ft_printf("|(%%pouet)|\n");
 	if (i == j)
-	{
 		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
 		printf("return printf :\t\t[%d]\n", i);
 		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
 	}
+
+	printf("\033[0;35m\nTest pour |%s %s|\033[0m\n\n", "%%s", "%%s");
+	i = printf("|%%s %%s|\n");
+	j = ft_printf("|%%s %%s|\n");
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+
+	// printf("\033[0;35m\nTest pour |%%-.6d|\033[0m\n\n");
+	// i = printf("|%.6d|\n", 56);
+	// j = ft_printf("|%-.6d|\n", 56);
+	// if (i == j)
+	// 	puts("\n\033[0;32m TEST OK");
+	// else
+	// {
+	// 	puts("\n\033[0;31mTEST FAILED");
+	// 	printf("return printf :\t\t[%d]\n", i);
+	// 	printf("return ft_printf :\t[%d]", j);
+	// 	printf("\n");
+	// }
+
+	// printf("\033[0;35m\nTest pour |%%-.3d|\033[0m\n\n");
+	// i = printf("|%-6.3d|\n", 56);
+	// j = ft_printf("|%-6.3d|\n", 56);
+	// if (i == j)
+	// 	puts("\n\033[0;32m TEST OK");
+	// else
+	// {
+	// 	puts("\n\033[0;31mTEST FAILED");
+	// 	printf("return printf :\t\t[%d]\n", i);
+	// 	printf("return ft_printf :\t[%d]", j);
+	// 	printf("\n");
+	// }
+
+/**********************************************************************************************/
+
+	printf("\033[0;35m\nTest pour |%%0d|\033[0m\n\n");
+	i = printf("|%06d|\n", 56);
+	j = ft_printf("|%06d|\n", 56);
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
 	else
 	{
 		puts("\n\033[0;31mTEST FAILED");
@@ -398,6 +444,6 @@ int		main(int ac, char **av)
 	// 	printf("return printf : [%d]\n", printf("%s\n", "46"));
 	// 	printf("return ft_printf : [%d]", ft_printf("%s\n", "46"));
 	// }
-
+	
 	return(0);
 }

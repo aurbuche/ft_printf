@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strdup.c                                      .::    .:/ .      .::   */
+/*   ft_zero.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/09 17:47:51 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 12:54:08 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/17 14:15:59 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/17 14:18:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char		*ft_strdup(const char *s1)
+void		ft_zero(t_option *option, char *str, size_t i)
 {
-	char	*dst;
-	int		i;
-
-	i = 0;
-	if (!(dst = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dst[i] = s1[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	
 }

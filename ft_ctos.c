@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 12:50:30 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 09:13:31 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 12:56:45 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@ char		*ft_ctos(char c)
 {
 	char	*str;
 
-	if (!(str = ft_strdup("")))
+	if (!(str = ft_strdup("  ")))
 		return (0);
 	str[0] = c;
 	str[1] = '\0';
