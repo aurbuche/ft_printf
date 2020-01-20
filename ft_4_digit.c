@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 16:26:58 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 16:54:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ void		ft_4_digit(t_option *option, va_list ap)
 	else
 	{
 		option->buffer = ft_itoa(va_arg(ap, int));
-		if (option->flag != 0)
+		if (option->flag != 0)`
 			ft_set_flag(option);
 		else
 		{
