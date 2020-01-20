@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_find_flag.c                                   .::    .:/ .      .::   */
+/*   ft_free.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 10:43:14 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 16:15:27 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/20 16:18:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int			ft_find_flag(char *str, size_t i, t_option *option, va_list ap)
+void		ft_free(t_option *option, char *fmt, const char *format)
 {
-	if (str[i] == '*')
-	{
-		ft_width(option, ap);
-		return (1);
-	}
-	else if (str[i] == '-')
-	{
-		ft_hyphen(option, str, i + 1);
-		return (1);
-	}
-	else if (str[i] == '.')
-	{
-		ft_precision(option, str, i + 1);
-		return (1);
-	}
-	else if (str[i] == '0' && str[i - 1] == '%' && option->percent == 0)
-	{
-		ft_zero(option, str, i + 1);
-		return (1);
-	}
-	return (0);
+	free(option);
+	free(fmt);
 }

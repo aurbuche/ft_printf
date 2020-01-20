@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 10:19:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 13:55:54 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 16:22:49 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,5 +64,5 @@ void			ft_hyphen(t_option *option, char *str, int i)
 	}
 	buff[j] = '\0';
 	option->hyphen = ft_atoi(buff);
-	option->h = 0;
+	option->h = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 11:19:29 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 13:57:21 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 10:43:21 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,4 +22,6 @@ void		ft_set_flag(t_option *option)
 	if (option->p == 1 && (option->converter != 'c' ||
 		option->converter != 's' || option->converter != 'p'))
 		ft_set_precision(option);
+	if (option->z == 1)
+		ft_set_zero(option);
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 13:55:43 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 16:23:19 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,6 +53,7 @@ void		ft_width(t_option *option, va_list ap)
 		option->width[i] = ' ';
 		i++;
 	}
+	option->width[i] = '\0';
 	option->flag = '*';
 	option->nflag = 1;
 	option->w = 1;

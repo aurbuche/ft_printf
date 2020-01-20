@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 13:55:13 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 16:17:14 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -120,6 +120,6 @@ int				ft_printf(const char *format, ...)
 	ft_write_til_percent(fmt, i);
 	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
-	free(option);
+	ft_free(option, fmt, format);
 	return (i);
 }

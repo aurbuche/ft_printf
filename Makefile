@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/17 14:19:40 by aurbuche    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/20 16:17:51 by aurbuche    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,7 +14,7 @@
 SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
 						ft_4_percent.c ft_switch.c ft_write_til.c ft_find_flag.c\
 						ft_is.c ft_width.c ft_ctos.c ft_hyphen.c ft_set_flag.c ft_precision.c\
-						ft_else.c ft_zero.c
+						ft_else.c ft_zero.c ft_free.c
 
 SRCS_LIB			=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 							ft_memccpy.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c\
@@ -33,11 +33,12 @@ SRCS = $(addprefix $(SRC_PATH), $(SRCS_PRINTF), $(SRCS_LIB))
 OBJ = ${SRCS_PRINTF:.c=.o} ${SRCS_LIB:.c=.o}
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -g3
 RM = rm -rf
-HEADER = ./libftprintf.h
+HEADER = ./libftprintf.h ./libft/libft.h
 
 all :			 ${NAME}
+	@:
 
 $(NAME) : $(OBJ) $(HEADER)
 				@echo "\033[0m"

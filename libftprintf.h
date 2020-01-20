@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 14:19:26 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 16:17:41 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,6 +41,7 @@ typedef struct	s_option
 	size_t			preci;
 	size_t			rvalue;
 	size_t			percent;
+	size_t			zero;
 	int				w;
 	int				h;
 	int				p;
@@ -62,6 +63,7 @@ int				ft_len_nb(char *str, int i);
 int				ft_switch(t_option *option, va_list ap);
 int				ft_verif_char(char c, char *str);
 void			ft_display(t_option *option);
+void			ft_free(t_option *option, char *fmt, const char *format);
 void			ft_hyphen(t_option *option, char *str, int i);
 void			ft_precision(t_option *option, char *str, size_t i);
 void			ft_write_til_end(char *fmt, size_t i);
@@ -76,7 +78,8 @@ void			ft_set_flag(t_option *option);
 void			ft_set_precision(t_option *option);
 void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
-void		ft_zero(t_option *option, char *str, size_t i);
+void			ft_set_zero(t_option *option);
+void			ft_zero(t_option *option, char *str, size_t i);
 char			*ft_ctos(char c);
 char			*ft_create_str(char c);
 size_t			ft_else(t_option *option, char *str, size_t i);
