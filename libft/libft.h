@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:27:42 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 13:55:08 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 09:14:14 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
+
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
@@ -36,6 +38,7 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strfjoin(char *s1, char *s2, int free);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -44,6 +47,7 @@ char	*ft_strndup(const char *str, size_t n);
 char	*ft_strnjoin(char const *s1, char const *s2, size_t len);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_delete(char **ptr);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *b, size_t len);
 void	ft_putchar_fd(char c, int fd);

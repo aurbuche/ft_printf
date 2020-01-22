@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 16:17:14 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 15:42:24 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,9 +16,7 @@
 t_option		*ft_init_struct(void)
 {
 	t_option	*option;
-	int			i;
 
-	i = -1;
 	if (!(option = malloc(sizeof(t_option))))
 		return (NULL);
 	option->rprint = NULL;
@@ -104,7 +102,6 @@ int				ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	i = 0;
-	fmt = NULL;
 	if (!(option = ft_init_struct()))
 		return (0);
 	if (ft_check_error(format, &fmt) == 0)
@@ -112,14 +109,15 @@ int				ft_printf(const char *format, ...)
 	if (!ft_memchr(format, '%', ft_strlen((char*)format)))
 	{
 		ft_putstr((char*)format);
-		va_end(option->ap);
-		free(option);
+		va_end(ap);
+		ft_free_struct(option);
 		return (ft_strlen((char*)format));
 	}
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
 	ft_write_til_percent(fmt, i);
 	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
-	ft_free(option, fmt, format);
+	ft_delete(&fmt);
+	ft_free_struct(option);
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:54:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 16:28:30 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 13:16:04 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -75,8 +75,8 @@ void reset ()
 int		main(void)
 {
 	int 	i;
-	int		j;
-// 	int		k;
+	// int		j;
+	// int		k;
 
 // 	i = 0;
 // 	j = 'a';
@@ -156,88 +156,88 @@ int		main(void)
 
 // /***************************************************************************************************/
 
-// 	red();
-// 	printf("%s", "\n---Test de la width---\n");
-// 	reset();
+	red();
+	printf("%s", "\n---Test de la width---\n");
+	reset();
 
-// 	// int i;
-// 	// int	j;
+	// int i;
+	// int	j;
 	
+	i = 65;
+	printf("\033[0;35m\nTest pour (|%%*x|, 6, i)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*x|\n", 6, i) == printf("REAL printf\t:\t|%*x|\n", 6, i))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 	
-// 	printf("\033[0;35m\nTest pour (|%%*x|, 6, i)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*x|\n", 6, i) == printf("REAL printf\t:\t|%*x|\n", 6, i))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	printf("\033[0;35m\nTest pour (|%%*s|, 6, 101)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*s|\n", 6, "101") == printf("REAL printf\t:\t|%*s|\n", 6, "101"))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 	
-// 	printf("\033[0;35m\nTest pour (|%%*s|, 6, 101)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*s|\n", 6, "101") == printf("REAL printf\t:\t|%*s|\n", 6, "101"))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	printf("\033[0;35m\nTest pour (|%%*c|, 6, 1)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*c|\n", 6, '1') == printf("REAL printf\t:\t|%*c|\n", 6, '1'))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
+
+	printf("\033[0;35m\nTest pour (|%%*d|, 6, 101)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*d|\n", 6, 101) == printf("REAL printf\t:\t|%*d|\n", 6, 101))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
+
+	printf("\033[0;35m\nTest pour (|%%*d|, 6, 1010101)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*d|\n", 6, 1010101) == printf("REAL printf\t:\t|%*d|\n", 6, 1010101))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 	
-// 	printf("\033[0;35m\nTest pour (|%%*c|, 6, 1)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*c|\n", 6, '1') == printf("REAL printf\t:\t|%*c|\n", 6, '1'))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	printf("\033[0;35m\nTest pour (|%%*u|, 6, 101)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*u|\n", 6, 101) == printf("REAL printf\t:\t|%*u|\n", 6, 101))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 
-// 	printf("\033[0;35m\nTest pour (|%%*d|, 6, 101)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*d|\n", 6, 101) == printf("REAL printf\t:\t|%*d|\n", 6, 101))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	i = -64568;
+	printf("\033[0;35m\nTest pour (|%%*p|, 35, &i)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*p|\n", 35, &i) == printf("REAL printf\t:\t|%*p|\n", 35, &i))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 
-// 	printf("\033[0;35m\nTest pour (|%%*d|, 6, 1010101)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*d|\n", 6, 1010101) == printf("REAL printf\t:\t|%*d|\n", 6, 1010101))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
-	
-// 	printf("\033[0;35m\nTest pour (|%%*u|, 6, 101)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*u|\n", 6, 101) == printf("REAL printf\t:\t|%*u|\n", 6, 101))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	printf("\033[0;35m\nTest pour (|%%*x|, 12, 612549)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*x|\n", 12, 612549) == printf("REAL printf\t:\t|%*x|\n", 12, 612549))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 
-// 	i = -64568;
-// 	printf("\033[0;35m\nTest pour (|%%*p|, 35, &i)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*p|\n", 35, &i) == printf("REAL printf\t:\t|%*p|\n", 35, &i))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
+	printf("\033[0;35m\nTest pour (|%%*X|, 12, 612549)\033[0m\n\n");
+	if (ft_printf("MINE printf\t:\t|%*X|\n", 12, 612549) == printf("REAL printf\t:\t|%*X|\n", 12, 612549))
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+	}
 
-// 	printf("\033[0;35m\nTest pour (|%%*x|, 12, 612549)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*x|\n", 12, 612549) == printf("REAL printf\t:\t|%*x|\n", 12, 612549))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
-
-// 	printf("\033[0;35m\nTest pour (|%%*X|, 12, 612549)\033[0m\n\n");
-// 	if (ft_printf("MINE printf\t:\t|%*X|\n", 12, 612549) == printf("REAL printf\t:\t|%*X|\n", 12, 612549))
-// 		puts("\n\033[0;32m TEST OK");
-// 	else
-// 	{
-// 		puts("\n\033[0;31mTEST FAILED");
-// 	}
-
-// /***************************************************************************************************/
+/***************************************************************************************************/
 
 // 	red();
 // 	printf("%s", "\n---Test de la largeur---\n");
@@ -245,7 +245,7 @@ int		main(void)
 
 // 	printf("\033[0;35m\n\nTest pour (|%%-12s|, 6595)\033[0m\n\n");
 // 	i = printf("REAL printf\t:\t|%-12s|\n", "6565");
-// 	j = ft_printf("printf\t:\t|%-12s|\n", "6565");
+// 	j = ft_printf("MINE printf\t:\t|%-12s|\n", "6565");
 // 	if (i == j)
 // 		puts("\n\033[0;32m TEST OK");
 // 	else
@@ -258,7 +258,7 @@ int		main(void)
 
 // 	printf("\033[0;35m\n\nTest pour (|%%-2s|, 6595)\033[0m\n\n");
 // 	i = printf("REAL printf\t:\t|%-2s|\n", "6565");
-// 	j = ft_printf("printf\t:\t|%-2s|\n", "6565");
+// 	j = ft_printf("MINE printf\t:\t|%-2s|\n", "6565");
 // 	if (i == j)
 // 		puts("\n\033[0;32m TEST OK");
 // 	else
@@ -271,7 +271,7 @@ int		main(void)
 
 // 	printf("\033[0;35m\n\nTest pour (|%%-s|, 6595)\033[0m\n\n");
 // 	i = printf("REAL printf\t:\t|%-s|\n", "6565");
-// 	j = ft_printf("printf\t:\t|%-s|\n", "6565");
+// 	j = ft_printf("MINE printf\t:\t|%-s|\n", "6565");
 // 	if (i == j)
 // 		puts("\n\033[0;32m TEST OK");
 // 	else
@@ -312,7 +312,8 @@ int		main(void)
 // 		printf("return printf :\t\t[%d]\n", i);
 // 		printf("return ft_printf :\t[%d]", j);
 // 		printf("\n");
-// 	}	
+// 	}
+
 // /*******************************************************************************************/
 
 // 	red();
@@ -358,37 +359,37 @@ int		main(void)
 // 		printf("\n");
 // 	}
 
-/**********************************************************************************************/
+// /**********************************************************************************************/
 
-	red();
-	printf("%s", "\n---Test flag zero---\n");
-	reset();
+// 	red();
+// 	printf("%s", "\n---Test flag zero---\n");
+// 	reset();
 
-	printf("\033[0;35m\nTest pour |%%06d|\033[0m\n\n");
-	i = printf("REAL |%06d|\n", 56);
-	j = ft_printf("MINE |%06d|\n", 56);
-	if (i == j)
-		puts("\n\033[0;32m TEST OK");
-	else
-	{
-		puts("\n\033[0;31mTEST FAILED");
-		printf("return printf :\t\t[%d]\n", i);
-		printf("return ft_printf :\t[%d]", j);
-		printf("\n");
-	}
+// 	printf("\033[0;35m\nTest pour |%%06d|\033[0m\n\n");
+// 	i = printf("REAL |%06d|\n", 56);
+// 	j = ft_printf("MINE |%06d|\n", 56);
+// 	if (i == j)
+// 		puts("\n\033[0;32m TEST OK");
+// 	else
+// 	{
+// 		puts("\n\033[0;31mTEST FAILED");
+// 		printf("return printf :\t\t[%d]\n", i);
+// 		printf("return ft_printf :\t[%d]", j);
+// 		printf("\n");
+// 	}
 
-	printf("\033[0;35m\nTest pour |%%03d|\033[0m\n\n");
-	i = printf("REAL |%03d|\n", 5669);
-	j = ft_printf("MINE |%03d|\n", 5669);
-	if (i == j)
-		puts("\n\033[0;32m TEST OK");
-	else
-	{
-		puts("\n\033[0;31mTEST FAILED");
-		printf("return printf :\t\t[%d]\n", i);
-		printf("return ft_printf :\t[%d]", j);
-		printf("\n");
-	}
+// 	printf("\033[0;35m\nTest pour |%%03d|\033[0m\n\n");
+// 	i = printf("REAL |%03d|\n", 5669);
+// 	j = ft_printf("MINE |%03d|\n", 5669);
+// 	if (i == j)
+// 		puts("\n\033[0;32m TEST OK");
+// 	else
+// 	{
+// 		puts("\n\033[0;31mTEST FAILED");
+// 		printf("return printf :\t\t[%d]\n", i);
+// 		printf("return ft_printf :\t[%d]", j);
+// 		printf("\n");
+// 	}
 
 // /**********************************************************************************************/
 

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 17:47:51 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 16:07:45 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 10:33:40 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,17 +15,12 @@
 
 char		*ft_strdup(const char *s1)
 {
-	char	*dst;
-	int		i;
+	char		*dst;
+	size_t		i;
 
 	i = 0;
-	if (!(dst = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
+	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dst[i] = s1[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+
+	return (ft_strcpy(dst, s1));
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   ft_strfjoin.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 14:19:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/22 09:08:26 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/22 15:36:28 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+char			*ft_strfjoin(char *s1, char *s2, int free)
 {
-	char	*base;
+	char	*str;
 
-	base = "0123456789abcdef";
-	option->buffer = ft_itoa_p_base(va_arg(ap, long long), base);
-	option->buffer = ft_strjoin("0x", option->buffer);
-	if (option->width != NULL)
-		ft_set_width(option);
-	else
+	if (!(str = ft_strjoin(s1, s2)))
+		return (0);
+	if (free == 1)
+		ft_delete(&s1);
+	else if (free == 2)
+		ft_delete(&s2);
+	else if (free == 3)
 	{
-		option->rprint = option->buffer;
-		option->rvalue = 1;
+		ft_delete(&s1);
+		ft_delete(&s2);
 	}
-	ft_display(option);
+	return (str);
 }

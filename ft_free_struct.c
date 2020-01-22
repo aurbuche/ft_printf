@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   ft_free_struct.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 14:19:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/22 14:15:20 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/22 15:37:04 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+void		ft_free_struct(t_option *option)
 {
-	char	*base;
-
-	base = "0123456789abcdef";
-	option->buffer = ft_itoa_p_base(va_arg(ap, long long), base);
-	option->buffer = ft_strjoin("0x", option->buffer);
-	if (option->width != NULL)
-		ft_set_width(option);
-	else
-	{
-		option->rprint = option->buffer;
-		option->rvalue = 1;
-	}
-	ft_display(option);
+	free(option->buffer);
+	free(option->rprint);
+	free(option->width);
+	free(option);
 }

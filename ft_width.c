@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 16:23:19 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 14:20:04 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,7 +47,7 @@ void		ft_width(t_option *option, va_list ap)
 
 	tmp = va_arg(ap, int);
 	i = 0;
-	option->width = malloc(sizeof(char) * tmp);
+	option->width = malloc(sizeof(char) * (tmp + 1));
 	while (i < tmp)
 	{
 		option->width[i] = ' ';

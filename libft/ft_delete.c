@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   ft_delete.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 14:19:52 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 16:15:27 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/22 09:15:30 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+void		ft_delete(char **ptr)
 {
-	char	*base;
-
-	base = "0123456789abcdef";
-	option->buffer = ft_itoa_p_base(va_arg(ap, long long), base);
-	option->buffer = ft_strjoin("0x", option->buffer);
-	if (option->width != NULL)
-		ft_set_width(option);
-	else
-	{
-		option->rprint = option->buffer;
-		option->rvalue = 1;
-	}
-	ft_display(option);
+	if (!ptr)
+		return ;
+	free(*ptr);
+	*ptr = NULL;
 }
