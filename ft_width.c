@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 14:20:04 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 13:13:35 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ void		ft_set_width(t_option *option)
 
 	tmp = ft_strlen(option->buffer);
 	if ((ft_strlen(option->width)) < tmp)
-		option->rprint = option->buffer;
+		option->rprint = ft_strdup(option->buffer);
 	else
 		option->rprint = ft_strnjoin(option->width, option->buffer,
 			(ft_strlen(option->width) - tmp));
