@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 11:05:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 10:23:05 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/27 13:15:06 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,8 +16,12 @@
 char			*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
+	size_t	ls1;
+	size_t	ls2;
 
-	if (!(s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	ls1 = ft_strlen(s1);
+	ls2 = ft_strlen(s2);
+	if (!(s3 = malloc(sizeof(char) * (ls1 + ls2 + 1))))
 		return (NULL);
 	s3 = ft_strcpy(s3, s1);
 	s3 = ft_strcat(s3, s2);

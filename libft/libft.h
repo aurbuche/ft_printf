@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:27:42 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 09:14:14 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/27 15:35:56 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,9 +42,10 @@ char	*ft_strfjoin(char *s1, char *s2, int free);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strncpy(char *dest, const char *src, unsigned int n);
 char	*ft_strnstr(const char *haystack, const char *neddle, size_t len);
 char	*ft_strndup(const char *str, size_t n);
-char	*ft_strnjoin(char const *s1, char const *s2, size_t len);
+char	*ft_strnjoin(char *s1, char const *s2, size_t len);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_delete(char **ptr);

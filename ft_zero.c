@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 14:15:59 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/23 13:31:00 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/27 16:24:33 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,14 +23,14 @@ void		ft_set_zero(t_option *option)
 	if (option->zero > tmp)
 	{
 		tmp = option->zero - tmp;
-		option->buffer = malloc(sizeof(char) * option->zero);
+		option->rprint = malloc(sizeof(char) * (option->zero + 1));
 		while (i < tmp)
 		{
-			option->buffer[i] = '0';
+			option->rprint[i] = '0';
 			i++;
 		}
-		option->buffer[i] = '\0';
-		option->rprint = ft_strnjoin(option->rprint, option->buffer, tmp);
+		option->rprint[i] = '\0';
+		option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}
 	else
 		option->rprint = ft_strdup(option->buffer);
@@ -51,6 +51,7 @@ void		ft_zero(t_option *option, char *str, size_t i)
 		j++;
 	}
 	buff[j] = '\0';
+	option->flag = '0';
 	option->zero = ft_atoi(buff);
 	option->z = 1;
 	free((char*)buff);

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 07:53:56 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/27 16:07:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void			ft_set_precision(t_option *option)
 			i++;
 		}
 		option->rprint[i] = '\0';
-		option->rprint = ft_strnjoin(option->rprint, option->buffer, tmp);
+		option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}
 	else
 		option->rprint = ft_strdup(option->buffer);

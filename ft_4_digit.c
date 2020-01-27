@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/23 13:57:25 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/27 16:16:48 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,6 +37,5 @@ void		ft_4_digit(t_option *option, va_list ap)
 			option->rvalue += 1;
 		}
 	}
-	free(option->buffer);
 	ft_display(option);
 }
