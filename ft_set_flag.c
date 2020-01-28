@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 11:19:29 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 16:17:34 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/28 13:51:14 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,9 @@
 
 void		ft_set_flag(t_option *option)
 {
-	if (option->h == 1)
+	if (option->lentot != 0)
+		ft_set_field(option);
+	if (option->h == 1 && option->p == 0)
 		ft_set_hyphen(option);
 	if (option->w == 1)
 		ft_set_width(option);

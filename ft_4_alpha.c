@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 15:54:49 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/28 15:00:35 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,15 +16,9 @@
 void		ft_display(t_option *option)
 {
 	if (option->rprint == '\0')
-	{
-		ft_putstr("(null)");
-		option->rvalue = 6;
-	}
-	else
-	{
-		ft_putstr(option->rprint);
-		option->rvalue += ft_strlen(option->rprint) - 1;
-	}
+		option->rprint = NULL;
+	ft_putstr(option->rprint);
+	option->rvalue += ft_strlen(option->rprint);
 	option->flag = 0;
 	free(option->buffer);
 	free(option->rprint);
@@ -41,14 +35,9 @@ void		ft_4_alpha(t_option *option, va_list ap)
 	else
 	{
 		if (option->buffer != NULL)
-		{
 			option->rprint = ft_strdup(option->buffer);
-		}
 		else
-		{
 			option->rprint = ft_strdup("(null)");
-		}
-		option->rvalue += 1;
 	}
 	ft_display(option);
 }

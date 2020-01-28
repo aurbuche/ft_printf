@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 16:43:20 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/28 14:03:46 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ t_option		*ft_init_struct(void)
 	option->width = NULL;
 	option->preci = 0;
 	option->buffer = NULL;
+	option->lentot = 0;
 	option->flag = 0;
 	option->nflag = 0;
 	option->percent = 0;
@@ -77,16 +78,11 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 		else if (fmt[i] == '%' && option->percent == 1)
 			option->percent = 0;
 		else if (ft_find_flag(fmt, i, option, ap) && option->percent == 0)
-		{
-			option->flag = fmt[i];
-			i += option->nflag;
-			option->rvalue++;
-		}
+			i = ft_loop2(option, fmt, i);
 		else if (ft_find_converter(fmt[i], option) && option->percent == 0)
-		{
-			ft_switch(option, ap);
-			i++;
-		}
+			i = ft_loop3(option, i, ap);
+		else if (ft_isdigit(fmt[i]))
+			i = ft_size_field(option, fmt, i);
 		else
 			i = ft_else(option, fmt, i);
 	}
@@ -110,14 +106,13 @@ int				ft_printf(const char *format, ...)
 	{
 		ft_putstr((char*)format);
 		va_end(ap);
-		ft_free_struct(option);
+		ft_free_struct(option, &fmt);
 		return (ft_strlen((char*)format));
 	}
 	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
 	ft_write_til_percent(fmt, i);
 	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
-	ft_delete(&fmt);
-	ft_free_struct(option);
+	ft_free_struct(option, &fmt);
 	return (i);
 }

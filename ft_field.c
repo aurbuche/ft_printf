@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_precision.c                                   .::    .:/ .      .::   */
+/*   ft_field.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/28 13:31:28 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/28 11:35:31 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/28 15:20:54 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void			ft_set_precision(t_option *option)
+void		ft_set_field(t_option *option)
 {
 	size_t		tmp;
 	size_t		i;
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
-	if (option->preci > tmp)
+	if (option->lentot > tmp)
 	{
-		tmp = option->preci - tmp;
-		option->rprint = malloc(sizeof(char) * (option->preci + 1));
+		tmp = option->lentot - tmp;
+		option->rprint = malloc(sizeof(char) * (option->lentot + 1));
 		while (i < tmp)
 		{
-			option->rprint[i] = '0';
+			option->rprint[i] = ' ';
 			i++;
 		}
 		option->rprint[i] = '\0';
@@ -36,23 +36,23 @@ void			ft_set_precision(t_option *option)
 		option->rprint = ft_strdup(option->buffer);
 }
 
-void			ft_precision(t_option *option, char *str, size_t i)
+size_t		ft_size_field(t_option *option, char *str, size_t i)
 {
+	size_t		j;
 	char		*buff;
-	int			j;
 
 	j = 0;
-	buff = malloc(sizeof(char) * ft_len_nb(str, i) + 1);
-	option->nflag = ft_len_nb(str, i) + 1;
-	while (48 <= str[i] && str[i] <= 57)
+	if (!(buff = malloc(sizeof(char) * (ft_len_nb(str, i) + 1))))
+		return (0);
+	while (ft_isdigit(str[i]))
 	{
 		buff[j] = str[i];
 		i++;
 		j++;
 	}
 	buff[j] = '\0';
-	option->flag = '.';
-	option->preci = ft_atoi(buff);
-	option->p = 1;
+	option->lentot = ft_atoi(buff);
+	option->flag = 1;
 	free(buff);
+	return (i);
 }
