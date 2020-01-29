@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/28 12:47:06 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/29 13:38:23 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,7 +44,7 @@ typedef struct	s_option
 	size_t			lentot;
 	int				w;
 	int				h;
-	int				p;
+	size_t			p;
 	int				z;
 }				t_option;
 

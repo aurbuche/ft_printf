@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/28 15:00:35 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/29 13:48:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,7 +37,7 @@ void		ft_4_alpha(t_option *option, va_list ap)
 		if (option->buffer != NULL)
 			option->rprint = ft_strdup(option->buffer);
 		else
-			option->rprint = ft_strdup("(null)");
+			option->rprint = ft_strdup("");
 	}
 	ft_display(option);
 }

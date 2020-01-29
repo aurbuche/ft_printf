@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 16:06:18 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/29 14:34:28 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,8 +24,12 @@ void		ft_set_width(t_option *option)
 	{
 		tmp = ft_strlen(option->width) - tmp;
 		option->rprint = ft_strndup(option->width, tmp);
-		option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
+		if (option->w == -1)
+			option->rprint = ft_strfjoin(option->buffer, option->rprint, 2);
+		else
+			option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}
+	free(option->width);
 }
 
 int			ft_len(int i)
@@ -47,17 +51,26 @@ void		ft_width(t_option *option, va_list ap)
 {
 	int		tmp;
 	int		i;
+	char	c;
 
 	tmp = va_arg(ap, int);
+	option->w = 1;
+	if (tmp < 0)
+	{
+		option->w = -1;
+		tmp = -tmp;
+	}
 	i = 0;
+	c = ' ';
+	if (option->z != 0 || option->p == 1)
+		c = '0';
 	option->width = malloc(sizeof(char) * (tmp + 1));
 	while (i < tmp)
 	{
-		option->width[i] = ' ';
+		option->width[i] = c;
 		i++;
 	}
 	option->width[i] = '\0';
 	option->flag = '*';
 	option->nflag = 1;
-	option->w = 1;
 }
