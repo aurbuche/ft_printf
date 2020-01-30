@@ -6,21 +6,19 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 10:19:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/29 15:37:48 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 10:42:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void			ft_set_hyphen(t_option *option)
+void			ft_set_hyphen2(t_option *option)
 {
-	char		c;
 	size_t		tmp;
 	size_t		i;
 
 	i = 0;
-	c = ' ';
 	if (ft_strlen(option->buffer) >= option->hyphen)
 	{
 		option->rprint = ft_strdup(option->buffer);
@@ -31,7 +29,30 @@ void			ft_set_hyphen(t_option *option)
 		option->rprint = malloc(sizeof(char) * (tmp + 1));
 		while (i < tmp)
 		{
-			option->rprint[i] = c;
+			option->rprint[i] = ' ';
+			i++;
+		}
+		option->rprint[i] = '\0';
+	}
+}
+
+void			ft_set_hyphen(t_option *option)
+{
+	size_t		tmp;
+	size_t		i;
+
+	i = 0;
+	if (ft_strlen(option->buffer) >= option->hyphen)
+	{
+		option->rprint = ft_strdup(option->buffer);
+	}
+	else
+	{
+		tmp = option->hyphen - ft_strlen(option->buffer);
+		option->rprint = malloc(sizeof(char) * (tmp + 1));
+		while (i < tmp)
+		{
+			option->rprint[i] = ' ';
 			i++;
 		}
 		option->rprint[i] = '\0';
