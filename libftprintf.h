@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 12:33:43 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 14:30:50 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,6 +67,7 @@ void			ft_display(t_option *option);
 void			ft_free_struct(t_option *option, char **str);
 void			ft_hyphen(t_option *option, char *str, int i);
 void			ft_precision(t_option *option, char *str, size_t i);
+void			ft_set_hyphen_preci(t_option *option);
 void			ft_write_til_end(char *fmt, size_t i);
 void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_4_alpha(t_option *option, va_list ap);
@@ -82,7 +83,7 @@ void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);
 void			ft_set_zero(t_option *option);
 void			ft_zero(t_option *option, char *str, size_t i);
-char			*ft_ctos(char c);
+char			*ft_ctos(char c, t_option *option);
 char			*ft_create_str(char c);
 size_t			ft_else(t_option *option, char *str, size_t i);
 size_t			ft_size_field(t_option *option, char *str, size_t i);

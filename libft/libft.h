@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 16:27:42 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 15:35:56 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 13:12:01 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);

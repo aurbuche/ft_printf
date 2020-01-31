@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_ctos.c                                        .::    .:/ .      .::   */
+/*   ft_hyphen_preci.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/13 12:50:30 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 14:30:29 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/31 13:18:45 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/31 14:22:19 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char		*ft_ctos(char c, t_option *option)
+void		ft_set_hyphen_preci(t_option *option)
 {
-	char	*str;
+	char		*buff;
+	size_t		tmp;
+	size_t		i;
 
-	if (!c)
+	buff = NULL;
+	ft_set_precision(option);
+	buff = ft_strdup(option->rprint);
+	if (option->hyphen > ft_strlen(option->rprint))
 	{
-		option->rvalue++;
-		return (ft_strdup(""));
+		i = 0;
+		tmp = option->hyphen - option->preci;
+		option->rprint = malloc(sizeof(char) * (tmp + 1));
+		while (i < tmp)
+		{
+			option->rprint[i] = ' ';
+			i++;
+		}
+		option->rprint[i] = '\0';
+		option->rprint = ft_strfjoin(buff, option->rprint, 2);
 	}
-	if (!(str = ft_strdup("  ")))
-		return (0);
-	str[0] = c;
-	str[1] = '\0';
-	return (str);
+	free(buff);
 }

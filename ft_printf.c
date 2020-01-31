@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/28 14:03:46 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 15:54:48 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -75,14 +75,15 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 			ft_4_percent(option);
 			i++;
 		}
+
 		else if (fmt[i] == '%' && option->percent == 1)
 			option->percent = 0;
-		else if (ft_find_flag(fmt, i, option, ap) && option->percent == 0)
+		else if (option->percent != 1 && ft_find_flag(fmt, i, option, ap))
 			i = ft_loop2(option, fmt, i);
-		else if (ft_find_converter(fmt[i], option) && option->percent == 0)
-			i = ft_loop3(option, i, ap);
 		else if (ft_isdigit(fmt[i]))
 			i = ft_size_field(option, fmt, i);
+		else if (option->percent != 1 && ft_find_converter(fmt[i], option))
+			i = ft_loop3(option, i, ap);
 		else
 			i = ft_else(option, fmt, i);
 	}

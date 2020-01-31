@@ -45,20 +45,20 @@ void		ft_4_digit(t_option *option, va_list ap)
 	else
 	{
 		i = va_arg(ap, int);
-		if (i < 0)
+		if (i < 0 && option->p != 0)
 		{
 			i = -i;
 			c = "-";
 		}
 		option->buffer = ft_itoa(i);
-		if (i == 0 && option->p == 1)
+		if (i == 0 && option->p == 1 && option->preci == 0)
 			ft_4_digit2(option);
 		else if (option->flag != 0)
 			ft_set_flag(option);
 		else
 			option->rprint = ft_strdup(option->buffer);
 	}
-	if (c)
+	if (c && option->p != 0)
 		option->rprint = ft_strfjoin(c, option->rprint, 2);
 	ft_display(option);
 }

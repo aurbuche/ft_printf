@@ -20,8 +20,8 @@ void		ft_4_p(t_option *option, va_list ap)
 	base = "0123456789abcdef";
 	option->buffer = ft_itoa_p_base(va_arg(ap, long long), base);
 	option->buffer = ft_strfjoin("0x", option->buffer, 2);
-	if (option->width != NULL)
-		ft_set_width(option);
+	if (option->flag != 0)
+		ft_set_flag(option);
 	else
 		option->rprint = ft_strdup(option->buffer);
 	ft_display(option);
