@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 15:54:48 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/02 20:54:02 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,20 +72,39 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 	{
 		if (fmt[i - 1] == '%' && fmt[i] == '%')
 		{
-			ft_4_percent(option);
+			i = ft_else(option, fmt, i);
+			option->percent = 1;
+		}
+		else if (fmt[i] == '%' && option->percent == 0 && (ft_is_flag(fmt[i + 1]) || ft_is_converter(fmt[i + 1])))
+		{
+			// dprintf(1, "[%d]", 7);
+			// option->percent = 2;
 			i++;
 		}
-
+		// else if (ft_is_converter(fmt[i]) && option->percent != 2)
+		// {
+		// 	i = ft_else(option, fmt, i);
+		// }
 		else if (fmt[i] == '%' && option->percent == 1)
+		{
+			// dprintf(1, "[%d]", 2);
+			i++;
 			option->percent = 0;
-		else if (option->percent != 1 && ft_find_flag(fmt, i, option, ap))
+		}
+		else if (option->percent == 0 && ft_find_flag(fmt, i, option, ap))
 			i = ft_loop2(option, fmt, i);
-		else if (ft_isdigit(fmt[i]))
+		else if (ft_isdigit(fmt[i]) && option->percent == 0)
 			i = ft_size_field(option, fmt, i);
-		else if (option->percent != 1 && ft_find_converter(fmt[i], option))
+		else if (option->percent == 0 && ft_find_converter(fmt[i], option))
+		{
+			// dprintf(1, "[%d]", 5);
 			i = ft_loop3(option, i, ap);
+		}
 		else
+		{
+			// dprintf(1, "[%d]", 8);
 			i = ft_else(option, fmt, i);
+		}
 	}
 	return (option->rvalue);
 }

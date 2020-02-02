@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_switch.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 15:59:38 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 13:45:36 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/01 17:40:19 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,6 +37,9 @@ int		ft_switch(t_option *option, va_list ap)
 		return (1);
 	}
 	else if (option->converter == '%')
-		return (0);
+	{
+		ft_4_percent(option);
+		return (1);
+	}
 	return (0);
 }

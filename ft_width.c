@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_width.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 13:46:00 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 20:43:51 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,10 +24,8 @@ void		ft_set_width(t_option *option)
 	{
 		tmp = ft_strlen(option->width) - tmp;
 		option->rprint = ft_strndup(option->width, tmp);
-		if (option->w == -1)
-		{
+		if ((option->w == -1) || (option->w == 1 && option->h == 1))
 			option->rprint = ft_strfjoin(option->buffer, option->rprint, 2);
-		}
 		else
 			option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}

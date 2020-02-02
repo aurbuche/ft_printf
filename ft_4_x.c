@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_4_x.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/27 15:53:49 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 21:55:46 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,6 @@ void		ft_4_x(t_option *option, va_list ap)
 	if (option->flag != 0)
 		ft_set_flag(option);
 	else
-	{
 		option->rprint = ft_strdup(option->buffer);
-		option->rvalue = 1;
-	}
 	ft_display(option);
 }

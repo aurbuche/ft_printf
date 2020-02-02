@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_hyphen.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 10:19:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 13:31:35 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 20:20:37 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
