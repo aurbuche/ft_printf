@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_4_p.c                                         .::    .:/ .      .::   */
+/*   ft_cchr.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 13:42:22 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/03 16:05:42 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/03 10:52:27 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/03 10:54:41 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+size_t	ft_cchr(char *str, size_t i, char c)
 {
-	char			*base;
-	unsigned long	tmp;
-
-	tmp = va_arg(ap, long long);
-	base = "0123456789abcdef";
-	option->buffer = ft_itoa_p_base(tmp, base);
-	if (option->p && tmp == 0)
-		option->buffer = ft_strdup("0x");
-	else
-		option->buffer = ft_strfjoin("0x", option->buffer, 2);
-	if (option->flag != 0)
-		ft_set_flag(option);
-	else
-		option->rprint = ft_strdup(option->buffer);
-	ft_display(option);
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (i);
+		i++;
+	}
+	return (0);
 }

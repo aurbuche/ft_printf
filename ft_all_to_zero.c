@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_all_to_zero.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 10:19:04 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/02 20:34:03 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 11:17:13 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */

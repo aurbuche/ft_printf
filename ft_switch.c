@@ -3,15 +3,30 @@
 /*                                                              /             */
 /*   ft_switch.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 15:59:38 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/01 17:40:19 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 13:13:40 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int		ft_switch_continue(t_option *option, va_list ap)
+{
+	if (option->converter == '%')
+	{
+		ft_4_percent(option);
+		return (1);
+	}
+	else if (option->converter == 'u')
+	{
+		ft_4_u(option, ap);
+		return (1);
+	}
+	return (0);
+}
 
 int		ft_switch(t_option *option, va_list ap)
 {
@@ -20,10 +35,9 @@ int		ft_switch(t_option *option, va_list ap)
 		ft_4_alpha(option, ap);
 		return (1);
 	}
-	else if (option->converter == 'd' || option->converter == 'i'
-			|| option->converter == 'u')
+	else if (option->converter == 'd' || option->converter == 'i')
 	{
-		ft_4_digit(option, ap);
+		ft_4_di(option, ap);
 		return (1);
 	}
 	else if (option->converter == 'p')
@@ -36,10 +50,7 @@ int		ft_switch(t_option *option, va_list ap)
 		ft_4_x(option, ap);
 		return (1);
 	}
-	else if (option->converter == '%')
-	{
-		ft_4_percent(option);
-		return (1);
-	}
+	else
+		return (ft_switch_continue(option, ap));
 	return (0);
 }

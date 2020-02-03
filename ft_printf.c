@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/02 20:54:02 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 13:21:32 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,6 +33,7 @@ t_option		*ft_init_struct(void)
 	option->p = 0;
 	option->h = 0;
 	option->z = 0;
+	option->neg = 0;
 	return (option);
 }
 
@@ -75,19 +76,11 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 			i = ft_else(option, fmt, i);
 			option->percent = 1;
 		}
-		else if (fmt[i] == '%' && option->percent == 0 && (ft_is_flag(fmt[i + 1]) || ft_is_converter(fmt[i + 1])))
-		{
-			// dprintf(1, "[%d]", 7);
-			// option->percent = 2;
+		else if (fmt[i] == '%' && option->percent == 0
+			&& (ft_is_flag(fmt[i + 1]) || ft_is_converter(fmt[i + 1])))
 			i++;
-		}
-		// else if (ft_is_converter(fmt[i]) && option->percent != 2)
-		// {
-		// 	i = ft_else(option, fmt, i);
-		// }
 		else if (fmt[i] == '%' && option->percent == 1)
 		{
-			// dprintf(1, "[%d]", 2);
 			i++;
 			option->percent = 0;
 		}
@@ -96,15 +89,9 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 		else if (ft_isdigit(fmt[i]) && option->percent == 0)
 			i = ft_size_field(option, fmt, i);
 		else if (option->percent == 0 && ft_find_converter(fmt[i], option))
-		{
-			// dprintf(1, "[%d]", 5);
 			i = ft_loop3(option, i, ap);
-		}
 		else
-		{
-			// dprintf(1, "[%d]", 8);
-			i = ft_else(option, fmt, i);
-		}
+			i = ft_loop4(option, fmt, i);
 	}
 	return (option->rvalue);
 }
@@ -129,7 +116,7 @@ int				ft_printf(const char *format, ...)
 		ft_free_struct(option, &fmt);
 		return (ft_strlen((char*)format));
 	}
-	i = (char*)ft_memchr((char*)format, '%', ft_strlen((char*)format)) - format;
+	i = ((char*)ft_memchr((char*)format, '%', ft_strlen(format)) - format);
 	ft_write_til_percent(fmt, i);
 	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);

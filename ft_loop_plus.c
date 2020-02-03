@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_loop_plus.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 11:05:43 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/01 17:53:34 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 11:16:45 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,5 +25,18 @@ size_t		ft_loop3(t_option *option, size_t i, va_list ap)
 	ft_switch(option, ap);
 	i++;
 	ft_all_to_zero(option);
+	return (i);
+}
+
+size_t		ft_loop4(t_option *option, char *fmt, size_t i)
+{
+	while (fmt[i])
+	{
+		if (fmt[i] == '%')
+			break ;
+		ft_putchar(fmt[i]);
+		i++;
+		option->rvalue++;
+	}
 	return (i);
 }

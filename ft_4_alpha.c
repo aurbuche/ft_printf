@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_4_alpha.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/01 18:39:19 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 16:30:15 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,18 @@ void		ft_4_alpha(t_option *option, va_list ap)
 		option->buffer = ft_ctos(va_arg(ap, int), option);
 	else
 		option->buffer = ft_strdup(va_arg(ap, char *));
-	if (option->flag != 0 && option->flag != '%')
+	if (option->p == 1 && option->h == 0 && option->z == 0
+		&& option->w == 0 && option->lentot == 0)
+	{
+		if (option->preci < ft_strlen(option->buffer))
+			option->rprint = ft_strndup(option->buffer, option->preci);
+		else
+		{
+			dprintf(1, "[%d]", 4);
+			option->rprint = ft_strdup(option->buffer);
+		}
+	}
+	else if (option->flag != 0 && option->flag != '%')
 		ft_set_flag(option);
 	else
 	{

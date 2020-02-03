@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 14:30:50 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 13:21:30 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,6 +46,7 @@ typedef struct	s_option
 	int				h;
 	size_t			p;
 	int				z;
+	int				neg;
 }				t_option;
 
 /*
@@ -70,11 +71,13 @@ void			ft_precision(t_option *option, char *str, size_t i);
 void			ft_set_hyphen_preci(t_option *option);
 void			ft_write_til_end(char *fmt, size_t i);
 void			ft_write_til_percent(char *fmt, size_t i);
+void			ft_write_til_percent2(char *fmt, size_t i, size_t j);
 void			ft_4_alpha(t_option *option, va_list ap);
-void			ft_4_digit(t_option *option, va_list ap);
+void			ft_4_di(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
 void			ft_4_percent(t_option *option);
+void			ft_4_u(t_option *option, va_list ap);
 void			ft_width(t_option *option, va_list ap);
 void			ft_set_flag(t_option *option);
 void			ft_set_precision(t_option *option);
@@ -89,5 +92,6 @@ size_t			ft_else(t_option *option, char *str, size_t i);
 size_t			ft_size_field(t_option *option, char *str, size_t i);
 size_t			ft_loop2(t_option *option, char *str, size_t i);
 size_t			ft_loop3(t_option *option, size_t i, va_list ap);
+size_t			ft_loop4(t_option *option, char *fmt, size_t i);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   solotest.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:54:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/01 17:54:36 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/03 16:43:54 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -452,9 +452,34 @@ int		main(int ac, char **av)
 	}
 
 	printf("\033[0;35m\nTest pour (65 | %%s | le | %%d |, bonjour, 4)\033[0m\n\n");
-	i = printf("65 | %s | le | %d |\n", "bonjour", 4);
-	j = ft_printf("65 | %s | le | %d |\n", "bonjour", 4);
+	i = printf("65 | %s | les | %d |\n", "bonjour", 4);
+	j = ft_printf("65 | %s | les | %d |\n", "bonjour", 4);
 	if ( i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+
+	printf("\033[0;35m\nTest pour (%%2.1i, -9)\033[0m\n\n");
+	i = printf("|%2.1i|\n", -9);
+	j = ft_printf("|%2.1i|\n", -9);
+	if ( i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+
+	i = printf("%-%%%\n");
+	j = ft_printf("%-%%%\n");
+	if (i == j)
 		puts("\n\033[0;32m TEST OK");
 	else
 	{
