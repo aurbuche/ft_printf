@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/03 13:21:32 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 16:02:30 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,8 @@ t_option		*ft_init_struct(void)
 	option->percent = 0;
 	option->rvalue = 0;
 	option->nflag = 0;
+	option->npercent = 1;
+	option->no = 0;
 	option->w = 0;
 	option->p = 0;
 	option->h = 0;
@@ -71,14 +73,14 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		if (fmt[i - 1] == '%' && fmt[i] == '%')
+		if (fmt[i - 1] == '%' && fmt[i] == '%' && option->percent == 0)
 		{
-			i = ft_else(option, fmt, i);
+			i = ft_else(option, i);
 			option->percent = 1;
 		}
 		else if (fmt[i] == '%' && option->percent == 0
 			&& (ft_is_flag(fmt[i + 1]) || ft_is_converter(fmt[i + 1])))
-			i++;
+			i = ft_else(option, i);
 		else if (fmt[i] == '%' && option->percent == 1)
 		{
 			i++;

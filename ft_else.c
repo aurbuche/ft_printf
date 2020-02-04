@@ -6,17 +6,22 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 09:30:06 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 15:19:40 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 13:07:47 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t		ft_else(t_option *option, char *str, size_t i)
+size_t		ft_else(t_option *option, size_t i)
 {
-	ft_putchar(str[i]);
-	option->rvalue++;
+	option->npercent++;
+	if (option->npercent % 2 == 0)
+	{
+		ft_putchar('%');
+		option->rvalue++;
+		option->npercent = 1;
+	}
 	i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 14:15:59 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/28 16:46:22 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 09:58:09 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,6 +20,8 @@ void		ft_set_zero(t_option *option)
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
+	if (option->neg)
+		tmp++;
 	if (option->zero > tmp)
 	{
 		tmp = option->zero - tmp;
@@ -34,6 +36,8 @@ void		ft_set_zero(t_option *option)
 	}
 	else
 		option->rprint = ft_strdup(option->buffer);
+	if (option->neg)
+		option->rprint = ft_strfjoin("-", option->rprint, 2);
 }
 
 void		ft_zero(t_option *option, char *str, size_t i)

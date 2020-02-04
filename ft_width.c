@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 13:35:44 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/03 11:15:51 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 12:06:48 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,6 @@ void		ft_set_width(t_option *option)
 		else
 			option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}
-	free(option->width);
 }
 
 int			ft_len(int i)
