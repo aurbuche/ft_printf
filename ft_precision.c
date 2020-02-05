@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/04 12:53:34 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/05 12:37:14 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,9 @@ void			ft_set_precision(t_option *option)
 	i = 0;
 	tmp = ft_strlen(option->buffer);
 	if (option->neg == 1 && option->p && option->preci == 0)
+	{
 		option->rprint = ft_strjoin("-", option->buffer);
+	}
 	else if (option->preci > tmp)
 	{
 		tmp = option->preci - tmp;

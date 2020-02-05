@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2020/02/03 10:55:11 by aurbuche    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/05 08:58:28 by aurbuche    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -42,7 +42,7 @@ NAME 			=	libftprintf.a
 
 CC				=	cc
 
-CFLAGS			=	-Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 RM				=	rm -rf
 
@@ -57,7 +57,7 @@ $(NAME) : $(OBJ) $(HEADER)
 				@echo "\033[0m"
 				@echo "\033[38;2;0;128;0mCompiling ft_printf.a...\tDONE"
 
-$(OBJ_PATH)%.o: $(SRCS_PATH)%.c $(HEADER)
+$(OBJ_PATH)%.o: $(SRCS_PATH)%.c $(HEADER) Makefile
 				@${CC} ${CFLAGS}  -c $< -o $@
 				@echo "\033[38;2;250;240;197mCompiling objects file...$<"
 				@echo "\033[38;2;0;128;0mDone"

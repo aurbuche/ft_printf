@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/04 16:02:39 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/05 16:19:27 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,8 +27,9 @@ void		ft_display(t_option *option)
 
 void		ft_4_alpha(t_option *option, va_list ap)
 {
-	if (option->p == 1 && option->converter == 's' && option->preci == 0)
-		option->rprint = ft_strdup("");
+	if (option->p == 1 && option->converter == 's'
+		&& option->preci == 0 && option->w == 0)
+		option->buffer = ft_strdup("");
 	else if (option->converter == 'c')
 		option->buffer = ft_ctos(va_arg(ap, int), option);
 	else
@@ -42,7 +43,10 @@ void		ft_4_alpha(t_option *option, va_list ap)
 			option->rprint = ft_strdup(option->buffer);
 	}
 	else if (option->flag != 0 && option->flag != '%' && option->buffer)
+	{
+		// dprintf(1, "{%d}", 5);
 		ft_set_flag(option);
+	}
 	else if (option->buffer)
 	{
 		if (option->buffer != NULL)

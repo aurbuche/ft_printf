@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/04 17:26:42 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/05 13:50:37 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,7 +76,7 @@ void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_write_til_percent2(char *fmt, size_t i, size_t j);
 void			ft_4_alpha(t_option *option, va_list ap);
 void			ft_4_di(t_option *option, va_list ap);
-void			ft_4_digit2(t_option *option);
+void			ft_4_digit2(t_option *option, int i);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
 void			ft_4_percent(t_option *option);
