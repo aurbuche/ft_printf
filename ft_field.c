@@ -6,12 +6,30 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 11:35:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/03 15:35:15 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/06 17:41:42 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void		ft_set_continue(t_option *option, size_t tmp, size_t i)
+{
+	tmp = option->lentot - tmp;
+	option->rprint = malloc(sizeof(char) * (option->lentot + 1));
+	while (i < tmp)
+	{
+		option->rprint[i] = ' ';
+		i++;
+	}
+	if (option->neg == 1)
+	{
+		option->rprint[i] = '-';
+		i++;
+	}
+	option->rprint[i] = '\0';
+	option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
+}
 
 void		ft_set_field(t_option *option)
 {
@@ -20,23 +38,17 @@ void		ft_set_field(t_option *option)
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
-
-	if (option->lentot > tmp)
+	if (option->lentot >= tmp)
+		ft_set_continue(option, tmp, i);
+	else if (option->lentot < tmp)
 	{
-		tmp = option->lentot - tmp;
 		option->rprint = malloc(sizeof(char) * (option->lentot + 1));
-		while (i < tmp)
+		while (i < option->lentot)
 		{
-			option->rprint[i] = ' ';
-			i++;
-		}
-		if (option->neg == 1)
-		{
-			option->rprint[i] = '-';
+			option->rprint[i] = option->buffer[i];
 			i++;
 		}
 		option->rprint[i] = '\0';
-		option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 	}
 	else
 		option->rprint = ft_strdup(option->buffer);

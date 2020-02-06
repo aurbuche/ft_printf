@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 11:19:29 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/05 15:35:16 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/06 17:38:24 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,6 +38,7 @@ void		ft_set_flag(t_option *option)
 	else if (((option->p == 1 && option->h == 0)
 		|| (option->preci > 0 && option->w == 1)))
 	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_precision(option);
 	}
 	else if (option->h == 1 && option->w == 0)

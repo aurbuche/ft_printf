@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_find_flag.c                                   .::    .:/ .      .::   */
+/*   ft_display.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/13 15:40:47 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/06 13:13:26 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/06 13:01:21 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/06 13:01:38 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int			ft_find_flag(char *str, size_t i, t_option *option, va_list ap)
+void		ft_display(t_option *option)
 {
-	if (str[i] == '*')
-	{
-		ft_width(option, ap);
-		return (1);
-	}
-	else if (str[i] == '-')
-	{
-		ft_hyphen(option, str, i + 1);
-		return (1);
-	}
-	else if (str[i] == '.')
-	{
-		ft_precision(option, str, i + 1);
-		return (1);
-	}
-	else if (str[i] == '0' && str[i - 1] == '%' && option->percent == 0)
-	{
-		ft_zero(option, str, i + 1);
-		return (1);
-	}
-	return (0);
+	if (option->no == 1)
+		ft_putchar('\0');
+	else
+		ft_putstr(option->rprint);
+	option->rvalue += ft_strlen(option->rprint);
+	option->flag = 0;
+	free(option->buffer);
+	free(option->rprint);
 }

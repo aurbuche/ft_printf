@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:54:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/05 16:18:38 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/06 17:38:00 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -1007,9 +1007,22 @@ int		main(int ac, char **av)
 	// 	printf("\n");
 	// }
 
-	printf("\033[0;35m\nTest pour (|%%.*d|, -10, 42 )\033[0m\n\n");
-	i = printf("|%.*d|\n", 10, 0);
-	j = ft_printf("|%.*d|\n", 10, 0);
+	// printf("\033[0;35m\nTest pour (|%%.*d|, -10, 42 )\033[0m\n\n");
+	// i = printf("|%.*d|\n", 10, 0);
+	// j = ft_printf("|%.*d|\n", 10, 0);
+	// if (i == j)
+	// 	puts("\n\033[0;32m TEST OK");
+	// else
+	// {
+	// 	puts("\n\033[0;31mTEST FAILED");
+	// 	printf("return printf :\t\t[%d]\n", i);
+	// 	printf("return ft_printf :\t[%d]", j);
+	// 	printf("\n");
+	// }
+
+	printf("\033[0;35m\nTest pour (|%%1.1s|, Hello)\033[0m\n\n");
+	i = printf("|%9i|\n", INT_MAX);
+	j = ft_printf("|%9i|\n", INT_MAX);
 	if (i == j)
 		puts("\n\033[0;32m TEST OK");
 	else
@@ -1020,18 +1033,31 @@ int		main(int ac, char **av)
 		printf("\n");
 	}
 
-	printf("\033[0;35m\nTest pour (|%%*.*s|, 5, 0, Hello)\033[0m\n\n");
-	i = printf("|%*.*s|\n", -5, 0, "Hello");
-	j = ft_printf("|%*.*s|\n", -5, 0, "Hello");
-	if (i == j)
-		puts("\n\033[0;32m TEST OK");
-	else
-	{
-		puts("\n\033[0;31mTEST FAILED");
-		printf("return printf :\t\t[%d]\n", i);
-		printf("return ft_printf :\t[%d]", j);
-		printf("\n");
-	}
+	// printf("\033[0;35m\nTest pour (|%%*.*s|, 0, Hello)\033[0m\n\n");
+	// i = printf("|%*.*s|\n", 0, "Hello");
+	// j = ft_printf("|%*.*s|\n", 0, "Hello");
+	// if (i == j)
+	// 	puts("\n\033[0;32m TEST OK");
+	// else
+	// {
+	// 	puts("\n\033[0;31mTEST FAILED");
+	// 	printf("return printf :\t\t[%d]\n", i);
+	// 	printf("return ft_printf :\t[%d]", j);
+	// 	printf("\n");
+	// }
+
+	// printf("\033[0;35m\nTest pour (|%%.0s|, Hello)\033[0m\n\n");
+	// i = printf("|%.s|\n", "42");
+	// j = ft_printf("|%.s|\n", "42");
+	// if (i == j)
+	// 	puts("\n\033[0;32m TEST OK");
+	// else
+	// {
+	// 	puts("\n\033[0;31mTEST FAILED");
+	// 	printf("return printf :\t\t[%d]\n", i);
+	// 	printf("return ft_printf :\t[%d]", j);
+	// 	printf("\n");
+	// }
 
 	// printf("\033[0;35m\nTest pour (|%%1.0s|, 0)\033[0m\n\n");
 	// i = printf("REAL |%1.0s|\n", "");
