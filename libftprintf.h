@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libftprintf.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/05 13:50:37 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 17:54:19 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,6 +49,7 @@ typedef struct	s_option
 	size_t			p;
 	int				z;
 	int				neg;
+	int				f;
 }				t_option;
 
 /*
@@ -57,6 +58,7 @@ typedef struct	s_option
 
 t_option		*ft_init_struct(void);
 int				ft_printf(const char *format, ...);
+int				ft_4_digit2(t_option *option, int i);
 int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap);
 int				ft_find_converter(char c, t_option *option);
 int				ft_find_flag(char *str, size_t n, t_option *option, va_list ap);
@@ -76,7 +78,6 @@ void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_write_til_percent2(char *fmt, size_t i, size_t j);
 void			ft_4_alpha(t_option *option, va_list ap);
 void			ft_4_di(t_option *option, va_list ap);
-void			ft_4_digit2(t_option *option, int i);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
 void			ft_4_percent(t_option *option);

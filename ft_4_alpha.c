@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_4_alpha.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/06 15:58:13 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 16:33:26 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 void		ft_4_alpha(t_option *option, va_list ap)
 {
 	if (option->p == 1 && option->converter == 's'
-		&& option->preci == 0 && option->w && option->width[0] == 0)
+		&& option->preci == 0)
 		option->buffer = ft_strdup("");
 	else if (option->converter == 'c')
 		option->buffer = ft_ctos(va_arg(ap, int), option);

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_hyphen.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/14 10:19:40 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/03 11:17:43 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 16:20:12 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,8 @@ void			ft_set_hyphen(t_option *option)
 	else
 	{
 		tmp = option->hyphen - ft_strlen(option->buffer);
+		if (option->neg)
+			tmp--;
 		option->rprint = malloc(sizeof(char) * (tmp + 1));
 		while (i < tmp)
 		{

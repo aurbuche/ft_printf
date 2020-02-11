@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/04 16:02:30 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 17:54:36 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ t_option		*ft_init_struct(void)
 	option->h = 0;
 	option->z = 0;
 	option->neg = 0;
+	option->f = 0;
 	return (option);
 }
 

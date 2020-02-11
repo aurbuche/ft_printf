@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_precision.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/05 12:37:14 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 16:32:11 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,11 +20,7 @@ void			ft_set_precision(t_option *option)
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
-	if (option->neg == 1 && option->p && option->preci == 0)
-	{
-		option->rprint = ft_strjoin("-", option->buffer);
-	}
-	else if (option->preci > tmp)
+	if (option->preci > tmp)
 	{
 		tmp = option->preci - tmp;
 		option->rprint = malloc(sizeof(char) * (option->preci + 1));

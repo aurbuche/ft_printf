@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_field.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 11:35:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/06 17:41:42 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 17:57:19 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,11 +22,6 @@ void		ft_set_continue(t_option *option, size_t tmp, size_t i)
 		option->rprint[i] = ' ';
 		i++;
 	}
-	if (option->neg == 1)
-	{
-		option->rprint[i] = '-';
-		i++;
-	}
 	option->rprint[i] = '\0';
 	option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
 }
@@ -38,18 +33,25 @@ void		ft_set_field(t_option *option)
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
-	if (option->lentot >= tmp)
-		ft_set_continue(option, tmp, i);
-	else if (option->lentot < tmp)
+	if (option->neg)
 	{
-		option->rprint = malloc(sizeof(char) * (option->lentot + 1));
-		while (i < option->lentot)
-		{
-			option->rprint[i] = option->buffer[i];
-			i++;
-		}
-		option->rprint[i] = '\0';
+		option->f = 1;
+		option->buffer = ft_strfjoin("-", option->buffer, 2);
 	}
+	if (option->lentot > tmp)
+	{
+		ft_set_continue(option, tmp, i);
+	}
+	// else if (option->lentot < tmp && option->lentot != 0)
+	// {
+	// 	option->rprint = malloc(sizeof(char) * (option->lentot + 1));
+	// 	while (i < option->lentot)
+	// 	{
+	// 		option->rprint[i] = option->buffer[i];
+	// 		i++;
+	// 	}
+	// 	option->rprint[i] = '\0';
+	// }
 	else
 		option->rprint = ft_strdup(option->buffer);
 }

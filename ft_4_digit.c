@@ -3,24 +3,25 @@
 /*                                                              /             */
 /*   ft_4_digit.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/05 14:45:31 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/10 17:56:42 by aurelienbuc ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_digit2(t_option *option, int i)
+int			ft_4_digit2(t_option *option, int i)
 {
-	if (i < 0 && (option->p || option->z))
+	if (i < 0)
 	{
 		i = -i;
 		option->neg = 1;
 	}
 	option->buffer = ft_itoa(i);
+	return (i);
 }
 
 void		ft_4_u(t_option *option, va_list ap)
@@ -40,9 +41,7 @@ void		ft_4_u(t_option *option, va_list ap)
 		ft_set_flag(option);
 	}
 	else
-	{
 		option->rprint = ft_strdup(option->buffer);
-	}
 	ft_display(option);
 }
 
@@ -51,13 +50,13 @@ void		ft_4_di(t_option *option, va_list ap)
 	int		i;
 
 	i = va_arg(ap, int);
-	if (i == -2147483648 && option->flag)
+	if (i == -2147483648)
 	{
 		option->buffer = ft_strdup("2147483648");
 		option->neg = 1;
 	}
 	else
-		ft_4_digit2(option, i);
+		i = ft_4_digit2(option, i);
 	if (option->p && option->preci == 0 && option->w < 0)
 	{
 		// dprintf(1, "{%d}", 3);
@@ -69,7 +68,7 @@ void		ft_4_di(t_option *option, va_list ap)
 		ft_set_flag(option);
 	else
 		option->rprint = ft_strdup(option->buffer);
-	if (option->neg && (option->p != 0 && option->preci))
+	if (option->neg && option->f == 0)
 		option->rprint = ft_strfjoin("-", option->rprint, 2);
 	ft_display(option);
 }
