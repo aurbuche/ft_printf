@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libftprintf.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/10 17:54:19 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/11 12:35:34 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,6 +50,7 @@ typedef struct	s_option
 	int				z;
 	int				neg;
 	int				f;
+	int				i;
 }				t_option;
 
 /*
@@ -85,6 +86,7 @@ void			ft_4_u(t_option *option, va_list ap);
 void			ft_width(t_option *option, va_list ap);
 void			ft_set_flag(t_option *option);
 void			ft_set_precision(t_option *option);
+void     	   ft_set_preci_field(t_option *option);
 void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);

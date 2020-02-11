@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_field.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 11:35:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/10 17:57:19 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/11 15:09:18 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */

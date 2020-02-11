@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_all_to_zero.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/28 10:19:04 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/10 17:56:23 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/11 12:36:10 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,4 +26,5 @@ void	ft_all_to_zero(t_option *option)
 	option->percent = 0;
 	option->npercent = 0;
 	option->f = 0;
+	option->i = 0;
 }

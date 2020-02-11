@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_4_digit.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/10 17:56:42 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/11 15:41:22 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,7 @@ void		ft_4_u(t_option *option, va_list ap)
 	base = "0123456789";
 	i = va_arg(ap, unsigned int);
 	option->buffer = ft_itoa_base(i, base);
-	if (i == 0 && option->p == 1 && option->preci == 0)
+	if (i == 0 && option->p == 1 && option->preci == 0 && option->lentot == 0)
 	{
 		option->rprint = ft_strdup("");
 	}
@@ -57,15 +57,22 @@ void		ft_4_di(t_option *option, va_list ap)
 	}
 	else
 		i = ft_4_digit2(option, i);
+	option->i = i;
 	if (option->p && option->preci == 0 && option->w < 0)
 	{
-		// dprintf(1, "{%d}", 3);
 		option->rprint = ft_strdup(option->buffer);
 	}
-	else if (i == 0 && option->p == 1 && option->preci == 0)
+	else if (i == 0 && option->p == 1
+			&& option->preci == 0 && option->lentot == 0)
+	{
+		// dprintf(1, "{%d}", 3);
 		option->rprint = ft_strdup("");
+	}
 	else if (option->flag != 0)
+	{
+		// dprintf(1, "{%d}", 4);
 		ft_set_flag(option);
+	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	if (option->neg && option->f == 0)

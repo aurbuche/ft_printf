@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_precision.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurelienbucher <aurelienbucher@student.    +:+   +:    +:    +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/10 16:32:11 by aurelienbuc ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/11 15:21:42 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
