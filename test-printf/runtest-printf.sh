@@ -45,49 +45,63 @@ rm test-printf/result.log
 make all
 make bonus
 gcc -Wall -Wextra -Werror -Wformat=0 test-printf/test-main.c libftprintf.a -o test-printf/test.out
-printf "\n${BLUE}[I - Tests with *]${NC}\n"
-test "$i - (\"%%*d\", 0, 42) : ${NC}" $i 
-test "$i - (\"%%*d\", 0, 0) : ${NC}" $i 
-test "$i - (\"%%*d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%*d\", -10, 42) : ${NC}" $i 
-test "$i - (\"%%0*d\", -10, 42) : ${NC}" $i 
-test "$i - (\"%%0*d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%0*d\", 10, -42) : ${NC}" $i 
-test "$i - (\"%%0*d\", 0, 42) : ${NC}" $i 
-test "$i - (\"%%0*d\", 10, 0) : ${NC}" $i 
-test "$i - (\"%%0*d\", -10, 0) : ${NC}" $i 
-test "$i - (\"%%*d\", 010, 42) : ${NC}" $i 
-test "$i - (\"%%*s\", 10, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*s\", -10, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%-*d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%-*d\", -10, 42) : ${NC}" $i 
-test "$i - (\"%%-*d\", -10, -42) : ${NC}" $i 
-test "$i - (\"%%.*d\", 0, 42) : ${NC}" $i 
-test "$i - (\"%%.*d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%.*d\", -10, 42) : ${NC}" $i 
-test "$i - (\"%%.*d\", 0, 0) : ${NC}" $i 
-test "$i - (\"%%.*d\", 10, 0) : ${NC}" $i 
-test "$i - (\"%%.*d\", -10, 0) : ${NC}" $i 
-test "$i - (\"%%.*d\", -0, 0) : ${NC}" $i 
-test "$i - (\"%%.*d\", -0, 42) : ${NC}" $i 
-test "$i - (\"%%.*d\", -0, -42) : ${NC}" $i 
-test "$i - (\"%%.*s\", -3, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%10.*d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%*.10d\", 10, 42) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 0, 0, 0) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 0, 0, 42) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 0, 0, -42) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 0, 5, 0) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 0, -5, 0) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 5, 0, 0) : ${NC}" $i 
-test "$i - (\"%%*.*d\", -5, 0, 0) : ${NC}" $i 
-test "$i - (\"%%*.*d\", 5, 5, 0) : ${NC}" $i 
-test "$i - (\"%%*.*s\", 0, 0, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 0, 0, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 0, 0, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 0, 5, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 0, -5, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 5, 0, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", -5, 0, \"Hello\") : ${NC}" $i 
-test "$i - (\"%%*.*s\", 5, 5, \"Hello\") : ${NC}" $i 
+printf "\n${BLUE}[B - Tests with minimum field width]${NC}\n"
+test "$i - (\"%%*c\", -1000, 'a') : ${NC}" $i 
+test "$i - (\"%%*s\", -1000, \"\") : ${NC}" $i 
+test "$i - (\"%%1%%\") : ${NC}" $i 
+test "$i - (\"%%2%%\") : ${NC}" $i 
+test "$i - (\"%%10%%\") : ${NC}" $i 
+test "$i - (\"%%1c\", '1') : ${NC}" $i 
+test "$i - (\"%%2c\", '1') : ${NC}" $i 
+test "$i - (\"%%10c\", '1') : ${NC}" $i 
+test "$i - (\"%%1s\", \"\") : ${NC}" $i 
+test "$i - (\"%%5s\", \"Hello\") : ${NC}" $i 
+test "$i - (\"%%6s\", \"Hello\") : ${NC}" $i 
+test "$i - (\"%%1i\", 0) : ${NC}" $i 
+test "$i - (\"%%2i\", 0) : ${NC}" $i 
+test "$i - (\"%%10i\", 0) : ${NC}" $i 
+test "$i - (\"%%1i\", -1) : ${NC}" $i 
+test "$i - (\"%%2i\", -1) : ${NC}" $i 
+test "$i - (\"%%3i\", -1) : ${NC}" $i 
+test "$i - (\"%%9i\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%10i\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%11i\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%1d\", 0) : ${NC}" $i 
+test "$i - (\"%%2d\", 0) : ${NC}" $i 
+test "$i - (\"%%10d\", 0) : ${NC}" $i 
+test "$i - (\"%%1d\", -1) : ${NC}" $i 
+test "$i - (\"%%2d\", -1) : ${NC}" $i 
+test "$i - (\"%%3d\", -1) : ${NC}" $i 
+test "$i - (\"%%9d\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%10d\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%11d\", INT_MAX) : ${NC}" $i 
+test "$i - (\"%%1u\", 0) : ${NC}" $i 
+test "$i - (\"%%2u\", 0) : ${NC}" $i 
+test "$i - (\"%%10u\", 0) : ${NC}" $i 
+test "$i - (\"%%1u\", -1) : ${NC}" $i 
+test "$i - (\"%%2u\", -1) : ${NC}" $i 
+test "$i - (\"%%3u\", -1) : ${NC}" $i 
+test "$i - (\"%%9u\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%10u\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%11u\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%1x\", 0) : ${NC}" $i 
+test "$i - (\"%%2x\", 0) : ${NC}" $i 
+test "$i - (\"%%10x\", 0) : ${NC}" $i 
+test "$i - (\"%%1x\", -1) : ${NC}" $i 
+test "$i - (\"%%2x\", -1) : ${NC}" $i 
+test "$i - (\"%%3x\", -1) : ${NC}" $i 
+test "$i - (\"%%9x\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%10x\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%11x\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%1X\", 0) : ${NC}" $i 
+test "$i - (\"%%2X\", 0) : ${NC}" $i 
+test "$i - (\"%%10X\", 0) : ${NC}" $i 
+test "$i - (\"%%1X\", -1) : ${NC}" $i 
+test "$i - (\"%%2X\", -1) : ${NC}" $i 
+test "$i - (\"%%3X\", -1) : ${NC}" $i 
+test "$i - (\"%%9X\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%10X\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%11X\", UINT_MAX) : ${NC}" $i 
+test "$i - (\"%%1p\", (void*)42) : ${NC}" $i 
+test "$i - (\"%%5p\", (void*)42) : ${NC}" $i 
 printf "\n\n${DARK_BLUE}Result [$success/$i]${NC}"
