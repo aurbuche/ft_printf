@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 15:10:07 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/11 15:21:42 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/13 11:23:16 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,16 +17,20 @@ void			ft_set_precision(t_option *option)
 {
 	size_t		tmp;
 	size_t		i;
+	char		c;
 
 	i = 0;
 	tmp = ft_strlen(option->buffer);
+	c = '0';
+	if (option->lentot && option->converter == 's')
+		c = ' ';
 	if (option->preci > tmp)
 	{
 		tmp = option->preci - tmp;
 		option->rprint = malloc(sizeof(char) * (option->preci + 1));
 		while (i < tmp)
 		{
-			option->rprint[i] = '0';
+			option->rprint[i] = c;
 			i++;
 		}
 		option->rprint[i] = '\0';
