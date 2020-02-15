@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 16:20:05 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 12:21:37 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/14 10:07:32 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,8 @@ void		ft_4_x(t_option *option, va_list ap)
 	base = "0123456789abcdef";
 	if (option->converter == 'X')
 		base = "0123456789ABCDEF";
-	i = va_arg(ap, long long);
+	option->j = va_arg(ap, long long);
+	i = option->j;
 	option->buffer = ft_itoa_base(i, base);
 	if (option->preci == 0 && i == 0 && option->p == 1 && !option->lentot)
 		option->rprint = ft_strdup("");

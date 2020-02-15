@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc  #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/11 12:35:55 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/14 10:06:36 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,6 +38,7 @@ t_option		*ft_init_struct(void)
 	option->neg = 0;
 	option->f = 0;
 	option->i = 0;
+	option->j = 0;
 	return (option);
 }
 

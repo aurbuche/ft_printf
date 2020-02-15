@@ -5,11 +5,12 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/02/11 10:31:15 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 16:55:47 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/14 10:39:48 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/14 15:40:13 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
 
 #include "libftprintf.h"
 
@@ -35,8 +36,8 @@ void		ft_one(t_option *option, char *s1, size_t i)
 	}
 	s1[i] = '\0';
 	i = (int)ft_atoi(option->buffer);
-	if (option->i == 0 && option->converter != 's' && option->converter != 'x'
-			&& option->converter != 'X')
+	if (i == 0 && option->preci == 0 && option->converter != 's'
+		&& option->converter != 'x' && option->converter != 'X')
 		option->rprint = ft_strdup(" ");
 	else
 		ft_set_precision(option);
@@ -52,33 +53,37 @@ void		ft_next(t_option *option, char *s1, size_t i)
 	else if (option->lentot == option->preci)
 		ft_set_precision(option);
 	else
-		option->rprint = ft_strdup("");
+		option->rprint = ft_strdup(option->buffer);
 	s1 = NULL;
 }
 
 void		ft_set_preci_field(t_option *option)
 {
-	char		*s1;
 	int			i;
 
-	if (option->neg && option->preci == 0)
+	if (option->neg && (option->preci == 0 || option->preci == 1))
 	{
 		i = -(int)ft_atoi(option->buffer);
 		option->buffer = ft_itoa(i);
-	}
-	i = 0;
-	s1 = NULL;
-	if (((option->converter == 'd' || option->converter == 'i'
-					|| option->converter == 'x' || option->converter == 'X')
-				&& option->lentot > option->preci))
-	{
-		ft_one(option, s1, i);
 		option->neg = 0;
 	}
-	else if ((option->converter == 'd' || option->converter == 'i'
-				|| option->converter == 'x' || option->converter == 'X')
-			&& option->lentot < option->preci)
+	i = 0;
+	if (option->i == 0 && option->preci == 0 && option->j == 0
+		&& (option->converter != 'c' && option->converter != 's'))
+	{
+		free(option->buffer);
+		option->buffer = ft_strdup(" ");
+	}
+	if (option->lentot > option->preci)
+	{
+		if (option->neg)
+			option->lentot--;
+		ft_one(option, NULL, i);
+	}
+	else if (option->lentot < option->preci)
 		ft_set_precision(option);
 	else
-		ft_next(option, s1, i);
+	{
+		ft_next(option, NULL, i);
+	}
 }

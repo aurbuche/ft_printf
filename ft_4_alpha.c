@@ -5,12 +5,11 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 15:38:28 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/11 16:49:41 by aurbuche    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/14 10:42:44 by aurbuche     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/14 15:59:45 by aurbuche    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
-
 #include "libftprintf.h"
 
 void		ft_4_alpha(t_option *option, va_list ap)
