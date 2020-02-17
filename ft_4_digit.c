@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_4_digit.c                                     .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 16:47:27 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/14 15:08:41 by aurbuche    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_4_digit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/17 16:12:58 by aurbuche         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
@@ -33,15 +32,14 @@ void		ft_4_u(t_option *option, va_list ap)
 	i = va_arg(ap, unsigned int);
 	option->buffer = ft_itoa_base(i, base);
 	option->j = i;
-	if (i == 0 && option->p == 1 && option->preci == 0 && option->lentot == 0)
+	if (i == 0 && option->p == 1 && option->preci == 0
+		&& !option->lentot && !option->hyphen)
 	{
+		dprintf(1, "{%d}", 9);
 		option->rprint = ft_strdup("");
 	}
 	else if (option->flag != 0)
-	{
-		// dprintf(1, "{%d}", option->i);
 		ft_set_flag(option);
-	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	ft_display(option);
@@ -65,15 +63,10 @@ void		ft_4_di(t_option *option, va_list ap)
 		option->rprint = ft_strdup(option->buffer);
 	}
 	else if (i == 0 && option->p == 1
-			&& option->preci == 0 && option->lentot == 0)
-	{
+			&& !option->preci && !option->lentot && !option->hyphen)
 		option->rprint = ft_strdup("");
-	}
 	else if (option->flag != 0)
-	{
-		// dprintf(1, "{%d}", 4);
 		ft_set_flag(option);
-	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	if (option->neg && option->f == 0)

@@ -1,16 +1,15 @@
 # **************************************************************************** #
-#                                                           LE - /             #
-#                                                               /              #
-#    Makefile                                         .::    .:/ .      .::    #
-#                                                  +:+:+   +:    +:  +:+:+     #
-#    By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+      #
-#                                                  #+#   #+    #+    #+#       #
-#    Created: 2019/10/15 10:26:14 by aurbuche     #+#   ##    ##    #+#        #
-#    Updated: 2020/02/11 10:33:02 by aurbuche    ###    #+. /#+    ###.fr      #
-#                                                          /                   #
-#                                                         /                    #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
+#    Updated: 2020/02/17 15:32:00 by aurbuche         ###   ########lyon.fr    #
+#                                                                              #
 # **************************************************************************** #
- 
+
 SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
 						ft_4_percent.c ft_switch.c ft_write_til.c ft_find_flag.c\
 						ft_is.c ft_width.c ft_ctos.c ft_hyphen.c ft_set_flag.c ft_precision.c\
@@ -26,7 +25,7 @@ SRCS_LIB		=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint
 						ft_strlcpy.c ft_strmapi.c ft_strnstr.c ft_strndup.c ft_strnlen.c ft_strnjoin.c\
 						ft_strtrim.c ft_tolower.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putendl.c\
 						ft_itoa_base.c ft_itoa_p_base.c ft_delete.c ft_strfjoin.c ft_strncpy.c\
-						ft_cchr.c)
+						ft_cchr.c ft_strcmp.c)
 
 SRCS_PATH		=	./
 

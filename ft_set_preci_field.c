@@ -1,24 +1,19 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_set_preci_field.c                             .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/02/14 10:39:48 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/14 15:40:13 by aurbuche    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_set_preci_field.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/14 10:39:48 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/17 13:27:24 by aurbuche         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libftprintf.h"
 
-void		ft_one(t_option *option, char *s1, size_t i)
+void		ft_one(t_option *option, char *s1, size_t i, size_t tmp)
 {
-	size_t		tmp;
-
-	tmp = option->lentot;
 	if (option->preci > ft_strlen(option->buffer))
 		option->lentot -= option->preci;
 	else if (ft_strlen(option->buffer) > option->lentot)
@@ -47,7 +42,8 @@ void		ft_one(t_option *option, char *s1, size_t i)
 void		ft_next(t_option *option, char *s1, size_t i)
 {
 	i = 0;
-	if (option->lentot > option->preci
+	if (option->lentot > option->preci ||
+		(option->lentot > ft_strlen(option->buffer) && option->converter == 's')
 			|| ft_strlen(option->buffer) == option->lentot)
 		ft_set_field(option);
 	else if (option->lentot == option->preci)
@@ -57,10 +53,8 @@ void		ft_next(t_option *option, char *s1, size_t i)
 	s1 = NULL;
 }
 
-void		ft_set_preci_field(t_option *option)
+void		ft_set_preci_field(t_option *option, int i)
 {
-	int			i;
-
 	if (option->neg && (option->preci == 0 || option->preci == 1))
 	{
 		i = -(int)ft_atoi(option->buffer);
@@ -76,11 +70,12 @@ void		ft_set_preci_field(t_option *option)
 	}
 	if (option->lentot > option->preci)
 	{
+		// dprintf(1, "{%d}", 9);
 		if (option->neg)
 			option->lentot--;
-		ft_one(option, NULL, i);
+		ft_one(option, NULL, i, option->lentot);
 	}
-	else if (option->lentot < option->preci)
+	else if (option->lentot < option->preci && option->converter != 's')
 		ft_set_precision(option);
 	else
 	{

@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_field.c                                       .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/28 11:35:31 by aurbuche     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/12 10:30:56 by aurbuche    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_field.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/28 11:35:31 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/17 13:56:38 by aurbuche         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
@@ -38,20 +37,8 @@ void		ft_set_field(t_option *option)
 		option->f = 1;
 		option->buffer = ft_strfjoin("-", option->buffer, 2);
 	}
-	if (option->lentot > tmp)
-	{
+	if (option->lentot >= tmp)
 		ft_set_continue(option, tmp, i);
-	}
-	// else if (option->lentot < tmp && option->lentot != 0)
-	// {
-	// 	option->rprint = malloc(sizeof(char) * (option->lentot + 1));
-	// 	while (i < option->lentot)
-	// 	{
-	// 		option->rprint[i] = option->buffer[i];
-	// 		i++;
-	// 	}
-	// 	option->rprint[i] = '\0';
-	// }
 	else
 		option->rprint = ft_strdup(option->buffer);
 }
