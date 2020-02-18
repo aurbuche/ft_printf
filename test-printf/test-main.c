@@ -29,266 +29,368 @@ int		main(int ac, char **av)
 	count = 0;
 
 
-	// [E - Tests with .].
+	// [H - Tests with minimum field width, flag 0 and .].
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0%") : ft_printf("%.0%"));
+		return(ac == 2 ? printf("%01.0i", 0) : ft_printf("%01.0i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0%") : ft_printf("%.0%"));
+		return(ac == 2 ? printf("%01.1i", 0) : ft_printf("%01.1i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1%") : ft_printf("%.1%"));
+		return(ac == 2 ? printf("%01.2i", 0) : ft_printf("%01.2i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2%") : ft_printf("%.2%"));
+		return(ac == 2 ? printf("%01.10i", 0) : ft_printf("%01.10i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10%") : ft_printf("%.10%"));
+		return(ac == 2 ? printf("%02.0i", 0) : ft_printf("%02.0i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0s", "") : ft_printf("%.0s", ""));
+		return(ac == 2 ? printf("%02.1i", 0) : ft_printf("%02.1i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1s", "") : ft_printf("%.1s", ""));
+		return(ac == 2 ? printf("%02.2i", 0) : ft_printf("%02.2i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3s", "") : ft_printf("%.3s", ""));
+		return(ac == 2 ? printf("%02.10i", 0) : ft_printf("%02.10i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0s", "Hello") : ft_printf("%.0s", "Hello"));
+		return(ac == 2 ? printf("%010.0i", 0) : ft_printf("%010.0i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1s", "Hello") : ft_printf("%.1s", "Hello"));
+		return(ac == 2 ? printf("%010.1i", 0) : ft_printf("%010.1i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2s", "Hello") : ft_printf("%.2s", "Hello"));
+		return(ac == 2 ? printf("%010.2i", 0) : ft_printf("%010.2i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.5s", "Hello") : ft_printf("%.5s", "Hello"));
+		return(ac == 2 ? printf("%010.10i", 0) : ft_printf("%010.10i", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6s", "Hello") : ft_printf("%.6s", "Hello"));
+		return(ac == 2 ? printf("%01.0i", -1) : ft_printf("%01.0i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.7s", "Hello") : ft_printf("%.7s", "Hello"));
+		return(ac == 2 ? printf("%01.1i", -1) : ft_printf("%01.1i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.s", 42) : ft_printf("%.s", 42));
+		return(ac == 2 ? printf("%01.2i", -1) : ft_printf("%01.2i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0d", 0) : ft_printf("%.0d", 0));
+		return(ac == 2 ? printf("%01.10i", -1) : ft_printf("%01.10i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1d", 0) : ft_printf("%.1d", 0));
+		return(ac == 2 ? printf("%02.0i", -1) : ft_printf("%02.0i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2d", 0) : ft_printf("%.2d", 0));
+		return(ac == 2 ? printf("%02.1i", -1) : ft_printf("%02.1i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0d", 5) : ft_printf("%.0d", 5));
+		return(ac == 2 ? printf("%02.2i", -1) : ft_printf("%02.2i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1d", 5) : ft_printf("%.1d", 5));
+		return(ac == 2 ? printf("%02.10i", -1) : ft_printf("%02.10i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2d", 5) : ft_printf("%.2d", 5));
+		return(ac == 2 ? printf("%03.0i", -1) : ft_printf("%03.0i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0d", 42) : ft_printf("%.0d", 42));
+		return(ac == 2 ? printf("%03.1i", -1) : ft_printf("%03.1i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1d", 42) : ft_printf("%.1d", 42));
+		return(ac == 2 ? printf("%03.2i", -1) : ft_printf("%03.2i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2d", 42) : ft_printf("%.2d", 42));
+		return(ac == 2 ? printf("%03.10i", -1) : ft_printf("%03.10i", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3d", 42) : ft_printf("%.3d", 42));
+		return(ac == 2 ? printf("%09.0i", INT_MAX) : ft_printf("%09.0i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10d", 42) : ft_printf("%.10d", 42));
+		return(ac == 2 ? printf("%09.1i", INT_MAX) : ft_printf("%09.1i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6d", 100) : ft_printf("%.6d", 100));
+		return(ac == 2 ? printf("%09.2i", INT_MAX) : ft_printf("%09.2i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0d", -1) : ft_printf("%.0d", -1));
+		return(ac == 2 ? printf("%09.10i", INT_MAX) : ft_printf("%09.10i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1d", -1) : ft_printf("%.1d", -1));
+		return(ac == 2 ? printf("%010.0i", INT_MAX) : ft_printf("%010.0i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2d", -1) : ft_printf("%.2d", -1));
+		return(ac == 2 ? printf("%010.1i", INT_MAX) : ft_printf("%010.1i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3d", -1) : ft_printf("%.3d", -1));
+		return(ac == 2 ? printf("%010.2i", INT_MAX) : ft_printf("%010.2i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0d", -42) : ft_printf("%.0d", -42));
+		return(ac == 2 ? printf("%010.10i", INT_MAX) : ft_printf("%010.10i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1d", -42) : ft_printf("%.1d", -42));
+		return(ac == 2 ? printf("%011.0i", INT_MAX) : ft_printf("%011.0i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3d", -42) : ft_printf("%.3d", -42));
+		return(ac == 2 ? printf("%011.1i", INT_MAX) : ft_printf("%011.1i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.4d", -42) : ft_printf("%.4d", -42));
+		return(ac == 2 ? printf("%011.2i", INT_MAX) : ft_printf("%011.2i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20d", INT_MAX) : ft_printf("%.20d", INT_MAX));
+		return(ac == 2 ? printf("%011.10i", INT_MAX) : ft_printf("%011.10i", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20d", INT_MAX + 1) : ft_printf("%.20d", INT_MAX + 1));
+		return(ac == 2 ? printf("%01.0d", 0) : ft_printf("%01.0d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20d", INT_MIN) : ft_printf("%.20d", INT_MIN));
+		return(ac == 2 ? printf("%01.1d", 0) : ft_printf("%01.1d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20d", INT_MIN - 1) : ft_printf("%.20d", INT_MIN - 1));
+		return(ac == 2 ? printf("%01.2d", 0) : ft_printf("%01.2d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0i", 0) : ft_printf("%.0i", 0));
+		return(ac == 2 ? printf("%01.10d", 0) : ft_printf("%01.10d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1i", 0) : ft_printf("%.1i", 0));
+		return(ac == 2 ? printf("%02.0d", 0) : ft_printf("%02.0d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2i", 0) : ft_printf("%.2i", 0));
+		return(ac == 2 ? printf("%02.1d", 0) : ft_printf("%02.1d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0i", 5) : ft_printf("%.0i", 5));
+		return(ac == 2 ? printf("%02.2d", 0) : ft_printf("%02.2d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1i", 5) : ft_printf("%.1i", 5));
+		return(ac == 2 ? printf("%02.10d", 0) : ft_printf("%02.10d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2i", 5) : ft_printf("%.2i", 5));
+		return(ac == 2 ? printf("%010.0d", 0) : ft_printf("%010.0d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0i", 42) : ft_printf("%.0i", 42));
+		return(ac == 2 ? printf("%010.1d", 0) : ft_printf("%010.1d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1i", 42) : ft_printf("%.1i", 42));
+		return(ac == 2 ? printf("%010.2d", 0) : ft_printf("%010.2d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2i", 42) : ft_printf("%.2i", 42));
+		return(ac == 2 ? printf("%010.10d", 0) : ft_printf("%010.10d", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3i", 42) : ft_printf("%.3i", 42));
+		return(ac == 2 ? printf("%01.0d", -1) : ft_printf("%01.0d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10i", 42) : ft_printf("%.10i", 42));
+		return(ac == 2 ? printf("%01.1d", -1) : ft_printf("%01.1d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6i", 100) : ft_printf("%.6i", 100));
+		return(ac == 2 ? printf("%01.2d", -1) : ft_printf("%01.2d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0i", -1) : ft_printf("%.0i", -1));
+		return(ac == 2 ? printf("%01.10d", -1) : ft_printf("%01.10d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1i", -1) : ft_printf("%.1i", -1));
+		return(ac == 2 ? printf("%02.0d", -1) : ft_printf("%02.0d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2i", -1) : ft_printf("%.2i", -1));
+		return(ac == 2 ? printf("%02.1d", -1) : ft_printf("%02.1d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3i", -1) : ft_printf("%.3i", -1));
+		return(ac == 2 ? printf("%02.2d", -1) : ft_printf("%02.2d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0i", -42) : ft_printf("%.0i", -42));
+		return(ac == 2 ? printf("%02.10d", -1) : ft_printf("%02.10d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1i", -42) : ft_printf("%.1i", -42));
+		return(ac == 2 ? printf("%03.0d", -1) : ft_printf("%03.0d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3i", -42) : ft_printf("%.3i", -42));
+		return(ac == 2 ? printf("%03.1d", -1) : ft_printf("%03.1d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.4i", -42) : ft_printf("%.4i", -42));
+		return(ac == 2 ? printf("%03.2d", -1) : ft_printf("%03.2d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20i", INT_MAX) : ft_printf("%.20i", INT_MAX));
+		return(ac == 2 ? printf("%03.10d", -1) : ft_printf("%03.10d", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20i", INT_MAX + 1) : ft_printf("%.20i", INT_MAX + 1));
+		return(ac == 2 ? printf("%09.0d", INT_MAX) : ft_printf("%09.0d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20i", INT_MIN) : ft_printf("%.20i", INT_MIN));
+		return(ac == 2 ? printf("%09.1d", INT_MAX) : ft_printf("%09.1d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20i", INT_MIN - 1) : ft_printf("%.20i", INT_MIN - 1));
+		return(ac == 2 ? printf("%09.2d", INT_MAX) : ft_printf("%09.2d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0u", 0) : ft_printf("%.0u", 0));
+		return(ac == 2 ? printf("%09.10d", INT_MAX) : ft_printf("%09.10d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1u", 0) : ft_printf("%.1u", 0));
+		return(ac == 2 ? printf("%010.0d", INT_MAX) : ft_printf("%010.0d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2u", 0) : ft_printf("%.2u", 0));
+		return(ac == 2 ? printf("%010.1d", INT_MAX) : ft_printf("%010.1d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0u", 5) : ft_printf("%.0u", 5));
+		return(ac == 2 ? printf("%010.2d", INT_MAX) : ft_printf("%010.2d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1u", 5) : ft_printf("%.1u", 5));
+		return(ac == 2 ? printf("%010.10d", INT_MAX) : ft_printf("%010.10d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2u", 5) : ft_printf("%.2u", 5));
+		return(ac == 2 ? printf("%011.0d", INT_MAX) : ft_printf("%011.0d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0u", 42) : ft_printf("%.0u", 42));
+		return(ac == 2 ? printf("%011.1d", INT_MAX) : ft_printf("%011.1d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1u", 42) : ft_printf("%.1u", 42));
+		return(ac == 2 ? printf("%011.2d", INT_MAX) : ft_printf("%011.2d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2u", 42) : ft_printf("%.2u", 42));
+		return(ac == 2 ? printf("%011.10d", INT_MAX) : ft_printf("%011.10d", INT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3u", 42) : ft_printf("%.3u", 42));
+		return(ac == 2 ? printf("%01.0u", 0) : ft_printf("%01.0u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10u", 42) : ft_printf("%.10u", 42));
+		return(ac == 2 ? printf("%01.1u", 0) : ft_printf("%01.1u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6u", 100) : ft_printf("%.6u", 100));
+		return(ac == 2 ? printf("%01.2u", 0) : ft_printf("%01.2u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0u", -1) : ft_printf("%.0u", -1));
+		return(ac == 2 ? printf("%01.10u", 0) : ft_printf("%01.10u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1u", -1) : ft_printf("%.1u", -1));
+		return(ac == 2 ? printf("%02.0u", 0) : ft_printf("%02.0u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2u", -1) : ft_printf("%.2u", -1));
+		return(ac == 2 ? printf("%02.1u", 0) : ft_printf("%02.1u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3u", -1) : ft_printf("%.3u", -1));
+		return(ac == 2 ? printf("%02.2u", 0) : ft_printf("%02.2u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0u", -42) : ft_printf("%.0u", -42));
+		return(ac == 2 ? printf("%02.10u", 0) : ft_printf("%02.10u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1u", -42) : ft_printf("%.1u", -42));
+		return(ac == 2 ? printf("%010.0u", 0) : ft_printf("%010.0u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3u", -42) : ft_printf("%.3u", -42));
+		return(ac == 2 ? printf("%010.1u", 0) : ft_printf("%010.1u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.4u", -42) : ft_printf("%.4u", -42));
+		return(ac == 2 ? printf("%010.2u", 0) : ft_printf("%010.2u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20u", UINT_MAX) : ft_printf("%.20u", UINT_MAX));
+		return(ac == 2 ? printf("%010.10u", 0) : ft_printf("%010.10u", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20u", UINT_MAX + 1) : ft_printf("%.20u", UINT_MAX + 1));
+		return(ac == 2 ? printf("%01.0u", -1) : ft_printf("%01.0u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0x", 0) : ft_printf("%.0x", 0));
+		return(ac == 2 ? printf("%01.1u", -1) : ft_printf("%01.1u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1x", 0) : ft_printf("%.1x", 0));
+		return(ac == 2 ? printf("%01.2u", -1) : ft_printf("%01.2u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2x", 0) : ft_printf("%.2x", 0));
+		return(ac == 2 ? printf("%01.10u", -1) : ft_printf("%01.10u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0x", 5) : ft_printf("%.0x", 5));
+		return(ac == 2 ? printf("%02.0u", -1) : ft_printf("%02.0u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1x", 5) : ft_printf("%.1x", 5));
+		return(ac == 2 ? printf("%02.1u", -1) : ft_printf("%02.1u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2x", 5) : ft_printf("%.2x", 5));
+		return(ac == 2 ? printf("%02.2u", -1) : ft_printf("%02.2u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0x", 42) : ft_printf("%.0x", 42));
+		return(ac == 2 ? printf("%02.10u", -1) : ft_printf("%02.10u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1x", 42) : ft_printf("%.1x", 42));
+		return(ac == 2 ? printf("%03.0u", -1) : ft_printf("%03.0u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2x", 42) : ft_printf("%.2x", 42));
+		return(ac == 2 ? printf("%03.1u", -1) : ft_printf("%03.1u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3x", 42) : ft_printf("%.3x", 42));
+		return(ac == 2 ? printf("%03.2u", -1) : ft_printf("%03.2u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10x", 42) : ft_printf("%.10x", 42));
+		return(ac == 2 ? printf("%03.10u", -1) : ft_printf("%03.10u", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6x", 100) : ft_printf("%.6x", 100));
+		return(ac == 2 ? printf("%09.0u", UINT_MAX) : ft_printf("%09.0u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0x", -1) : ft_printf("%.0x", -1));
+		return(ac == 2 ? printf("%09.1u", UINT_MAX) : ft_printf("%09.1u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1x", -1) : ft_printf("%.1x", -1));
+		return(ac == 2 ? printf("%09.2u", UINT_MAX) : ft_printf("%09.2u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2x", -1) : ft_printf("%.2x", -1));
+		return(ac == 2 ? printf("%09.10u", UINT_MAX) : ft_printf("%09.10u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3x", -1) : ft_printf("%.3x", -1));
+		return(ac == 2 ? printf("%010.0u", UINT_MAX) : ft_printf("%010.0u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0x", -42) : ft_printf("%.0x", -42));
+		return(ac == 2 ? printf("%010.1u", UINT_MAX) : ft_printf("%010.1u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1x", -42) : ft_printf("%.1x", -42));
+		return(ac == 2 ? printf("%010.2u", UINT_MAX) : ft_printf("%010.2u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3x", -42) : ft_printf("%.3x", -42));
+		return(ac == 2 ? printf("%010.10u", UINT_MAX) : ft_printf("%010.10u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.4x", -42) : ft_printf("%.4x", -42));
+		return(ac == 2 ? printf("%011.0u", UINT_MAX) : ft_printf("%011.0u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20x", UINT_MAX) : ft_printf("%.20x", UINT_MAX));
+		return(ac == 2 ? printf("%011.1u", UINT_MAX) : ft_printf("%011.1u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20x", UINT_MAX + 1) : ft_printf("%.20x", UINT_MAX + 1));
+		return(ac == 2 ? printf("%011.2u", UINT_MAX) : ft_printf("%011.2u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0X", 0) : ft_printf("%.0X", 0));
+		return(ac == 2 ? printf("%011.10u", UINT_MAX) : ft_printf("%011.10u", UINT_MAX));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1X", 0) : ft_printf("%.1X", 0));
+		return(ac == 2 ? printf("%01.0x", 0) : ft_printf("%01.0x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2X", 0) : ft_printf("%.2X", 0));
+		return(ac == 2 ? printf("%01.1x", 0) : ft_printf("%01.1x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0X", 5) : ft_printf("%.0X", 5));
+		return(ac == 2 ? printf("%01.2x", 0) : ft_printf("%01.2x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1X", 5) : ft_printf("%.1X", 5));
+		return(ac == 2 ? printf("%01.10x", 0) : ft_printf("%01.10x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2X", 5) : ft_printf("%.2X", 5));
+		return(ac == 2 ? printf("%02.0x", 0) : ft_printf("%02.0x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0X", 42) : ft_printf("%.0X", 42));
+		return(ac == 2 ? printf("%02.1x", 0) : ft_printf("%02.1x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1X", 42) : ft_printf("%.1X", 42));
+		return(ac == 2 ? printf("%02.2x", 0) : ft_printf("%02.2x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2X", 42) : ft_printf("%.2X", 42));
+		return(ac == 2 ? printf("%02.10x", 0) : ft_printf("%02.10x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3X", 42) : ft_printf("%.3X", 42));
+		return(ac == 2 ? printf("%010.0x", 0) : ft_printf("%010.0x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.10X", 42) : ft_printf("%.10X", 42));
+		return(ac == 2 ? printf("%010.1x", 0) : ft_printf("%010.1x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.6X", 100) : ft_printf("%.6X", 100));
+		return(ac == 2 ? printf("%010.2x", 0) : ft_printf("%010.2x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0X", -1) : ft_printf("%.0X", -1));
+		return(ac == 2 ? printf("%010.10x", 0) : ft_printf("%010.10x", 0));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1X", -1) : ft_printf("%.1X", -1));
+		return(ac == 2 ? printf("%01.0x", -1) : ft_printf("%01.0x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.2X", -1) : ft_printf("%.2X", -1));
+		return(ac == 2 ? printf("%01.1x", -1) : ft_printf("%01.1x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3X", -1) : ft_printf("%.3X", -1));
+		return(ac == 2 ? printf("%01.2x", -1) : ft_printf("%01.2x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.0X", -42) : ft_printf("%.0X", -42));
+		return(ac == 2 ? printf("%01.10x", -1) : ft_printf("%01.10x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.1X", -42) : ft_printf("%.1X", -42));
+		return(ac == 2 ? printf("%02.0x", -1) : ft_printf("%02.0x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.3X", -42) : ft_printf("%.3X", -42));
+		return(ac == 2 ? printf("%02.1x", -1) : ft_printf("%02.1x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.4X", -42) : ft_printf("%.4X", -42));
+		return(ac == 2 ? printf("%02.2x", -1) : ft_printf("%02.2x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20X", UINT_MAX) : ft_printf("%.20X", UINT_MAX));
+		return(ac == 2 ? printf("%02.10x", -1) : ft_printf("%02.10x", -1));
 	if (nb == count++)
-		return(ac == 2 ? printf("%.20X", UINT_MAX + 1) : ft_printf("%.20X", UINT_MAX + 1));
-
-	// [F - Tests with minimum field width and .].
+		return(ac == 2 ? printf("%03.0x", -1) : ft_printf("%03.0x", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.1x", -1) : ft_printf("%03.1x", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.2x", -1) : ft_printf("%03.2x", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.10x", -1) : ft_printf("%03.10x", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.0x", UINT_MAX) : ft_printf("%09.0x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.1x", UINT_MAX) : ft_printf("%09.1x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.2x", UINT_MAX) : ft_printf("%09.2x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.10x", UINT_MAX) : ft_printf("%09.10x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.0x", UINT_MAX) : ft_printf("%010.0x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.1x", UINT_MAX) : ft_printf("%010.1x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.2x", UINT_MAX) : ft_printf("%010.2x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.10x", UINT_MAX) : ft_printf("%010.10x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.0x", UINT_MAX) : ft_printf("%011.0x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.1x", UINT_MAX) : ft_printf("%011.1x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.2x", UINT_MAX) : ft_printf("%011.2x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.10x", UINT_MAX) : ft_printf("%011.10x", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.0X", 0) : ft_printf("%01.0X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.1X", 0) : ft_printf("%01.1X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.2X", 0) : ft_printf("%01.2X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.10X", 0) : ft_printf("%01.10X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.0X", 0) : ft_printf("%02.0X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.1X", 0) : ft_printf("%02.1X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.2X", 0) : ft_printf("%02.2X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.10X", 0) : ft_printf("%02.10X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.0X", 0) : ft_printf("%010.0X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.1X", 0) : ft_printf("%010.1X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.2X", 0) : ft_printf("%010.2X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.10X", 0) : ft_printf("%010.10X", 0));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.0X", -1) : ft_printf("%01.0X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.1X", -1) : ft_printf("%01.1X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.2X", -1) : ft_printf("%01.2X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%01.10X", -1) : ft_printf("%01.10X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.0X", -1) : ft_printf("%02.0X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.1X", -1) : ft_printf("%02.1X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.2X", -1) : ft_printf("%02.2X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%02.10X", -1) : ft_printf("%02.10X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.0X", -1) : ft_printf("%03.0X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.1X", -1) : ft_printf("%03.1X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.2X", -1) : ft_printf("%03.2X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%03.10X", -1) : ft_printf("%03.10X", -1));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.0X", UINT_MAX) : ft_printf("%09.0X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.1X", UINT_MAX) : ft_printf("%09.1X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.2X", UINT_MAX) : ft_printf("%09.2X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%09.10X", UINT_MAX) : ft_printf("%09.10X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.0X", UINT_MAX) : ft_printf("%010.0X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.1X", UINT_MAX) : ft_printf("%010.1X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.2X", UINT_MAX) : ft_printf("%010.2X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%010.10X", UINT_MAX) : ft_printf("%010.10X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.0X", UINT_MAX) : ft_printf("%011.0X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.1X", UINT_MAX) : ft_printf("%011.1X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.2X", UINT_MAX) : ft_printf("%011.2X", UINT_MAX));
+	if (nb == count++)
+		return(ac == 2 ? printf("%011.10X", UINT_MAX) : ft_printf("%011.10X", UINT_MAX));
+	
+	// [I - Tests with *].
 return (0);
 }

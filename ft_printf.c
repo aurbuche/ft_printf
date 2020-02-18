@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:18 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 15:53:31 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_option		*ft_init_struct(void)
 	option->preci = 0;
 	option->buffer = NULL;
 	option->lentot = 0;
+	option->hyphen = 0;
 	option->flag = 0;
 	option->nflag = 0;
 	option->percent = 0;
@@ -37,7 +38,6 @@ t_option		*ft_init_struct(void)
 	option->neg = 0;
 	option->f = 0;
 	option->i = 0;
-	option->j = 0;
 	return (option);
 }
 
@@ -80,9 +80,6 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 			i = ft_else(option, i);
 			option->percent = 1;
 		}
-		else if (fmt[i] == '%' && option->percent == 0
-			&& (ft_is_flag(fmt[i + 1]) || ft_is_converter(fmt[i + 1])))
-			i = ft_else(option, i);
 		else if (fmt[i] == '%' && option->percent == 1)
 		{
 			i++;
@@ -93,7 +90,10 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 		else if (ft_isdigit(fmt[i]) && option->percent == 0)
 			i = ft_size_field(option, fmt, i);
 		else if (option->percent == 0 && ft_find_converter(fmt[i], option))
-			i = ft_loop3(option, i, ap);
+		{
+			// dprintf(1, "{%d}", 9);
+			i = ft_loop3(option, i, ap, fmt);
+		}
 		else
 			i = ft_loop4(option, fmt, i);
 	}

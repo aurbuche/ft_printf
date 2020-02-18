@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:59 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 15:56:13 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int				ft_find_flag(char *str, size_t n, t_option *option, va_list ap);
 int				ft_is_converter(char c);
 int				ft_is_flag(char fmt);
 int				ft_len_nb(char *str, int i);
-int				ft_switch(t_option *option, va_list ap);
+int				ft_switch(t_option *option, va_list ap, char *str, int i);
 int				ft_verif_char(char c, char *str);
 void			ft_all_to_zero(t_option *option);
 void			ft_display(t_option *option);
@@ -81,7 +81,7 @@ void			ft_4_alpha(t_option *option, va_list ap);
 void			ft_4_di(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
-void			ft_4_percent(t_option *option);
+void			ft_4_percent(t_option *option, char *str, int i);
 void			ft_4_u(t_option *option, va_list ap);
 void			ft_width(t_option *option, va_list ap);
 void			ft_set_flag(t_option *option);
@@ -90,6 +90,7 @@ void			ft_set_preci_field(t_option *option, int i);
 void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);
+void			ft_set_zandp(t_option *option);
 void			ft_set_zero(t_option *option);
 void			ft_zero(t_option *option, char *str, size_t i);
 char			*ft_ctos(char c, t_option *option);
@@ -97,7 +98,7 @@ char			*ft_create_str(char c);
 size_t			ft_else(t_option *option, size_t i);
 size_t			ft_size_field(t_option *option, char *str, size_t i);
 size_t			ft_loop2(t_option *option, char *str, size_t i);
-size_t			ft_loop3(t_option *option, size_t i, va_list ap);
+size_t			ft_loop3(t_option *option, size_t i, va_list ap, char *str);
 size_t			ft_loop4(t_option *option, char *fmt, size_t i);
 
 #endif

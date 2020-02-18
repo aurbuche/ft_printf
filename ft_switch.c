@@ -6,17 +6,17 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:59:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:29 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 16:13:22 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_switch_continue(t_option *option, va_list ap)
+int		ft_switch_continue(t_option *option, va_list ap, char *str, int i)
 {
 	if (option->converter == '%')
 	{
-		ft_4_percent(option);
+		ft_4_percent(option, str, i);
 		return (1);
 	}
 	else if (option->converter == 'u')
@@ -27,7 +27,7 @@ int		ft_switch_continue(t_option *option, va_list ap)
 	return (0);
 }
 
-int		ft_switch(t_option *option, va_list ap)
+int		ft_switch(t_option *option, va_list ap, char *str, int i)
 {
 	if (option->converter == 'c' || option->converter == 's')
 	{
@@ -50,6 +50,5 @@ int		ft_switch(t_option *option, va_list ap)
 		return (1);
 	}
 	else
-		return (ft_switch_continue(option, ap));
-	return (0);
+		return (ft_switch_continue(option, ap, str, i));
 }

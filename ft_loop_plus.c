@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 11:05:43 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:12 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 16:14:05 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ size_t		ft_loop2(t_option *option, char *str, size_t i)
 	return (i);
 }
 
-size_t		ft_loop3(t_option *option, size_t i, va_list ap)
+size_t		ft_loop3(t_option *option, size_t i, va_list ap, char *str)
 {
-	ft_switch(option, ap);
+	ft_switch(option, ap, str, i);
 	i++;
 	ft_all_to_zero(option);
 	return (i);

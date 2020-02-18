@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 17:15:00 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 09:27:44 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		ft_spe(t_option *option)
 void		ft_4_alpha(t_option *option, va_list ap)
 {
 	if (option->p == 1 && option->converter == 's'
-		&& option->preci == 0 && !option->hyphen)
+		&& option->preci == 0)
 		option->buffer = ft_strdup("");
 	else if (option->converter == 'c')
 		option->buffer = ft_ctos(va_arg(ap, int), option);

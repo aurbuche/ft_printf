@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 17:44:43 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 16:13:32 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1048,10 +1048,26 @@ int		main(int ac, char **av)
 	// 	printf("\n");
 	// }
 
-	printf("\033[0;35m\nTest pour (|%%-6.10s|, Hello)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%03.0d|, -1)\033[0m\n\n");
 
-	i = printf("|%.0d|\n", 0);
-	j = ft_printf("|%.0d|\n", 0);
+	printf("012345678901234567890123456789\n");
+	i = printf("|%03.0d|\n", -1);
+	j = ft_printf("|%03.0d|\n", -1);
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+
+	printf("\033[0;35m\nTest pour (|%%%%|)\033[0m\n\n");
+
+	printf("012345678901234567890123456789\n");
+	i = printf("|%%|\n");
+	j = ft_printf("|%%|\n");
 	if (i == j)
 		puts("\n\033[0;32m TEST OK");
 	else

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 09:30:06 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:07:33 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 15:44:04 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ size_t		ft_else(t_option *option, size_t i)
 	option->npercent++;
 	if (option->npercent % 2 == 0)
 	{
-		ft_putchar('%');
 		option->rvalue++;
 		option->npercent = 1;
 	}
