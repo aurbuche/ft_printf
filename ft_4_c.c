@@ -1,46 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_4_alpha.c                                       :+:      :+:    :+:   */
+/*   ft_4_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/19 16:15:02 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/02/19 16:00:04 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/19 16:40:44 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_spe(t_option *option)
+void		ft_4_c(t_option *option, va_list ap)
 {
-	char		*s1;
-	size_t		i;
+	char	c;
 
-	i = 0;
-	s1 = malloc(sizeof(char) * (option->lentot + 1));
-	option->rprint = ft_strndup(option->buffer, option->preci);
-	while (i < (option->lentot - option->preci))
+	c = va_arg(ap, int);
+	if (!c)
 	{
-		s1[i] = ' ';
-		i++;
-	}
-	s1[i] = '\0';
-	option->rprint = ft_strfjoin(s1, option->rprint, 3);
-}
-
-void		ft_4_alpha(t_option *option, va_list ap)
-{
-	if (option->p == 1 && option->converter == 's'
-		&& option->preci == 0)
 		option->buffer = ft_strdup("");
+		option->rvalue++;
+	}
 	else
-		option->buffer = ft_strdup(va_arg(ap, char *));
+		option->buffer = ft_ctos(c);
 	if (option->lentot > option->preci && option->preci != 0)
 		ft_spe(option);
-	else if (option->lentot < option->preci
-		&& option->lentot < ft_strlen(option->buffer) && !option->p && !option->h)
+	else if (option->lentot < option->preci && option->lentot
+		< ft_strlen(option->buffer) && !option->p && !option->h)
+	{
 		option->rprint = ft_strndup(option->buffer, option->preci);
+	}
 	else if (option->p == 1 && option->h == 0 && option->z == 0
 		&& option->w == 0 && option->lentot == 0 && option->buffer)
 	{
@@ -50,7 +40,9 @@ void		ft_4_alpha(t_option *option, va_list ap)
 			option->rprint = ft_strdup(option->buffer);
 	}
 	else if (option->flag && option->flag != '%' && option->buffer)
+	{
 		ft_set_flag(option);
+	}
 	else if (option->buffer)
 	{
 		if (option->buffer != NULL)

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:39:48 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:27:24 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 09:54:05 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		ft_set_preci_field(t_option *option, int i)
 	if (option->neg && (option->preci == 0 || option->preci == 1))
 	{
 		i = -(int)ft_atoi(option->buffer);
+		free(option->buffer);
 		option->buffer = ft_itoa(i);
 		option->neg = 0;
 	}

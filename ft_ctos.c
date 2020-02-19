@@ -6,20 +6,18 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 12:50:30 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:07:27 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 16:24:50 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char		*ft_ctos(char c, t_option *option)
+char		*ft_ctos(char c)
 {
 	char	*str;
 
 	if (!c)
 	{
-		option->no = 1;
-		option->rvalue++;
 		return (ft_strdup("\0"));
 	}
 	if (!(str = ft_strdup("  ")))

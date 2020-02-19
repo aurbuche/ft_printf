@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/18 15:56:13 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 16:24:54 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void			ft_write_til_end(char *fmt, size_t i);
 void			ft_write_til_percent(char *fmt, size_t i);
 void			ft_write_til_percent2(char *fmt, size_t i, size_t j);
 void			ft_4_alpha(t_option *option, va_list ap);
+void			ft_4_c(t_option *option, va_list ap);
 void			ft_4_di(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
@@ -92,8 +93,9 @@ void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);
 void			ft_set_zandp(t_option *option);
 void			ft_set_zero(t_option *option);
+void			ft_spe(t_option *option);
 void			ft_zero(t_option *option, char *str, size_t i);
-char			*ft_ctos(char c, t_option *option);
+char			*ft_ctos(char c);
 char			*ft_create_str(char c);
 size_t			ft_else(t_option *option, size_t i);
 size_t			ft_size_field(t_option *option, char *str, size_t i);

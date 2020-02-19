@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:47:51 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/18 09:56:00 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 16:35:05 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ char		*ft_strdup(const char *s1)
 	i = 0;
 	if (!s1)
 	{
-		dprintf(1, "{%d}", 9);
-		return (ft_strdup("\0"));
+		return (NULL);
 	}
 	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:59:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/18 16:13:22 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 16:14:16 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ int		ft_switch_continue(t_option *option, va_list ap, char *str, int i)
 
 int		ft_switch(t_option *option, va_list ap, char *str, int i)
 {
-	if (option->converter == 'c' || option->converter == 's')
+	if (option->converter == 's')
 	{
 		ft_4_alpha(option, ap);
+		return (1);
+	}
+	else if (option->converter == 'c')
+	{
+		ft_4_c(option, ap);
 		return (1);
 	}
 	else if (option->converter == 'd' || option->converter == 'i')
