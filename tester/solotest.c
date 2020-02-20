@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/19 16:45:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/20 13:50:22 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1081,9 +1081,9 @@ int		main(void)
 	// printf("\033[0;35m\nTest pour (|%%c%%%%|)\033[0m\n\n");
 
 	// printf("012345678901234567890123456789\n");
-	i = printf("{%-50c%s}", 0, "Hello");
+	i = printf("%*s", 15, NULL);
 	puts("");
-	j = ft_printf("{%-50c%s}", 0, "Hello");
+	j = ft_printf("%*s", 15, NULL);
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
