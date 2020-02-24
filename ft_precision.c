@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:15 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/24 11:29:00 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void			ft_set_precision(t_option *option)
 	c = '0';
 	if (option->lentot && option->converter == 's')
 		c = ' ';
+	if (ft_atoi(option->buffer) == 0 && option->preci == 0 &&
+		(option->converter == 'd' || option->converter == 'i'))
+	{
+		free(option->buffer);
+		option->buffer = ft_strdup("");
+	}
 	if (option->preci > tmp)
 	{
 		tmp = option->preci - tmp;

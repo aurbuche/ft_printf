@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/19 11:19:28 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/24 17:00:57 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,27 @@
 void		ft_set_more(t_option *option)
 {
 	if (option->lentot && option->p)
+	{
+		dprintf(1, "{%d}", 9);
 		ft_set_preci_field(option, 0);
+	}
 	else if (option->h && option->p)
 	{
 		ft_set_hyphen_preci(option);
 	}
-	else
+	else if (option->p && option->z)
 	{
 		ft_set_zandp(option);
 	}
-	
+	else if (option->p && option->w)
+	{
+		ft_set_pandw(option);
+	}
+	else
+	{
+		// dprintf(1, "{%d}", 9);
+		ft_set_zandh(option);
+	}
 }
 
 void		ft_set_flag(t_option *option)
@@ -35,32 +46,31 @@ void		ft_set_flag(t_option *option)
 			option->lentot--;
 		ft_set_field(option);
 	}
-	else if ((option->w && !option->lentot)
-		|| (option->w && option->h) || (option->w && option->z)
-		|| (option->w && option->p))
+	else if ((option->wn && !option->lentot && !option->p && !option->z && !option->h)
+		|| (option->lentot == 0 && option->w))
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_width(option);
 	}
-	else if (((option->p == 1 && option->h == 0)
-		|| (option->preci > 0 && option->w == 1)) && !option->lentot
-		&& !option->hyphen && !option->zero)
+	else if (option->p == 1 && !option->h && !option->w && !option->z
+			&& !option->lentot)
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_precision(option);
 	}
 	else if (option->h == 1 && !option->w && !option->z && !option->p)
 	{
-		// dprintf(1, "{%d}", 9);
+		// dprintf(1, "{%d}", 7);
 		ft_set_hyphen(option);
 	}
 	else if (option->z == 1 && !option->p && !option->w && !option->h)
 	{
-		// dprintf(1, "{%d}", 9);
+		// dprintf(1, "{%d}", 6);
 		ft_set_zero(option);
 	}
 	else
 	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_more(option);
 	}
 }

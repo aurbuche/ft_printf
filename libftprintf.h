@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/19 16:24:54 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/24 14:17:31 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_option
 	int				f;
 	int				i;
 	size_t			j;
+	int				wn;
 }				t_option;
 
 /*
@@ -91,6 +92,8 @@ void			ft_set_preci_field(t_option *option, int i);
 void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);
+void			ft_set_pandw(t_option *option);
+void			ft_set_zandh(t_option *option);
 void			ft_set_zandp(t_option *option);
 void			ft_set_zero(t_option *option);
 void			ft_spe(t_option *option);

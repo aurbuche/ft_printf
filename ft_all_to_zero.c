@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:19:04 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/19 14:23:50 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/24 14:17:21 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ void	ft_all_to_zero(t_option *option)
 	option->f = 0;
 	option->i = 0;
 	option->no = 0;
+	option->wn = 0;
+	option->j = 0;
 }

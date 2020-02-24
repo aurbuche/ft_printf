@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_set_pandw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:47:51 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 10:26:38 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/02/24 12:59:14 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/24 14:01:21 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libftprintf.h"
 
-#include "libft.h"
-
-char		*ft_strdup(const char *s1)
+void			ft_set_pandw(t_option *option)
 {
-	char		*dst;
-	size_t		i;
-
-	i = 0;
-	if (!s1)
+	// dprintf(1, "{%zu}", option->width);
+	if ((option->converter == 'd' || option->converter == 'i')
+		&& !option->preci && option->p && !option->w)
 	{
-		return (NULL);
+		free(option->buffer);
+		option->buffer = ft_strdup("");
 	}
-	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	return (ft_strcpy(dst, s1));
+	if (option->width)
+	{
+		ft_set_width(option);
+	}
 }

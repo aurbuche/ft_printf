@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/18 13:46:08 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/24 15:15:46 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,21 @@ void		ft_4_di(t_option *option, va_list ap)
 		option->rprint = ft_strdup(option->buffer);
 	}
 	else if (i == 0 && option->p == 1 && !option->zero
-			&& !option->preci && !option->lentot && !option->hyphen)
+			&& !option->preci && !option->lentot && !option->hyphen
+			&& !option->width)
 	{
+		// dprintf(1, "{%d}", 9);
 		option->rprint = ft_strdup("");
 	}
 	else if (option->flag != 0)
+	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_flag(option);
+	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	if (option->neg && option->f == 0)
 		option->rprint = ft_strfjoin("-", option->rprint, 2);
 	ft_display(option);
 }
+

@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_set_zandh.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:47:51 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 10:26:38 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/02/24 10:05:32 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/24 10:14:58 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libftprintf.h"
 
-#include "libft.h"
-
-char		*ft_strdup(const char *s1)
+void			ft_set_zandh(t_option *option)
 {
-	char		*dst;
-	size_t		i;
-
-	i = 0;
-	if (!s1)
-	{
-		return (NULL);
-	}
-	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	return (ft_strcpy(dst, s1));
+	if (option->z && option->zero != 0)
+		ft_set_zero(option);
+	if (option->h && option->hyphen != 0)
+		ft_set_hyphen(option);
 }
