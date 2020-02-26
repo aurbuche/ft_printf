@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/24 14:17:31 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 15:46:55 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,10 @@ void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);
 void			ft_set_pandw(t_option *option);
+void			ft_set_pwz(t_option *option);
 void			ft_set_zandh(t_option *option);
 void			ft_set_zandp(t_option *option);
+void			ft_set_zandw(t_option *option);
 void			ft_set_zero(t_option *option);
 void			ft_spe(t_option *option);
 void			ft_zero(t_option *option, char *str, size_t i);

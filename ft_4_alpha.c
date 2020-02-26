@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 15:28:52 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 12:19:10 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,25 @@ void		ft_4_alpha(t_option *option, va_list ap)
 {
 	if (option->p == 1 && option->converter == 's'
 		&& option->preci == 0 && !option->w)
-	{
-		// dprintf(1, "{%d}", 9);
 		option->buffer = ft_strdup("");
-	}
 	else
-		option->buffer = ft_strdup(va_arg(ap, char *));
+	{
+		if (!(option->buffer = ft_strdup(va_arg(ap, char *))))
+			option->buffer = ft_strdup("(null)");
+	}
 	if (option->lentot > option->preci && option->preci != 0)
 		ft_spe(option);
-	else if (option->lentot < option->preci
-		&& option->lentot < ft_strlen(option->buffer) && !option->p && !option->h)
+	else if (option->lentot < option->preci && option->lentot
+		< ft_strlen(option->buffer) && !option->p && !option->h)
 		option->rprint = ft_strndup(option->buffer, option->preci);
 	else if (option->p == 1 && option->h == 0 && option->z == 0
 		&& option->w == 0 && option->lentot == 0 && option->buffer)
-	{
-		if (option->preci < ft_strlen(option->buffer))
-			option->rprint = ft_strndup(option->buffer, option->preci);
-		else
-			option->rprint = ft_strdup(option->buffer);
-	}
-	else if (option->flag && option->flag != '%' && option->buffer)
+		option->rprint = ft_strndup(option->buffer,
+			option->preci < ft_strlen(option->buffer) ?
+			option->preci : ft_strlen(option->buffer));
+	else if (option->flag && option->flag != '%')
 		ft_set_flag(option);
 	else
-	{
 		option->rprint = ft_strdup(option->buffer);
-	}
 	ft_display(option);
 }

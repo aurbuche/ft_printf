@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 10:19:40 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:05 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 12:55:46 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void			ft_set_hyphen(t_option *option)
 			i++;
 		}
 		option->rprint[i] = '\0';
+		if (option->no)
+			option->rprint[i - 1] = '\0';
 		option->rprint = ft_strfjoin(option->buffer, option->rprint, 2);
 	}
 }

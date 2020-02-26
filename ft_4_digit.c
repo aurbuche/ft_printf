@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 15:15:46 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 15:28:33 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,18 @@ void		ft_4_u(t_option *option, va_list ap)
 	i = va_arg(ap, unsigned int);
 	option->buffer = ft_itoa_base(i, base);
 	option->j = i;
-	if (i == 0 && option->p == 1 && option->preci == 0 && !option->zero
-		&& !option->lentot && !option->hyphen)
+	if (!option->j && option->p && !option->preci &&
+	!option->w && !option->z && !option->lentot && !option->h)
+		option->rprint = ft_strdup("");
+	else if (i == 0 && option->p == 1 && option->preci == 0 && !option->zero
+		&& !option->lentot && !option->hyphen && !option->width)
 	{
-		// dprintf(1, "{%d}", 9);
 		option->rprint = ft_strdup("");
 	}
 	else if (option->flag != 0)
+	{
 		ft_set_flag(option);
+	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	ft_display(option);
@@ -59,26 +63,18 @@ void		ft_4_di(t_option *option, va_list ap)
 		i = ft_4_digit2(option, i);
 	option->i = i;
 	if (option->p && option->preci == 0 && option->w < 0)
-	{
-		// dprintf(1, "{%d}", 9);
 		option->rprint = ft_strdup(option->buffer);
-	}
 	else if (i == 0 && option->p == 1 && !option->zero
 			&& !option->preci && !option->lentot && !option->hyphen
 			&& !option->width)
-	{
-		// dprintf(1, "{%d}", 9);
 		option->rprint = ft_strdup("");
-	}
 	else if (option->flag != 0)
 	{
-		// dprintf(1, "{%d}", 9);
 		ft_set_flag(option);
 	}
 	else
 		option->rprint = ft_strdup(option->buffer);
-	if (option->neg && option->f == 0)
+	if (option->neg && option->f == 0 && !option->w)
 		option->rprint = ft_strfjoin("-", option->rprint, 2);
 	ft_display(option);
 }
-

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:20:05 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 14:17:09 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 14:01:50 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,19 @@ void		ft_4_x(t_option *option, va_list ap)
 	option->j = va_arg(ap, long long);
 	i = option->j;
 	option->buffer = ft_itoa_base(i, base);
-	if (option->preci == 0 && i == 0 && option->p == 1
-		&& !option->lentot && !option->h && !option->zero)
+	if (!option->j && option->p && !option->preci &&
+	!option->w && !option->z && !option->lentot && !option->h)
 		option->rprint = ft_strdup("");
+	else if (option->preci == 0 && i == 0 && option->p == 1
+		&& !option->lentot && !option->h && !option->zero && !option->w)
+	{
+
+		option->rprint = ft_strdup("");
+	}
 	else if (option->flag != 0)
+	{
 		ft_set_flag(option);
+	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	ft_display(option);

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/24 14:23:47 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 15:13:17 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_option		*ft_init_struct(void)
 	option->h = 0;
 	option->z = 0;
 	option->neg = 0;
-	option->f = 0;
 	option->wn = 0;
 	option->j = 0;
+	option->f = 0;
 	return (option);
 }
 
@@ -81,7 +81,7 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 			i++;
 			option->percent = 1;
 		}
-		if (ft_find_flag(fmt, i, option, ap))
+		if (ft_find_flag(fmt, i, option, ap) && option->percent)
 		{
 			i = ft_loop2(option, fmt, i);
 		}

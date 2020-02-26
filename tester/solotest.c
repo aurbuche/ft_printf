@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/24 16:41:21 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/26 16:27:10 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,36 @@ void reset ()
 	printf("\033[0m");
 }
 
+	void	print_error (void)
+	{
+		dprintf(1, "\033[1;31m");
+		dprintf(1, "\n>============================================<\n\n");
+		dprintf(1, "                       KO                     \n\n");
+		dprintf(1, ">============================================<\n\n");
+		dprintf(1, "\033[0m");
+	}
+
+	void	print_ok (void)
+	{
+		dprintf(1, "\033[0;32m");
+		dprintf(1, "return : OK\n\n");
+		dprintf(1, "\033[0m");
+	}
+
+
 int		main(void)
 {
 	// ac = 1;
 	// puts(av[ac]);
 	int 	i;
 	int		j;
-	// int		k;
+	int		k;
 	// int		l;
 	// int		m;
 
 	// i = 0;
 	// j = 'a';
-	// k = 'A';
+	k = 'A';
 // 	blue();
 // 	puts("---Test pour un caractères---\n");
 // 	while (j <= 'z')
@@ -1078,30 +1095,14 @@ int		main(void)
 	// 	printf("\n");
 	// }
 
-	printf("\033[0;35m\nTest pour (|%%10.*d|,4210, 42)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%*.*d|, 5, 0, 0)\033[0m\n\n");
+
 
 	// printf("012345678901234567890123456789\n");
-	i = printf("|%10.*d|", 10, 42);
+	i = printf("|%*.%|", -15);
+	// i = 0;
 	puts("");
-	j = ft_printf("|%10.*d|", 10, 42);
-	puts("");
-	// printf("i:%d\nj:%d\n", i, j);
-	if (i == j)
-		puts("\n\033[0;32m TEST OK");
-	else
-	{
-		puts("\n\033[0;31mTEST FAILED");
-		printf("return printf :\t\t[%d]\n", i);
-		printf("return ft_printf :\t[%d]", j);
-		printf("\n");
-	}
-
-	printf("\033[0;35m\nTest pour (|%%.*d|, 10, 0)\033[0m\n\n");
-
-	// printf("012345678901234567890123456789\n");
-	i = printf("|%*.10d|", 10, 42);
-	puts("");
-	j = ft_printf("|%*.10d|", 10, 42);
+	j = ft_printf("|%*.%|", 10);
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
