@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_insert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 16:15:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 17:32:54 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/02/27 16:32:45 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/02/27 17:33:54 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_free(t_option *option, char *fmt, const char *format)
+char			*ft_insert(char *src, char *insered, size_t n, int len)
 {
-	free(option);
-	free(fmt);
+	char	*dest;
+
+	dest = ft_strndup(src, n);
+	dest = ft_strfjoin(dest, insered, 1);
+	dest = ft_strfjoin(dest, src + n + len, 1);
+	return (dest);
 }

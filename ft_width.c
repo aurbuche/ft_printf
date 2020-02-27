@@ -6,37 +6,43 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 13:35:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/26 16:15:44 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 15:49:33 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_set_width(t_option *option)
+void		ft_set_width(t_option *op)
 {
 	size_t	tmp;
 
-	tmp = ft_strlen(option->buffer);
-	if (option->neg)
-		option->buffer = ft_strfjoin("-", option->buffer, 2);
-	if (tmp > ft_strlen(option->width))
+	tmp = ft_strlen(op->buffer);
+	if (op->neg)
+		op->buffer = ft_strfjoin("-", op->buffer, 2);
+	if (tmp > ft_strlen(op->width))
 	{
-		option->rprint = ft_strdup(option->buffer);
+		op->rprint = ft_strdup(op->buffer);
 	}
-	else if ((option->p && option->wn == -1 && option->converter != 'p') ||
-		(option->neg && tmp == ft_strlen(option->width)))
-		option->rprint = ft_strdup(option->buffer);
+	else if ((op->p && op->wn == -1 && op->converter != 'p'
+		&& op->converter != '%' && op->z) || (op->neg &&
+		tmp == ft_strlen(op->width)))
+		op->rprint = ft_strdup(op->buffer);
 	else
 	{
-		tmp = ft_strlen(option->width) - tmp;
-		if (option->neg && !option->z)
+		tmp = ft_strlen(op->width) - tmp;
+		if (op->neg && !op->z)
 			tmp--;
-		option->rprint = ft_strndup(option->width, tmp);
-		if ((option->wn == -1) || (option->w == 1 && option->h == 1)
-			|| (option->h && !option->hyphen))
-			option->rprint = ft_strfjoin(option->buffer, option->rprint, 2);
+		op->rprint = ft_strndup(op->width, tmp);
+		if (op->buffer[0] == '0' && op->buffer[1] == '\0' && op->o)
+		{
+			free(op->buffer);
+			op->buffer = ft_strdup(" ");
+		}
+		if ((op->wn == -1) || (op->w == 1 && op->h == 1)
+			|| (op->h && !op->hyphen))
+			op->rprint = ft_strfjoin(op->buffer, op->rprint, 2);
 		else
-			option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
+			op->rprint = ft_strfjoin(op->rprint, op->buffer, 1);
 	}
 }
 
@@ -55,30 +61,41 @@ int			ft_len(int i)
 	return (len);
 }
 
-void		ft_width(t_option *option, va_list ap)
+void		ft_width_second(t_option *op, int *tmp)
+{
+	if (*tmp == 0)
+	{
+		*tmp = (int)ft_strlen(op->width);
+		op->o = 1;
+	}
+}
+
+void		ft_width(t_option *op, va_list ap)
 {
 	int		tmp;
 	int		i;
 	char	c;
 
 	tmp = va_arg(ap, int);
-	option->w = 1;
-	option->wn = 1;
+	if (op->width && tmp == 0 && op->converter != 'x' && op->converter != 'X')
+		ft_width_second(op, &tmp);
+	op->w = 1;
+	op->wn = 1;
 	if (tmp < 0)
 	{
-		option->wn = -1;
+		op->wn = -1;
 		tmp = -tmp;
 	}
 	i = 0;
-	c = ((option->z && option->w && option->wn == 1) || option->p) ? '0' : ' ';
-	option->width = malloc(sizeof(char) * (tmp + 1));
+	c = ((op->z && op->w && op->wn == 1) || (op->p && !op->o)) ? '0' : ' ';
+	op->width = malloc(sizeof(char) * (tmp + 1));
 	while (i < tmp)
 	{
-		option->width[i] = c;
+		op->width[i] = c;
 		i++;
 	}
-	option->width[i] = '\0';
-	option->w = tmp;
-	option->flag = '*';
-	option->nflag = 1;
+	op->width[i] = '\0';
+	op->w = tmp;
+	op->flag = '*';
+	op->nflag = 1;
 }

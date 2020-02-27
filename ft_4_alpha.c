@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/26 12:19:10 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 15:04:27 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void		ft_4_alpha(t_option *option, va_list ap)
 			option->preci < ft_strlen(option->buffer) ?
 			option->preci : ft_strlen(option->buffer));
 	else if (option->flag && option->flag != '%')
+	{
 		ft_set_flag(option);
+	}
 	else
 		option->rprint = ft_strdup(option->buffer);
 	ft_display(option);

@@ -6,20 +6,15 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 15:40:47 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/19 11:20:16 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 17:09:39 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int			ft_find_flag(char *str, size_t i, t_option *option, va_list ap)
+int			ft_find_flag(char *str, size_t i, t_option *option)
 {
-	if (str[i] == '*')
-	{
-		ft_width(option, ap);
-		return (1);
-	}
-	else if (str[i] == '-')
+	if (str[i] == '-')
 	{
 		ft_hyphen(option, str, i + 1);
 		return (1);

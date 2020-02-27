@@ -6,11 +6,24 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 11:29:00 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 15:59:01 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+void			ft_set_precinext(t_option *option, size_t tmp, size_t i, char c)
+{
+	tmp = option->preci - tmp;
+	option->rprint = malloc(sizeof(char) * (option->preci + 1));
+	while (i < tmp)
+	{
+		option->rprint[i] = c;
+		i++;
+	}
+	option->rprint[i] = '\0';
+	option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
+}
 
 void			ft_set_precision(t_option *option)
 {
@@ -30,17 +43,7 @@ void			ft_set_precision(t_option *option)
 		option->buffer = ft_strdup("");
 	}
 	if (option->preci > tmp)
-	{
-		tmp = option->preci - tmp;
-		option->rprint = malloc(sizeof(char) * (option->preci + 1));
-		while (i < tmp)
-		{
-			option->rprint[i] = c;
-			i++;
-		}
-		option->rprint[i] = '\0';
-		option->rprint = ft_strfjoin(option->rprint, option->buffer, 1);
-	}
+		ft_set_precinext(option, tmp, i, c);
 	else
 		option->rprint = ft_strdup(option->buffer);
 }

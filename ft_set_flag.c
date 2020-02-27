@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/26 16:13:59 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 16:02:36 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_set_more(t_option *op)
 {
-	if (op->lentot && op->p)
+	if (op->lentot && op->p && !op->w)
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_preci_field(op, 0);
@@ -23,20 +23,26 @@ void		ft_set_more(t_option *op)
 	{
 		ft_set_hyphen_preci(op);
 	}
-	else if (op->p && op->z)
+	else if (op->p && op->z && !op->w)
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_zandp(op);
 	}
-	else if (op->p && op->w)
+	else if (op->p && op->w && !op->z)
 	{
-		dprintf(1, "{%d}", 9);
+		// dprintf(1, "{%d}", 9);
 		ft_set_pandw(op);
 	}
 	else if (op->p && op->w && op->z)
+	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_pwz(op);
+	}
 	else if (op->z && !op->zero && op->w)
+	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_zandw(op);
+	}
 	else
 	{
 		// dprintf(1, "{%s}", op->buffer);
@@ -55,13 +61,13 @@ void		ft_set_flag(t_option *op)
 	}
 	else if ((op->wn && !op->lentot && !op->p && !op->z && !op->h)
 		|| (!op->lentot && op->w && !op->p && !op->z && !op->h)
-		|| (op->h && op->w) || (op->w && op->p && !op->preci))
+		|| (op->h && op->w))
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_width(op);
 	}
 	else if ((op->p == 1 && !op->h && !op->w && !op->z
-			&& !op->lentot) || (op->w && op->p))
+			&& !op->lentot))
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_precision(op);

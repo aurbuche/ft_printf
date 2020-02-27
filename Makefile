@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
-#    Updated: 2020/02/26 15:47:10 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/02/27 17:12:15 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
 						ft_else.c ft_zero.c ft_free_struct.c ft_all_to_zero.c ft_loop_plus.c\
 						ft_set_preci_field.c ft_field.c ft_hyphen_preci.c ft_display.c\
 						ft_set_zandp.c ft_4_c.c ft_set_zandh.c ft_set_pandw.c ft_set_pwz.c\
-						ft_set_zandw.c
+						ft_set_zandw.c ft_init_struct.c ft_change.c ft_insert.c
 
 SRCS_LIB		=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 						ft_memccpy.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c\

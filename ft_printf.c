@@ -6,41 +6,11 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/26 15:13:17 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 17:31:37 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-t_option		*ft_init_struct(void)
-{
-	t_option	*option;
-
-	if (!(option = malloc(sizeof(t_option))))
-		return (NULL);
-	option->rprint = NULL;
-	option->width = NULL;
-	option->preci = 0;
-	option->buffer = NULL;
-	option->lentot = 0;
-	option->hyphen = 0;
-	option->flag = 0;
-	option->nflag = 0;
-	option->percent = 1;
-	option->rvalue = 0;
-	option->nflag = 0;
-	option->npercent = 1;
-	option->no = 0;
-	option->w = 0;
-	option->p = 0;
-	option->h = 0;
-	option->z = 0;
-	option->neg = 0;
-	option->wn = 0;
-	option->j = 0;
-	option->f = 0;
-	return (option);
-}
 
 int				ft_check_error(const char *format, char **fmt)
 {
@@ -76,12 +46,13 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
+		ft_change(&fmt, i, ap);
 		if (fmt[i] == '%' && option->percent == 0)
 		{
 			i++;
 			option->percent = 1;
 		}
-		if (ft_find_flag(fmt, i, option, ap) && option->percent)
+		if (ft_find_flag(fmt, i, option) && option->percent)
 		{
 			i = ft_loop2(option, fmt, i);
 		}
@@ -116,13 +87,13 @@ int				ft_printf(const char *format, ...)
 	{
 		ft_putstr((char*)format);
 		va_end(ap);
-		ft_free_struct(option, &fmt);
+		ft_free_struct(option);
 		return (ft_strlen((char*)format));
 	}
 	i = ((char*)ft_memchr((char*)format, '%', ft_strlen(format)) - format);
 	ft_write_til_percent(fmt, i);
 	i += ft_loop((char*)format, i + 1, option, ap);
 	va_end(ap);
-	ft_free_struct(option, &fmt);
+	ft_free_struct(option);
 	return (i);
 }

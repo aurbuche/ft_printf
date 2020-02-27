@@ -6,23 +6,30 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 12:59:14 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/24 14:01:21 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/27 15:41:46 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void			ft_set_pandw(t_option *option)
+void			ft_set_pandw(t_option *op)
 {
-	// dprintf(1, "{%zu}", option->width);
-	if ((option->converter == 'd' || option->converter == 'i')
-		&& !option->preci && option->p && !option->w)
+	if ((op->converter == 'd' || op->converter == 'i')
+		&& !op->preci && op->p && !op->width)
 	{
-		free(option->buffer);
-		option->buffer = ft_strdup("");
+		free(op->buffer);
+		op->buffer = ft_strdup("");
 	}
-	if (option->width)
+	if (!op->preci && op->converter == 'd' && op->wn == -1)
 	{
-		ft_set_width(option);
+		op->rprint = ft_strdup(op->buffer);
 	}
+	else if (op->width && op->converter != 's' && !op->preci)
+	{
+		ft_set_width(op);
+	}
+	else if (op->width && op->converter != 's' && op->preci)
+		ft_set_precision(op);
+	else
+		op->rprint = ft_strdup(op->buffer);
 }
