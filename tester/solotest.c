@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/27 17:35:24 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/28 18:14:43 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1095,14 +1095,13 @@ int		main(void)
 	// 	printf("\n");
 	// }
 
-	printf("\033[0;35m\nTest pour (|%%0*%%, 12)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%.-10d|, 42)\033[0m\n\n");
 
-
-	// printf("012345678901234567890123456789\n");
-	i = printf("|%.*d|", -10, 42);
+	printf("012345678901234567890123456789\n");
+	i = printf("|%%*|");
 	// i = 0;
 	puts("");
-	j = ft_printf("|%.*d|", -10, 42);
+	j = ft_printf("|%%*|");
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
@@ -1115,14 +1114,32 @@ int		main(void)
 		printf("\n");
 	}
 
-	printf("\033[0;35m\nTest pour (|%%012%%)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%.-10d|, 42)\033[0m\n\n");
 
-
-	// printf("012345678901234567890123456789\n");
-	i = printf("|%012%|");
+	printf("012345678901234567890123456789\n");
+	i = printf("|%0.-5d|", 0);
 	// i = 0;
 	puts("");
-	j = ft_printf("|%012%|");
+	j = ft_printf("|%0.-5d|", 0);
+	puts("");
+	// printf("i:%d\nj:%d\n", i, j);
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+
+	printf("\033[0;35m\nTest pour (|%%-5.0d|, 0)\033[0m\n\n");
+
+
+	i = printf("|%*.*d|", -5, 0, 0);
+	// i = 0;
+	puts("");
+	j = ft_printf("|%*.*d|", -5, 0, 0);
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)

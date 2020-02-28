@@ -6,37 +6,37 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:20:05 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 10:03:24 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/28 14:20:20 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_x(t_option *option, va_list ap)
+void		ft_4_x(t_option *op, va_list ap)
 {
 	char	*base;
 	size_t	i;
 
 	base = "0123456789abcdef";
-	if (option->converter == 'X')
+	if (op->converter == 'X')
 		base = "0123456789ABCDEF";
-	option->j = va_arg(ap, long long);
-	i = option->j;
-	option->buffer = ft_itoa_base(i, base);
-	if (!option->j && option->p && !option->preci &&
-	!option->w && !option->z && !option->lentot && !option->h)
-		option->rprint = ft_strdup("");
-	else if (option->preci == 0 && i == 0 && option->p == 1
-		&& !option->lentot && !option->h && !option->zero && !option->w)
+	op->j = va_arg(ap, long long);
+	i = op->j;
+	op->buffer = ft_itoa_base(i, base);
+	if (!op->j && op->p && !op->preci &&
+	!op->w && !op->z && !op->lentot && !op->h)
+		op->rprint = ft_strdup("");
+	else if (op->preci == 0 && i == 0 && op->p == 1
+		&& !op->lentot && !op->h && !op->zero && !op->w)
 	{
 
-		option->rprint = ft_strdup("");
+		op->rprint = ft_strdup("");
 	}
-	else if (option->flag != 0)
+	else if (op->flag != 0)
 	{
-		ft_set_flag(option);
+		ft_set_flag(op);
 	}
 	else
-		option->rprint = ft_strdup(option->buffer);
-	ft_display(option);
+		op->rprint = ft_strdup(op->buffer);
+	ft_display(op);
 }

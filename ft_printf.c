@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/27 17:31:37 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/28 18:18:03 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,13 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 {
 	while (fmt[i])
 	{
-		ft_change(&fmt, i, ap);
 		if (fmt[i] == '%' && option->percent == 0)
 		{
 			i++;
 			option->percent = 1;
 		}
+		if (option->percent)
+			ft_change(option, &fmt, i, ap);
 		if (ft_find_flag(fmt, i, option) && option->percent)
 		{
 			i = ft_loop2(option, fmt, i);
@@ -60,7 +61,7 @@ int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
 		{
 			i = ft_size_field(option, fmt, i);
 		}
-		else if (ft_find_converter(fmt[i], option) && option->percent == 1)
+		else if (ft_find_converter(fmt[i], option) && option->percent)
 		{
 			i = ft_loop3(option, i, ap, fmt);
 		}

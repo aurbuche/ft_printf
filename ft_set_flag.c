@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 16:02:36 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/28 18:10:25 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,20 @@
 
 void		ft_set_more(t_option *op)
 {
-	if (op->lentot && op->p && !op->w)
+	if (op->lentot && op->p)
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_preci_field(op, 0);
 	}
 	else if (op->h && op->p)
 	{
+		// dprintf(1, "{%d}", 9);
 		ft_set_hyphen_preci(op);
 	}
-	else if (op->p && op->z && !op->w)
+	else if (op->p && op->z)
 	{
 		// dprintf(1, "{%d}", 9);
 		ft_set_zandp(op);
-	}
-	else if (op->p && op->w && !op->z)
-	{
-		// dprintf(1, "{%d}", 9);
-		ft_set_pandw(op);
-	}
-	else if (op->p && op->w && op->z)
-	{
-		// dprintf(1, "{%d}", 9);
-		ft_set_pwz(op);
-	}
-	else if (op->z && !op->zero && op->w)
-	{
-		// dprintf(1, "{%d}", 9);
-		ft_set_zandw(op);
 	}
 	else
 	{
@@ -52,35 +38,27 @@ void		ft_set_more(t_option *op)
 
 void		ft_set_flag(t_option *op)
 {
-	if ((op->lentot != 0 && !op->p && !op->h && !op->w)
-	|| (op->lentot && op->converter == 'p'))
+	if ((op->lentot && !op->p) || (op->lentot && op->p && !op->preci))
 	{
+		// dprintf(1, "{%d}", 9);
 		if (op->neg == 1)
 			op->lentot--;
 		ft_set_field(op);
 	}
-	else if ((op->wn && !op->lentot && !op->p && !op->z && !op->h)
-		|| (!op->lentot && op->w && !op->p && !op->z && !op->h)
-		|| (op->h && op->w))
+	else if (op->z && !op->p && !op->h)
 	{
 		// dprintf(1, "{%d}", 9);
-		ft_set_width(op);
+		ft_set_zero(op);
 	}
-	else if ((op->p == 1 && !op->h && !op->w && !op->z
-			&& !op->lentot))
-	{
-		// dprintf(1, "{%d}", 9);
-		ft_set_precision(op);
-	}
-	else if (op->h == 1 && !op->w && !op->z && !op->p)
+	else if (op->h && !op->z && !op->p)
 	{
 		// dprintf(1, "{%d}", 7);
 		ft_set_hyphen(op);
 	}
-	else if (op->z == 1 && !op->p && !op->w && !op->h)
+	else if ((op->p && !op->lentot && !op->h && !op->z))
 	{
-		// dprintf(1, "{%d}", 6);
-		ft_set_zero(op);
+		// dprintf(1, "{%d}", 9);
+		ft_set_precision(op);
 	}
 	else
 	{

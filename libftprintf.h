@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/27 17:31:49 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/02/28 17:07:12 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int				ft_len_nb(char *str, int i);
 int				ft_switch(t_option *option, va_list ap, char *str, int i);
 int				ft_verif_char(char c, char *str);
 void			ft_all_to_zero(t_option *option);
-void			ft_change(char **str, size_t i, va_list ap);
+void			ft_change(t_option *op, char **str, size_t i, va_list ap);
 void			ft_display(t_option *option);
 void			ft_free_struct(t_option *option);
 void			ft_hyphen(t_option *option, char *str, int i);
