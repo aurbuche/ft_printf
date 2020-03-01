@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_change.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:50:08 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 18:00:08 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:12:38 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			ft_change(t_option *op, char **str, size_t i, va_list ap)
 	tmp = 0;
 	while ((*str)[i] && !ft_is_converter((*str)[i]))
 	{
-		if ((*str)[i] == '*')
+		if ((*str)[i] == '*' && op->percent)
 		{
 			tmp = va_arg(ap, int);
 			if (tmp < 0 && (*str)[i - 1] == '.')

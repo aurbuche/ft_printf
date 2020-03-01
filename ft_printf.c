@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/28 18:18:03 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:10:26 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int				ft_check_error(const char *format, char **fmt)
 	return (1);
 }
 
-int				ft_find_converter(char c, t_option *option)
+int				ft_find_converter(char c, t_option *op)
 {
 	char	*converter;
 	int		i;
@@ -34,7 +34,7 @@ int				ft_find_converter(char c, t_option *option)
 	{
 		if (converter[i] == c)
 		{
-			option->converter = converter[i];
+			op->converter = converter[i];
 			return (1);
 		}
 		i++;
@@ -42,33 +42,35 @@ int				ft_find_converter(char c, t_option *option)
 	return (0);
 }
 
-int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap)
+int				ft_loop(char *fmt, size_t i, t_option *op, va_list ap)
 {
 	while (fmt[i])
 	{
-		if (fmt[i] == '%' && option->percent == 0)
+		if (fmt[i] == '%' && op->percent == 0)
 		{
 			i++;
-			option->percent = 1;
+			op->percent = 1;
 		}
-		if (option->percent)
-			ft_change(option, &fmt, i, ap);
-		if (ft_find_flag(fmt, i, option) && option->percent)
+		if (op->percent)
 		{
-			i = ft_loop2(option, fmt, i);
+			ft_change(op, &fmt, i, ap);
+		}
+		if (ft_find_flag(fmt, i, op) && op->percent)
+		{
+			i = ft_loop2(op, fmt, i);
 		}
 		else if (ft_isdigit(fmt[i]))
 		{
-			i = ft_size_field(option, fmt, i);
+			i = ft_size_field(op, fmt, i);
 		}
-		else if (ft_find_converter(fmt[i], option) && option->percent)
+		else if (ft_find_converter(fmt[i], op) && op->percent)
 		{
-			i = ft_loop3(option, i, ap, fmt);
+			i = ft_loop3(op, i, ap, fmt);
 		}
 		else
-			i = ft_loop4(option, fmt, i);
+			i = ft_loop4(op, fmt, i);
 	}
-	return (option->rvalue);
+	return (op->rvalue);
 }
 
 int				ft_printf(const char *format, ...)
@@ -76,11 +78,11 @@ int				ft_printf(const char *format, ...)
 	va_list		ap;
 	size_t		i;
 	char		*fmt;
-	t_option	*option;
+	t_option	*op;
 
 	va_start(ap, format);
 	i = 0;
-	if (!(option = ft_init_struct()))
+	if (!(op = ft_init_struct()))
 		return (0);
 	if (ft_check_error(format, &fmt) == 0)
 		return (0);
@@ -88,13 +90,13 @@ int				ft_printf(const char *format, ...)
 	{
 		ft_putstr((char*)format);
 		va_end(ap);
-		ft_free_struct(option);
+		ft_free_struct(op);
 		return (ft_strlen((char*)format));
 	}
 	i = ((char*)ft_memchr((char*)format, '%', ft_strlen(format)) - format);
 	ft_write_til_percent(fmt, i);
-	i += ft_loop((char*)format, i + 1, option, ap);
+	i += ft_loop((char*)format, i + 1, op, ap);
 	va_end(ap);
-	ft_free_struct(option);
+	ft_free_struct(op);
 	return (i);
 }

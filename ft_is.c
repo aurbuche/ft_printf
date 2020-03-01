@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 09:50:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:08 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:12:28 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			ft_is_converter(char c)
 {
 	char	*converter;
 
-	converter = "cspdiuxX";
+	converter = "cspdiuxX%";
 	while (*converter)
 	{
 		if (*converter == c)

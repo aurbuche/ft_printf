@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 15:10:04 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:40:13 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			ft_set_precision(t_option *op)
 	}
 	if (op->preci > tmp)
 		ft_set_precinext(op, tmp, i, c);
+	else if (op->preci == op->lentot && op->converter == 's')
+		op->rprint = ft_strndup(op->buffer, op->preci);
 	else
 		op->rprint = ft_strdup(op->buffer);
 }

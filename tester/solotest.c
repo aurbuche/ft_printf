@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solotest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/28 18:14:43 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:15:38 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1095,13 +1095,13 @@ int		main(void)
 	// 	printf("\n");
 	// }
 
-	printf("\033[0;35m\nTest pour (|%%.-10d|, 42)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%020.0%%|)\033[0m\n\n");
 
 	printf("012345678901234567890123456789\n");
-	i = printf("|%%*|");
+	i = printf("|%020.0%|");
 	// i = 0;
 	puts("");
-	j = ft_printf("|%%*|");
+	j = ft_printf("|%020.0%|");
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
@@ -1114,13 +1114,13 @@ int		main(void)
 		printf("\n");
 	}
 
-	printf("\033[0;35m\nTest pour (|%%.-10d|, 42)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%*|)\033[0m\n\n");
 
 	printf("012345678901234567890123456789\n");
-	i = printf("|%0.-5d|", 0);
+	i = printf("|%0*%|", 12);
 	// i = 0;
 	puts("");
-	j = ft_printf("|%0.-5d|", 0);
+	j = ft_printf("|%0*%|", 12);
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
@@ -1133,13 +1133,12 @@ int		main(void)
 		printf("\n");
 	}
 
-	printf("\033[0;35m\nTest pour (|%%-5.0d|, 0)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%*.*s|, 3, 3, astek)\033[0m\n\n");
 
-
-	i = printf("|%*.*d|", -5, 0, 0);
+	i = printf("|%*.*s|", 3, 3, "astek");
 	// i = 0;
 	puts("");
-	j = ft_printf("|%*.*d|", -5, 0, 0);
+	j = ft_printf("|%*.*s|", 3, 3, "astek");
 	puts("");
 	// printf("i:%d\nj:%d\n", i, j);
 	if (i == j)
@@ -1152,6 +1151,24 @@ int		main(void)
 		printf("\n");
 	}
 
+	printf("\033[0;35m\nTest pour (|%%3.3s|, astek)\033[0m\n\n");
+
+	i = printf("|%3.3s|", "astek");
+	// i = 0;
+	puts("");
+	j = ft_printf("|%3.3s|", "astek");
+	puts("");
+	// printf("i:%d\nj:%d\n", i, j);
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
+	
 	// printf("\033[0;35m\nTest pour (|%%*.*s|, 0, Hello)\033[0m\n\n");
 	// i = printf("|%*.*s|\n", 0, "Hello");
 	// j = ft_printf("|%*.*s|\n", 0, "Hello");

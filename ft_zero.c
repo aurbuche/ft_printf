@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:15:59 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 18:13:10 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:18:21 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_set_zero(t_option *op)
 	char		c;
 
 	i = 0;
-	c = (op->z && op->p) ? ' ' : '0';
+	c = (op->z && !op->zero && op->p) ? ' ' : '0';
 	tmp = ft_strlen(op->buffer);
 	if (op->neg)
 		tmp++;

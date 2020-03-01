@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_loop_plus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 11:05:43 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 18:22:27 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/01 21:12:53 by aurelienbuc      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
