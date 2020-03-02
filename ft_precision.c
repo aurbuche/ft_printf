@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/01 21:40:13 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 17:25:03 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,13 @@ void			ft_set_precision(t_option *op)
 
 void			ft_precision(t_option *op, char *str, size_t i)
 {
-	char		*buff;
-	int			j;
-
-	j = 0;
-	buff = malloc(sizeof(char) * ft_len_nb(str, i) + 1);
-	op->nflag = ft_len_nb(str, i) + 1;
-	while (48 <= str[i] && str[i] <= 57)
-	{
-		buff[j] = str[i];
-		i++;
-		j++;
-	}
-	buff[j] = '\0';
 	op->flag = '.';
-	op->preci = ft_atoi(buff);
+	// dprintf(1, "str in\t: %s\n", (str) + i);
+	op->nflag = ft_len_nb(str, i) + 1;
+	if (str[i] == '-')
+		op->is_a_negative_precision = 1;
+	i += op->is_a_negative_precision;
+	op->preci = ft_atoi(str + i);
+	// dprintf(1, "buff\t: %zu\n", op->preci);
 	op->p = 1;
-	free(buff);
 }

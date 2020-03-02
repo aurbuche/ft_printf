@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/01 21:10:26 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 18:19:07 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,56 @@ int				ft_find_converter(char c, t_option *op)
 
 int				ft_loop(char *fmt, size_t i, t_option *op, va_list ap)
 {
+	op->width = 0;
+	op->preci = -1;
 	while (fmt[i])
 	{
-		if (fmt[i] == '%' && op->percent == 0)
+		if (fmt[i] == '%')
 		{
-			i++;
-			op->percent = 1;
+			while (!ft_is_converter(fmt[i]))
+			{
+				if (ft_isdigit(fmt[i]) && op->preci == -1)
+					op->width = ft_atoi(fmt + i);
+				else if (ft_isdigit(fmt[i]))
+					op->preci = ft_atoi(fmt + i);
+				else if (fmt[i] == '.')
+					op->preci = 0;
+				i++;
+			}
+			dprintf(1, "preci\t: %zd\nwidth\t: %zd\n", op->preci, op->width);
 		}
-		if (op->percent)
-		{
-			ft_change(op, &fmt, i, ap);
-		}
-		if (ft_find_flag(fmt, i, op) && op->percent)
-		{
-			i = ft_loop2(op, fmt, i);
-		}
-		else if (ft_isdigit(fmt[i]))
-		{
-			i = ft_size_field(op, fmt, i);
-		}
-		else if (ft_find_converter(fmt[i], op) && op->percent)
-		{
-			i = ft_loop3(op, i, ap, fmt);
-		}
-		else
-			i = ft_loop4(op, fmt, i);
+		i++;
+		
 	}
+	(void)ap;
 	return (op->rvalue);
+		
+		// if (fmt[i] == '%' && op->percent == 0)
+		// {
+		// 	i++;
+		// 	op->percent = 1;
+		// }
+		// if (op->percent)
+		// {
+
+		// 	ft_change(op, &fmt, i, ap);
+		// }
+		// if (ft_find_flag(fmt, i, op) && op->percent)
+		// {
+		// 	i = ft_loop2(op, fmt, i);
+		// }
+		// else if (ft_isdigit(fmt[i]))
+		// {
+		// 	i = ft_size_field(op, fmt, i);
+		// }
+		// else if (ft_find_converter(fmt[i], op) && op->percent)
+		// {
+		// 	i = ft_loop3(op, i, ap, fmt);
+		// }
+		// else
+		// {
+		// 	i = ft_loop4(op, fmt, i);
+		// }
 }
 
 int				ft_printf(const char *format, ...)

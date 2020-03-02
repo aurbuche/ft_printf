@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 15:40:47 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 17:09:39 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 17:47:31 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int			ft_find_flag(char *str, size_t i, t_option *option)
 		ft_hyphen(option, str, i + 1);
 		return (1);
 	}
-	else if (str[i] == '.')
+	if (str[i] == '.')
 	{
 		ft_precision(option, str, i + 1);
 		return (1);
 	}
-	else if (str[i] == '0' && str[i - 1] == '%')
+	if (str[i] == '0')
 	{
 		ft_zero(option, str, i + 1);
 		return (1);

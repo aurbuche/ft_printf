@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 15:52:34 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 17:47:55 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void		ft_4_u(t_option *op, va_list ap)
 	i = va_arg(ap, unsigned int);
 	op->buffer = ft_itoa_base(i, base);
 	op->j = i;
-	if (!op->j && op->p && !op->preci &&
+	if (op->zero == 0 && i == 0 && op->preci > 0)
+		op->rprint = ft_strdup("0");
+	else if (!i && op->p && !op->preci &&
 	!op->w && !op->z && !op->lentot && !op->h)
 		op->rprint = ft_strdup("");
 	else if (i == 0 && op->p == 1 && op->preci == 0 && !op->zero

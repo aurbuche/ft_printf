@@ -6,13 +6,13 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:32:45 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 17:33:54 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 17:18:31 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char			*ft_insert(char *src, char *insered, size_t n, int len)
+char		*ft_insert(char *src, char *insered, size_t n, int len)
 {
 	char	*dest;
 

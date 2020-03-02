@@ -6,11 +6,11 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
-#    Updated: 2020/02/27 17:12:15 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/02 18:15:06 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS_PRINTF		=		ft_printf.c ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
+SRCS_PRINTF		=		ft_printf.c #ft_4_digit.c ft_4_x.c ft_4_alpha.c ft_4_p.c\
 						ft_4_percent.c ft_switch.c ft_write_til.c ft_find_flag.c\
 						ft_is.c ft_width.c ft_ctos.c ft_hyphen.c ft_set_flag.c ft_precision.c\
 						ft_else.c ft_zero.c ft_free_struct.c ft_all_to_zero.c ft_loop_plus.c\

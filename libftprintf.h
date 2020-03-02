@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/02/29 22:50:52 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 18:07:09 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,21 @@ typedef struct	s_option
 {
 	char			*buffer;
 	char			*rprint;
-	char			*width;
+	ssize_t			width;
+	ssize_t			preci;
 	char			converter;
 	char			flag;
 	size_t			nflag;
 	size_t			hyphen;
-	size_t			preci;
 	size_t			rvalue;
 	size_t			percent;
 	size_t			zero;
 	size_t			lentot;
 	size_t			npercent;
 	size_t			no;
+	ssize_t			accu;
+	char			is_a_negative_precision;
+	char			is_a_negative_width;
 	int				w;
 	int				h;
 	int				o;

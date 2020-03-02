@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 10:19:40 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/28 17:34:31 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 17:14:22 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,22 @@ void			ft_set_hyphen(t_option *op)
 int				ft_len_nb(char *str, int i)
 {
 	int		nb;
+	// int		tmp;
 
 	nb = 0;
+	// tmp = 0;
+	// if (str[i] == '-')
+	// {
+	// 	tmp = 1;
+	// 	i++;
+	// }
 	while (ft_isdigit(str[i]))
 	{
 		nb++;
 		i++;
 	}
+	// if (tmp)
+	// 	nb++;
 	return (nb);
 }
 

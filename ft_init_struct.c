@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:28:09 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/01 15:52:40 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/02 10:31:45 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			ft_continue(t_option *option)
 	option->neg = 0;
 	option->wn = 1;
 	option->j = 0;
-	option->i  = 0;
+	option->i = 0;
 	option->f = 0;
 	option->o = 0;
 	option->zero = 0;
@@ -40,7 +40,6 @@ t_option		*ft_init_struct(void)
 	option->percent = 1;
 	option->rvalue = 0;
 	option->nflag = 0;
-	option->npercent = 1;
 	option->no = 0;
 	option->w = 0;
 	option->p = 0;
