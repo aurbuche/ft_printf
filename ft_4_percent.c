@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_4_percent.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 09:07:13 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/01 21:24:05 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 14:25:24 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_percent(t_option *op, char *str, int i)
+void		ft_4_percent(t_option *op)
 {
-	op->buffer = ft_ctos(str[i]);
 	if (op->h && op->hyphen && !op->z)
 		ft_set_hyphen(op);
 	else if (op->lentot)

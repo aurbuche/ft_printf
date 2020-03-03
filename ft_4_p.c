@@ -6,27 +6,23 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 13:42:22 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/02 17:46:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 14:27:57 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_p(t_option *option, va_list ap)
+void		ft_4_p(t_option *op, va_list ap)
 {
 	char			*base;
 	unsigned long	tmp;
 
 	tmp = va_arg(ap, long long);
 	base = "0123456789abcdef";
-	option->buffer = ft_itoa_p_base(tmp, base);
-	if (option->p && tmp == 0)
-		option->buffer = ft_strdup("0x");
+	op->buffer = ft_itoa_p_base(tmp, base);
+	if (op->preci || op->width)
+		ft_set_flag(op);
 	else
-		option->buffer = ft_strfjoin("0x", option->buffer, 2);
-	if (option->flag != 0)
-		ft_set_flag(option);
-	else
-		option->rprint = ft_strdup(option->buffer);
-	ft_display(option);
+		op->rprint = ft_strdup(op->buffer);
+	ft_display(op);
 }

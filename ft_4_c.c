@@ -6,43 +6,28 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:00:04 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/26 12:39:44 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 14:28:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_c(t_option *option, va_list ap)
+void		ft_4_c(t_option *op, va_list ap)
 {
 	char	c;
 
 	c = va_arg(ap, int);
-	if (!c)
-		option->no = 1;
-	option->buffer = ft_ctos(c);
-	if (option->lentot > option->preci && option->preci != 0)
-		ft_spe(option);
-	else if (option->lentot < option->preci && option->lentot
-		< ft_strlen(option->buffer) && !option->p && !option->h)
-		option->rprint = ft_strndup(option->buffer, option->preci);
-	else if (option->p == 1 && option->h == 0 && option->z == 0
-		&& option->w == 0 && option->lentot == 0 && option->buffer)
+	op->buffer = ft_ctos(c);
+	if (op->preci || op->width)
 	{
-		if (option->preci < ft_strlen(option->buffer))
-			option->rprint = ft_strndup(option->buffer, option->preci);
+		ft_set_flag(op);
+	}
+	else if (op->buffer)
+	{
+		if (op->buffer != NULL)
+			op->rprint = ft_strdup(op->buffer);
 		else
-			option->rprint = ft_strdup(option->buffer);
+			op->rprint = ft_strdup("\0");
 	}
-	else if (option->flag && option->converter != '%' && option->buffer)
-	{
-		ft_set_flag(option);
-	}
-	else if (option->buffer)
-	{
-		if (option->buffer != NULL)
-			option->rprint = ft_strdup(option->buffer);
-		else
-			option->rprint = ft_strdup("\0");
-	}
-	ft_display(option);
+	ft_display(op);
 }

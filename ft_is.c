@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
+/*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 09:50:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/01 21:12:28 by aurelienbuc      ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 09:14:40 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

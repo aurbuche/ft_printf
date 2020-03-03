@@ -6,54 +6,24 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/02 18:14:58 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 15:50:34 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_spe(t_option *option)
+void		ft_4_alpha(t_option *op, va_list ap)
 {
-	char		*s1;
-	size_t		i;
-
-	i = 0;
-	s1 = malloc(sizeof(char) * (option->lentot + 1));
-	option->rprint = ft_strndup(option->buffer, option->preci);
-	while (i < (option->lentot - option->preci))
+	op->buffer = ft_strdup(va_arg(ap, char*));
+	if (op->buffer == NULL)
+		op->rprint = NULL;
+	else if (op->buffer[0] == '\0')
+		op->rprint = ft_strdup("");
+	else if (op->preci != -1 || op->width)
 	{
-		s1[i] = ' ';
-		i++;
-	}
-	s1[i] = '\0';
-	option->rprint = ft_strfjoin(s1, option->rprint, 3);
-}
-
-void		ft_4_alpha(t_option *option, va_list ap)
-{
-	if (option->p == 1 && option->converter == 's'
-		&& option->preci == 0 && !option->h)
-		option->buffer = ft_strdup("");
-	else
-	{
-		if (!(option->buffer = ft_strdup(va_arg(ap, char *))))
-			option->buffer = ft_strdup("(null)");
-	}
-	if (option->lentot > option->preci && option->preci != 0)
-		ft_spe(option);
-	else if (option->lentot < option->preci && option->lentot
-		< ft_strlen(option->buffer) && !option->p && !option->h)
-		option->rprint = ft_strndup(option->buffer, option->preci);
-	else if (option->p == 1 && option->h == 0 && option->z == 0
-		&& option->w == 0 && option->lentot == 0 && option->buffer)
-		option->rprint = ft_strndup(option->buffer,
-			option->preci < ft_strlen(option->buffer) ?
-			option->preci : ft_strlen(option->buffer));
-	else if (option->flag && option->flag != '%')
-	{
-		ft_set_flag(option);
+		ft_set_flag(op);
 	}
 	else
-		option->rprint = ft_strdup(option->buffer);
-	ft_display(option);
+		op->rprint = ft_strdup(op->buffer);
+	ft_display(op);
 }

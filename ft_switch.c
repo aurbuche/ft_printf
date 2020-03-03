@@ -6,54 +6,28 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:59:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/19 16:14:16 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 18:22:22 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_switch_continue(t_option *option, va_list ap, char *str, int i)
+void	ft_switch(t_option *op, va_list ap)
 {
-	if (option->converter == '%')
-	{
-		ft_4_percent(option, str, i);
-		return (1);
-	}
-	else if (option->converter == 'u')
-	{
-		ft_4_u(option, ap);
-		return (1);
-	}
-	return (0);
-}
-
-int		ft_switch(t_option *option, va_list ap, char *str, int i)
-{
-	if (option->converter == 's')
-	{
-		ft_4_alpha(option, ap);
-		return (1);
-	}
-	else if (option->converter == 'c')
-	{
-		ft_4_c(option, ap);
-		return (1);
-	}
-	else if (option->converter == 'd' || option->converter == 'i')
-	{
-		ft_4_di(option, ap);
-		return (1);
-	}
-	else if (option->converter == 'p')
-	{
-		ft_4_p(option, ap);
-		return (1);
-	}
-	else if (option->converter == 'x' || option->converter == 'X')
-	{
-		ft_4_x(option, ap);
-		return (1);
-	}
-	else
-		return (ft_switch_continue(option, ap, str, i));
+	if (op->preci != -1 || op->width != -1)
+		op->flag = 1;
+	if (op->converter == 's')
+		ft_4_alpha(op, ap);
+	else if (op->converter == 'c')
+		ft_4_c(op, ap);
+	if (op->converter == 'd' || op->converter == 'i')
+		ft_4_di(op, ap);
+	else if (op->converter == 'p')
+		ft_4_p(op, ap);
+	else if (op->converter == 'x' || op->converter == 'X')
+		ft_4_x(op, ap);
+	// else if (op->converter == '%')
+	// 	ft_4_percent(op, str, i);
+	else if (op->converter == 'u')
+		ft_4_u(op, ap);
 }

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:54:18 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/03/02 16:20:20 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/03 18:25:04 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1095,35 +1095,33 @@ int		main(void)
 	// 	printf("\n");
 	// }
 
-	i = 0;
-	j = 0;
-	ft_printf("|%0.*u| *u|%*d|", -45, 0, 5, 87);
-	puts("");
-	printf("|%0.*u| *u|%*d|", -45, 0, 5, 87);
-	puts("");
+	// i = 0;
+	// j = 0;
+	// ft_printf("|%*d|", -45, 23);
+	// puts("");
+	// printf("|%*d|", -45, 23);
+	// puts("");
 
 // /**********************************************************************************************/
 
-	// printf("\033[0;35m\nTest pour (|%%020.0%%|)\033[0m\n\n");
+	printf("\033[0;35m\nTest pour (|%%020.0%%|)\033[0m\n\n");
 
 	// printf("012345678901234567890123456789\n");
-	// i = printf("V *.0x[%*.0x] / *.0X[%*.0X] / 0.*x[%0.*x] / 0.*X[%0.*X]\n",
-	// 		-45, 10, -45, 10, -45, 10, -45, 10);
-	// // i = 0;
-	// puts("");
-	// j = ft_printf("F *.0x[%*.0x] / *.0X[%*.0X] / 0.*x[%0.*x] / 0.*X[%0.*X]\n",
-	// 		-45, 10, -45, 10, -45, 10, -45, 10);
-	// puts("");
-	// // printf("i:%d\nj:%d\n", i, j);
-	// if (i == j)
-	// 	puts("\n\033[0;32m TEST OK");
-	// else
-	// {
-	// 	puts("\n\033[0;31mTEST FAILED");
-	// 	printf("return printf :\t\t[%d]\n", i);
-	// 	printf("return ft_printf :\t[%d]", j);
-	// 	printf("\n");
-	// }
+	i = printf("|%2.1d|", -1);
+	// i = 0;
+	puts("");
+	j = ft_printf("|%2.1d|", -1);
+	puts("");
+	// printf("i:%d\nj:%d\n", i, j);
+	if (i == j)
+		puts("\n\033[0;32m TEST OK");
+	else
+	{
+		puts("\n\033[0;31mTEST FAILED");
+		printf("return printf :\t\t[%d]\n", i);
+		printf("return ft_printf :\t[%d]", j);
+		printf("\n");
+	}
 
 	// printf("\033[0;35m\nTest pour (|%%*|)\033[0m\n\n");
 
