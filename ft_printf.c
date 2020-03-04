@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/03 18:23:31 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 16:13:26 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,18 @@ int				ft_find_converter(char c, t_option *op)
 	return (0);
 }
 
-int		ft_pf_atoi(const char *str, size_t *i)
+int		ft_pf_atoi(t_option *op, const char *str, size_t *i, char option)
 {
 	int nb;
 	int s;
 
 	nb = 0;
 	s = 1;
+	if (option && str[*i] == '0' && str[*i - 1] != '-')
+	{
+		op->zero = 1;
+		(*i)++;
+	}
 	while (str[*i] == '\t' || str[*i] == '\n' || str[*i] == '\r' || str[*i] == '\v'
 	|| str[*i] == '\f' || str[*i] == ' ')
 		i++;
@@ -108,9 +113,9 @@ int			ft_core_printf(char *fmt, size_t i, t_option *op, va_list ap)
 			while (!ft_is_converter(fmt[i]))
 			{
 				if (ft_isdigit(fmt[i]) && op->preci == -1)
-					op->width = ft_pf_atoi(fmt, &i);
+					op->width = ft_pf_atoi(op, fmt, &i, 1);
 				else if (ft_isdigit(fmt[i]))
-					op->preci = ft_pf_atoi(fmt, &i);
+					op->preci = ft_pf_atoi(op, fmt, &i, 0);
 				else if (fmt[i] == '.')
 					op->preci = 0;
 				else if (fmt[i] == '-' && fmt[i - 1] == '.')

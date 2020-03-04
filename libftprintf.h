@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/03 18:22:54 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 16:26:05 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct	s_option
 	char			hyphen;
 	size_t			size;
 	size_t			percent;
-	size_t			zero;
+	int				zero;
 	ssize_t			accu;
 	char			is_a_negative_precision;
 	char			is_a_negative_width;
@@ -79,12 +79,12 @@ void			ft_4_c(t_option *option, va_list ap);
 void			ft_4_di(t_option *option, va_list ap);
 void			ft_4_x(t_option *option, va_list ap);
 void			ft_4_p(t_option *option, va_list ap);
-void			ft_4_percent(t_option *option, char *str, int i);
+void			ft_4_percent(t_option *option);
 void			ft_4_u(t_option *option, va_list ap);
 void			ft_width(t_option *option, va_list ap);
 void			ft_set_flag(t_option *option);
 void			ft_set_precision(t_option *option);
-void			ft_set_preci_field(t_option *option, int i);
+void			ft_set_preci_field(t_option *option);
 void			ft_set_width(t_option *option);
 void			ft_set_hyphen(t_option *option);
 void			ft_set_field(t_option *option);

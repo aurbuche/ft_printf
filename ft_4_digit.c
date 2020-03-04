@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/03 18:23:47 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 17:03:41 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,80 @@ void		ft_4_u(t_option *op, va_list ap)
 
 	base = "0123456789";
 	i = va_arg(ap, unsigned int);
-	op->buffer = ft_itoa_base(i, base);
-	if (op->preci || op->width)
+	if (i == 0 && op->preci == 0)
+	{
+		op->buffer = ft_strdup("");
+	}
+	else
+	{
+		op->buffer = ft_itoa_base(i, base);
+	}
+	if (op->preci == 0 && op->width == 0)
+		op->rprint = ft_strdup(op->buffer);
+	else if ((op->preci != -1 || op->width != -1))
 	{
 		ft_set_flag(op);
 	}
 	else
+	{
 		op->rprint = ft_strdup(op->buffer);
+	}
 	ft_display(op);
 }
 
-void		ft_4_di(t_option *op, va_list ap)
+void		ft_di2(t_option *op, va_list ap)
 {
 	int		i;
 
 	i = va_arg(ap, int);
-	if (i < 0 && op->preci > 0)
+	if (i < 0 && i != -2147483648 && (op->preci > 0 || op->zero))
 	{
 		i = -i;
 		op->neg = 1;
+		op->buffer = ft_itoa(i);
 	}
-	op->buffer = ft_itoa(i);
-	if (i == -2147483648)
+	else if (i == -2147483648 && op->preci > 0)
 	{
-		free(op->buffer);
 		op->buffer = ft_strdup("2147483648");
 		op->neg = 1;
 	}
-	if (op->flag)
+	else if (i == 0 && ((op->width > 0 && !op->is_a_negative_width) || (op->preci == 0)) && !op->zero)
+	{
+		if (op->width > 0 && !op->is_a_negative_width && op->preci != 0)
+			op->buffer = ft_strdup("0");
+		else if (op->preci == 0 && i == 0)
+		{
+			op->buffer = ft_strdup("");
+		}
+	}
+	else
+	{
+		op->buffer = ft_itoa(i);
+	}
+}
+
+void		ft_4_di(t_option *op, va_list ap)
+{
+	ft_di2(op, ap);
+	if (op->width < 0 && op->width != -1)
+	{
+		op->is_a_negative_width = 1;
+		op->width = -op->width;
+		op->zero = 0;
+	}
+	if (op->preci == 0 && (op->width == 0 || op->width == -1))
+	{
+		if (ft_atoi(op->buffer) == 0)
+			op->rprint = ft_strdup("");
+		else
+			op->rprint = ft_strdup(op->buffer);
+	}
+	else if (op->preci != -1 || op->width != -1)
 	{
 		ft_set_flag(op);
 	}
 	else
 	{
-		dprintf(1, "{%d}", 9);
 		op->rprint = ft_strdup(op->buffer);
 	}
 	if (op->neg)

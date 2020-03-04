@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 11:35:31 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/03 18:25:38 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 14:23:04 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_set_continue(t_option *op, size_t tmp, size_t i)
 {
 	char	c;
 
-	c = ' ';
+	c = op->zero ? '0' : ' ';
 	tmp = op->width - tmp;
 	op->rprint = malloc(sizeof(char) * (op->width + 1));
 	while (i < tmp)
