@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 17:03:41 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 15:19:48 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		ft_di2(t_option *op, va_list ap)
 		op->buffer = ft_strdup("2147483648");
 		op->neg = 1;
 	}
-	else if (i == 0 && ((op->width > 0 && !op->is_a_negative_width) || (op->preci == 0)) && !op->zero)
+	else if (i == 0 && ((op->width > 0 && !op->is_a_negative_width) || (op->preci == 0)))
 	{
 		if (op->width > 0 && !op->is_a_negative_width && op->preci != 0)
 			op->buffer = ft_strdup("0");

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:39:48 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 16:55:53 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 17:01:41 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 void		ft_set_preci_field(t_option *op)
 {
-	if (op->preci != -1 && op->converter == 's')
+	if (op->zero && op->preci >= 0)
+		op->zero = 0;
+	if (op->preci != -1 && op->converter == 's' && op->width == -1)
 	{
 		op->rprint = ft_strndup(op->buffer, op->preci);
 	}
 	else
 	{
 		ft_set_precision(op);
+	}
+	if (op->neg)
+	{
+		op->rprint = ft_strfjoin("-", op->rprint, 2);
+		op->neg = 0;
 	}
 	if (op->width)
 	{

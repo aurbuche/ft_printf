@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/04 16:26:05 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 13:48:23 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ typedef struct	s_option
 	char			converter;
 	int				flag;
 	int				neg;
-	char			hyphen;
 	size_t			size;
 	size_t			percent;
 	int				zero;
-	ssize_t			accu;
-	char			is_a_negative_precision;
-	char			is_a_negative_width;
+	int				is_a_negative_precision;
+	int				is_a_negative_width;
 }				t_option;
 
 

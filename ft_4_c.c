@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:00:04 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 16:37:09 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 17:57:51 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void		ft_4_c(t_option *op, va_list ap)
 {
 	char	c;
 
+	if (op->zero && op->is_a_negative_width)
+		op->zero = 0;
 	if (op->converter == 'c')
 		c = va_arg(ap, int);
 	else

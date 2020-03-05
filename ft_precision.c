@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/03 12:37:52 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 12:19:18 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ void			ft_set_precision(t_option *op)
 	i = 0;
 	tmp = ft_strlen(op->buffer);
 	c = '0';
-	if (op->preci > (ssize_t)tmp && op->converter != 's' && !op->hyphen)
+	if (op->preci > (ssize_t)tmp && op->converter != 's')
 		ft_set_precinext(op, tmp, i, c);
-	else if (op->preci < (ssize_t)tmp && op->converter == 's' && !op->hyphen)
+	else if (op->preci < (ssize_t)tmp && op->converter == 's' && !op->is_a_negative_precision)
+	{
 		op->rprint = ft_strndup(op->buffer, op->preci);
+	}
 	else
+	{
 		op->rprint = ft_strdup(op->buffer);
+	}
 }
 

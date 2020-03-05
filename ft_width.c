@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 13:35:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/02 17:24:07 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 13:49:21 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		ft_set_width(t_option *op)
 			op->buffer = ft_strdup(" ");
 		}
 		if ((op->wn == -1) || (op->w == 1 && op->h == 1)
-			|| (op->h && !op->hyphen))
+			|| (op->h))
 			op->rprint = ft_strfjoin(op->buffer, op->rprint, 2);
 		else
 			op->rprint = ft_strfjoin(op->rprint, op->buffer, 1);

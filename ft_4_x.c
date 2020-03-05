@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:20:05 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 17:33:22 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 09:31:41 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void		ft_4_x(t_option *op, va_list ap)
 	}
 	else if (op->preci != -1 || op->width != -1)
 	{
+		if (i == 0 && op->preci == 0)
+		{
+			free(op->buffer);
+			op->buffer = ft_strdup("");
+		}
 		ft_set_flag(op);
 	}
 	else

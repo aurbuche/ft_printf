@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/04 16:13:26 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 17:49:08 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int			ft_core_printf(char *fmt, size_t i, t_option *op, va_list ap)
 		if (fmt[i] == '%')
 		{
 			i++;
+			op->percent = 1;
 			ft_change(op, &fmt, i, ap);
 			while (!ft_is_converter(fmt[i]))
 			{
@@ -125,13 +126,8 @@ int			ft_core_printf(char *fmt, size_t i, t_option *op, va_list ap)
 				i++;
 			}
 			op->converter = fmt[i];
-			// dprintf(1, "preci\t: %zd\nwidth\t: %zd\nhyphen\t: %d\nconverter\t: %c\n", op->preci, op->width, op->hyphen, op->converter);
 			ft_switch(op, ap);
-			op->flag = 0;
-			op->preci = -1;
-			op->width = 0;
-			op->hyphen = 0;
-			op->converter = 0;
+			ft_all_to_zero(op);
 		}
 		else
 		{
