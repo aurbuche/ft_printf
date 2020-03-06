@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/05 13:48:23 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 16:38:31 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ typedef struct	s_option
 	ssize_t			width;
 	ssize_t			preci;
 	char			converter;
-	int				flag;
 	int				neg;
 	size_t			size;
 	size_t			percent;
 	int				zero;
 	int				is_a_negative_precision;
 	int				is_a_negative_width;
-}				t_option;
+}				t_op;
 
 
 
@@ -49,59 +48,36 @@ typedef struct	s_option
 ** -------------------------- Function Definiton ----------------------------
 */
 
-t_option		*ft_init_struct(void);
-int				ft_core_printf(char *fmt, size_t i, t_option *op, va_list ap);
-char			*ft_insert(char *src, char *insered, size_t n, int len);
+t_op			*ft_init_struct(void);
+int				ft_check_error(const char *format, char **fmt);
+int				ft_core_printf(char *fmt, size_t i, t_op *op, va_list ap);
 int				ft_printf(const char *format, ...);
-int				ft_4_digit2(t_option *option, int i);
-int				ft_loop(char *fmt, size_t i, t_option *option, va_list ap);
-int				ft_find_converter(char c, t_option *option);
-int				ft_find_flag(char *str, size_t n, t_option *option);
+int				ft_4_digit2(t_op *option, int i);
+int				ft_loop(char *fmt, size_t i, t_op *option, va_list ap);
 int				ft_is_converter(char c);
-int				ft_is_flag(char fmt);
-int				ft_len_nb(char *str, int i);
-void			ft_switch(t_option *option, va_list ap);
-int				ft_verif_char(char c, char *str);
-void			ft_all_to_zero(t_option *option);
-void			ft_change(t_option *op, char **str, size_t i, va_list ap);
-void			ft_display(t_option *option);
-void			ft_free_struct(t_option *option);
-void			ft_hyphen(t_option *option, char *str, int i);
-void			ft_precision(t_option *option, char *str, size_t i);
-void			ft_set_hyphen_preci(t_option *option);
-void			ft_write_til_end(char *fmt, size_t i);
+int				ft_find_flag(char *str, size_t n, t_op *option);
+int				ft_find_converter(char c, t_op *op);
+void			ft_switch(t_op *option, va_list ap);
+void			ft_4_alpha(t_op *option, va_list ap);
+void			ft_4_c(t_op *option, va_list ap);
+void			ft_4_di(t_op *option, va_list ap);
+void			ft_4_x(t_op *option, va_list ap);
+void			ft_4_p(t_op *option, va_list ap);
+void			ft_4_percent(t_op *option);
+void			ft_4_u(t_op *option, va_list ap);
+void			ft_all_to_zero(t_op *option);
+void			ft_change(t_op *op, char **str, size_t i, va_list ap);
+void			ft_display(t_op *option);
+void			ft_free_struct(t_op *op, char *str);
+void			ft_insert_stars(char **fmt, size_t i, t_op *op, va_list ap);
+void			ft_set_flag(t_op *option);
+void			ft_set_precision(t_op *option);
+void			ft_set_preci_field(t_op *option);
+void			ft_set_field(t_op *option);
+void			ft_all_to_zero(t_op *option);
 void			ft_write_til_percent(char *fmt, size_t i);
-void			ft_write_til_percent2(char *fmt, size_t i, size_t j);
-void			ft_4_alpha(t_option *option, va_list ap);
-void			ft_4_c(t_option *option, va_list ap);
-void			ft_4_di(t_option *option, va_list ap);
-void			ft_4_x(t_option *option, va_list ap);
-void			ft_4_p(t_option *option, va_list ap);
-void			ft_4_percent(t_option *option);
-void			ft_4_u(t_option *option, va_list ap);
-void			ft_width(t_option *option, va_list ap);
-void			ft_set_flag(t_option *option);
-void			ft_set_precision(t_option *option);
-void			ft_set_preci_field(t_option *option);
-void			ft_set_width(t_option *option);
-void			ft_set_hyphen(t_option *option);
-void			ft_set_field(t_option *option);
-void			ft_set_pandw(t_option *option);
-void			ft_set_pwz(t_option *option);
-void			ft_set_zandh(t_option *option);
-void			ft_set_zandp(t_option *option);
-void			ft_set_zandw(t_option *option);
-void			ft_set_zero(t_option *option);
-void			ft_spe(t_option *option);
-void			ft_zero(t_option *option, char *str, size_t i);
 char			*ft_ctos(char c);
-char			*ft_create_str(char c);
-void			ft_insert_stars(char **fmt, size_t i, t_option *op, va_list ap);
-size_t			ft_else(t_option *option, size_t i);
-size_t			ft_size_field(t_option *option, char *str, size_t i);
-size_t			ft_loop2(t_option *option, char *str, size_t i);
-size_t			ft_loop3(t_option *option, size_t i, va_list ap, char *str);
-size_t			ft_loop4(t_option *option, char *fmt, size_t i);
-t_option		*ft_init_struct(void);
+char			*ft_insert(char *src, char *insered, size_t n, int len);
+size_t			ft_size_field(t_op *option, char *str, size_t i);
 
 #endif

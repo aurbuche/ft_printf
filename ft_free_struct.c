@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/22 14:15:20 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 17:31:17 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/03/06 16:36:19 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/03/06 16:57:53 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_free_struct(t_option *option)
+void		ft_free_struct(t_op *op, char *str)
 {
-	if (option->width)
-		free(option->width);
-	free(option);
+	free(str);
+	free(op);
 }

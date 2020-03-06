@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:32:45 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/02 17:18:31 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 16:58:07 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ char		*ft_insert(char *src, char *insered, size_t n, int len)
 	dest = ft_strndup(src, n);
 	dest = ft_strfjoin(dest, insered, 1);
 	dest = ft_strfjoin(dest, src + n + len, 1);
+	free(src);
 	return (dest);
 }

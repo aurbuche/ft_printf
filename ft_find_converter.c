@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_find_converter.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 16:15:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/27 17:32:54 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/03/06 14:14:53 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_free(t_option *option, char *fmt, const char *format)
+int				ft_find_converter(char c, t_op *op)
 {
-	free(option);
-	free(fmt);
+	char	*converter;
+	int		i;
+
+	converter = "cspdiuxX%";
+	i = 0;
+	while (converter[i])
+	{
+		if (converter[i] == c)
+		{
+			op->converter = converter[i];
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }

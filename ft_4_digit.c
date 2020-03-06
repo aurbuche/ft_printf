@@ -6,13 +6,13 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/05 15:19:48 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_u(t_option *op, va_list ap)
+void		ft_4_u(t_op *op, va_list ap)
 {
 	char	*base;
 	size_t	i;
@@ -20,27 +20,19 @@ void		ft_4_u(t_option *op, va_list ap)
 	base = "0123456789";
 	i = va_arg(ap, unsigned int);
 	if (i == 0 && op->preci == 0)
-	{
 		op->buffer = ft_strdup("");
-	}
 	else
-	{
 		op->buffer = ft_itoa_base(i, base);
-	}
 	if (op->preci == 0 && op->width == 0)
 		op->rprint = ft_strdup(op->buffer);
 	else if ((op->preci != -1 || op->width != -1))
-	{
 		ft_set_flag(op);
-	}
 	else
-	{
 		op->rprint = ft_strdup(op->buffer);
-	}
 	ft_display(op);
 }
 
-void		ft_di2(t_option *op, va_list ap)
+void		ft_di2(t_op *op, va_list ap)
 {
 	int		i;
 
@@ -56,22 +48,19 @@ void		ft_di2(t_option *op, va_list ap)
 		op->buffer = ft_strdup("2147483648");
 		op->neg = 1;
 	}
-	else if (i == 0 && ((op->width > 0 && !op->is_a_negative_width) || (op->preci == 0)))
+	else if (i == 0 && ((op->width > 0 && !op->is_a_negative_width)
+		|| (op->preci == 0)))
 	{
 		if (op->width > 0 && !op->is_a_negative_width && op->preci != 0)
 			op->buffer = ft_strdup("0");
 		else if (op->preci == 0 && i == 0)
-		{
 			op->buffer = ft_strdup("");
-		}
 	}
 	else
-	{
 		op->buffer = ft_itoa(i);
-	}
 }
 
-void		ft_4_di(t_option *op, va_list ap)
+void		ft_4_di(t_op *op, va_list ap)
 {
 	ft_di2(op, ap);
 	if (op->width < 0 && op->width != -1)
@@ -88,13 +77,9 @@ void		ft_4_di(t_option *op, va_list ap)
 			op->rprint = ft_strdup(op->buffer);
 	}
 	else if (op->preci != -1 || op->width != -1)
-	{
 		ft_set_flag(op);
-	}
 	else
-	{
 		op->rprint = ft_strdup(op->buffer);
-	}
 	if (op->neg)
 		op->rprint = ft_strfjoin("-", op->rprint, 2);
 	ft_display(op);

@@ -6,13 +6,13 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 13:01:21 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 14:10:37 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_display(t_option *op)
+void		ft_display(t_op *op)
 {
 	if (op->rprint == NULL)
 	{
@@ -29,7 +29,6 @@ void		ft_display(t_option *op)
 		ft_putstr(op->rprint);
 		op->size += ft_strlen(op->rprint);
 	}
-	op->flag = 0;
 	free(op->buffer);
 	free(op->rprint);
 }

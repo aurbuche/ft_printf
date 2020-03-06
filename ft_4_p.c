@@ -6,13 +6,13 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 13:42:22 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/04 11:19:58 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_p(t_option *op, va_list ap)
+void		ft_4_p(t_op *op, va_list ap)
 {
 	char			*base;
 	unsigned long	tmp;

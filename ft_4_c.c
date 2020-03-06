@@ -6,13 +6,13 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:00:04 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/05 17:57:51 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_4_c(t_option *op, va_list ap)
+void		ft_4_c(t_op *op, va_list ap)
 {
 	char	c;
 
@@ -24,9 +24,7 @@ void		ft_4_c(t_option *op, va_list ap)
 		c = '%';
 	op->buffer = ft_ctos(c);
 	if (op->buffer[0] == '\0' && (op->preci == -1 && op->width == -1))
-	{
 		op->rprint = ft_strdup("\0");
-	}
 	else if (op->preci != -1 && op->width == -1)
 		op->rprint = ft_strdup(op->buffer);
 	else if (op->width != -1)
@@ -36,8 +34,6 @@ void		ft_4_c(t_option *op, va_list ap)
 		ft_set_flag(op);
 	}
 	else
-	{
 		op->rprint = ft_strdup(op->buffer);
-	}
 	ft_display(op);
 }

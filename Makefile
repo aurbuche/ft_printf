@@ -6,19 +6,16 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
-#    Updated: 2020/03/05 13:49:52 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/06 16:39:30 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_PRINTF		=		ft_printf.c ft_change.c ft_insert.c ft_is.c ft_switch.c\
-						ft_4_digit.c ft_display.c ft_set_flag.c ft_precision.c\
-						ft_4_alpha.c ft_field.c ft_ctos.c ft_write_til.c\
-						ft_4_x.c ft_4_alpha.c ft_4_p.c ft_4_c.c ft_4_percent.c\
-						ft_set_preci_field.c ft_all_to_zero.c #ft_find_flag.c\
-						#ft_else.c ft_zero.c ft_free_struct.c ft_all_to_zero.c ft_loop_plus.c\
-						ft_hyphen_preci.c\
-						ft_set_zandp.c ft_set_zandh.c ft_set_pandw.c ft_set_pwz.c\
-						ft_set_zandw.c ft_init_struct.c
+						ft_4_digit.c ft_display.c ft_set_flag.c ft_set_precision.c\
+						ft_4_alpha.c ft_set_field.c ft_ctos.c ft_write_til.c\
+						ft_4_x.c ft_4_alpha.c ft_4_p.c ft_4_c.c\
+						ft_set_preci_field.c ft_all_to_zero.c ft_find_converter.c\
+						ft_init_struct.c ft_insert_stars.c ft_check_error.c ft_free_struct.c
 
 SRCS_LIB		=		$(addprefix libft/, ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 						ft_memccpy.c ft_memcmp.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c\
@@ -64,6 +61,9 @@ $(OBJ_PATH)%.o: $(SRCS_PATH)%.c $(HEADER) Makefile
 				@${CC} ${CFLAGS}  -c $< -o $@
 				@echo "\033[38;2;250;240;197mCompiling objects file...$<"
 				@echo "\033[38;2;0;128;0mDone"
+
+norme : 		
+				@norminette $(SRCS_PATH)
 
 $(OBJ_PATH):
 				@mkdir -p obj/ 2> /dev/null

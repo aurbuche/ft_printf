@@ -6,15 +6,15 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/05 17:57:43 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_set_flag(t_option *op)
+void		ft_set_flag(t_op *op)
 {
-	if (op->is_a_negative_precision && op->converter != 's' && !op->is_a_negative_width)
+	if (op->is_a_negative_precision && op->converter != 's')
 		op->preci = -op->preci;
 	if (op->width != -1 && op->preci == -1)
 	{
@@ -28,5 +28,4 @@ void		ft_set_flag(t_option *op)
 	{
 		ft_set_preci_field(op);
 	}
-	
 }

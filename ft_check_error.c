@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_til_percent.c                             :+:      :+:    :+:   */
+/*   ft_check_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 12:20:37 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 13:08:37 by aurbuche         ###   ########lyon.fr   */
+/*   Created: 2020/03/06 14:33:53 by aurbuche          #+#    #+#             */
+/*   Updated: 2020/03/06 14:34:11 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_write_til_percent(char *fmt, size_t i)
+int				ft_check_error(const char *format, char **fmt)
 {
-	size_t	n;
-
-	n = 0;
-	while (n <= i)
-		ft_putchar(fmt[n++]);
+	if (!format)
+		return (0);
+	if (format[0] == '%' && format[1] == '\0')
+		return (0);
+	if (!((*fmt) = ft_strdup((char*)format)))
+		return (0);
+	return (1);
 }

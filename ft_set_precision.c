@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_4_x.c                                           :+:      :+:    :+:   */
+/*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 16:20:05 by aurbuche          #+#    #+#             */
+/*   Created: 2020/01/15 15:10:07 by aurbuche          #+#    #+#             */
 /*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_continue2(t_op *op, size_t i)
+void			ft_set_precinext(t_op *op, size_t tmp, size_t i, char c)
 {
-	if (i == 0 && op->preci == 0)
+	tmp = op->preci - tmp;
+	op->rprint = malloc(sizeof(char) * (op->preci + 1));
+	while (i < tmp)
 	{
-		free(op->buffer);
-		op->buffer = ft_strdup("");
+		op->rprint[i] = c;
+		i++;
 	}
-	ft_set_flag(op);
+	op->rprint[i] = '\0';
+	op->rprint = ft_strfjoin(op->rprint, op->buffer, 1);
 }
 
-void		ft_4_x(t_op *op, va_list ap)
+void			ft_set_precision(t_op *op)
 {
-	char	*base;
-	size_t	i;
+	size_t		tmp;
+	size_t		i;
+	char		c;
 
-	base = "0123456789abcdef";
-	if (op->converter == 'X')
-		base = "0123456789ABCDEF";
-	i = va_arg(ap, long long);
-	op->buffer = ft_itoa_base(i, base);
-	if ((op->preci == 0 && op->width == 0) ||
-	(i == 0 && op->preci == 0 && op->width == -1))
+	i = 0;
+	tmp = ft_strlen(op->buffer);
+	c = '0';
+	if (op->preci > (ssize_t)tmp && op->converter != 's')
+		ft_set_precinext(op, tmp, i, c);
+	else if (op->preci < (ssize_t)tmp && op->converter == 's'
+		&& !op->is_a_negative_precision)
 	{
-		if (i == 0)
-			op->rprint = ft_strdup("");
-		else
-			op->rprint = ft_strdup(op->buffer);
-	}
-	else if (op->preci != -1 || op->width != -1)
-	{
-		ft_continue2(op, i);
+		op->rprint = ft_strndup(op->buffer, op->preci);
 	}
 	else
+	{
 		op->rprint = ft_strdup(op->buffer);
-	ft_display(op);
+	}
 }
