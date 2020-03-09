@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:20:05 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 13:10:49 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_continue2(t_op *op, size_t i)
 {
 	if (i == 0 && op->preci == 0)
 	{
-		free(op->buffer);
+		ft_delete(&op->buffer);
 		op->buffer = ft_strdup("");
 	}
 	ft_set_flag(op);

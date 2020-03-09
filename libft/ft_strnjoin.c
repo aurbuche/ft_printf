@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:15 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 10:21:24 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 09:28:46 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ char	*ft_strnjoin(char *s1, char const *s2, size_t len)
 		return (NULL);
 	str = ft_strncpy(str, s1, len);
 	str = ft_strcat(str, s2);
-	free(s1);
+	ft_delete(&s1);
 	return (str);
 }

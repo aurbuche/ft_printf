@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:42:44 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 15:47:08 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 10:51:22 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void		ft_alpha2(t_op *op, va_list ap)
 		op->buffer = ft_strdup(va_arg(ap, char*));
 	if (!op->buffer)
 	{
-		free(op->buffer);
+		ft_delete(&op->buffer);
 		op->buffer = ft_strdup("(null)");
 	}
 	else if (op->buffer[0] == '\0')
 	{
-		free(op->buffer);
+		ft_delete(&op->buffer);
 		op->buffer = ft_strdup("");
 	}
 }
@@ -38,14 +38,14 @@ void		ft_4_alpha(t_op *op, va_list ap)
 	ft_alpha2(op, ap);
 	if (op->preci == 0 && op->width == 0)
 	{
-		free(op->buffer);
+		ft_delete(&op->buffer);
 		op->buffer = ft_strdup("");
 	}
 	if ((op->preci != -1 || op->width != -1))
 	{
 		if (op->preci == 0 && op->width)
 		{
-			free(op->buffer);
+			ft_delete(&op->buffer);
 			op->buffer = ft_strdup("");
 		}
 		ft_set_flag(op);

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 13:44:33 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ void		ft_set_flag(t_op *op)
 		ft_set_precision(op);
 	}
 	else
-	{
+	{		
+		if (op->preci < 0 && op->is_a_negative_width)
+		{
+			op->preci = -op->preci;
+			if (op->preci > op->width)
+				op->width = op->preci;
+			op->preci = -1;
+		}
 		ft_set_preci_field(op);
 	}
 }

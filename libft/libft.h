@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:27:42 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/02/17 15:31:33 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 09:23:40 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strfjoin(char *s1, char *s2, int free);
+char	*ft_strfjoin(char *s1, char *s2, int ft_delete);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));

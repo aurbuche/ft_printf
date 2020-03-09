@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/06 16:38:31 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 11:01:46 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct	s_option
 
 t_op			*ft_init_struct(void);
 int				ft_check_error(const char *format, char **fmt);
-int				ft_core_printf(char *fmt, size_t i, t_op *op, va_list ap);
+int				ft_core_printf(char **fmt, size_t i, t_op *op, va_list ap);
 int				ft_printf(const char *format, ...);
 int				ft_4_digit2(t_op *option, int i);
 int				ft_loop(char *fmt, size_t i, t_op *option, va_list ap);
@@ -68,14 +68,14 @@ void			ft_4_u(t_op *option, va_list ap);
 void			ft_all_to_zero(t_op *option);
 void			ft_change(t_op *op, char **str, size_t i, va_list ap);
 void			ft_display(t_op *option);
-void			ft_free_struct(t_op *op, char *str);
+void			ft_free_struct(t_op *op);
 void			ft_insert_stars(char **fmt, size_t i, t_op *op, va_list ap);
 void			ft_set_flag(t_op *option);
 void			ft_set_precision(t_op *option);
 void			ft_set_preci_field(t_op *option);
 void			ft_set_field(t_op *option);
 void			ft_all_to_zero(t_op *option);
-void			ft_write_til_percent(char *fmt, size_t i);
+void			ft_write_til_percent(const char *fmt, size_t i);
 char			*ft_ctos(char c);
 char			*ft_insert(char *src, char *insered, size_t n, int len);
 size_t			ft_size_field(t_op *option, char *str, size_t i);

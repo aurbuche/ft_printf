@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/06 16:38:50 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/09 15:10:23 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,12 @@ int				ft_pf_atoi(t_op *op, const char *str, size_t *i, char option)
 
 int				main_loop(char *fmt, size_t i, t_op *op)
 {
+	if (fmt[i] == '0' && fmt[i - 1] == '%')
+		op->zero = 1;
 	if (ft_isdigit(fmt[i]) && op->preci == -1)
+	{
 		op->width = ft_pf_atoi(op, fmt, &i, 1);
+	}
 	else if (ft_isdigit(fmt[i]))
 		op->preci = ft_pf_atoi(op, fmt, &i, 0);
 	else if (fmt[i] == '.')
@@ -52,35 +56,40 @@ int				main_loop(char *fmt, size_t i, t_op *op)
 	else if (fmt[i] == '-' && fmt[i - 1] == '.')
 		op->is_a_negative_precision = 1;
 	else if (fmt[i] == '-')
+	{
 		op->is_a_negative_width = 1;
+		if (op->zero)
+			op->zero = 0;
+	}
 	i++;
 	return (i);
 }
 
-int				ft_core_printf(char *fmt, size_t i, t_op *op, va_list ap)
+int				ft_core_printf(char **fmt, size_t i, t_op *op, va_list ap)
 {
 	op->width = -1;
 	op->preci = -1;
-	while (fmt[i])
+	while ((*fmt)[i])
 	{
-		if (fmt[i] == '%')
+		if ((*fmt)[i] == '%')
 		{
 			i++;
 			op->percent = 1;
-			ft_change(op, &fmt, i, ap);
-			while (!ft_is_converter(fmt[i]))
-				i = main_loop(fmt, i, op);
-			op->converter = fmt[i];
+			ft_change(op, &(*fmt), i, ap);
+			while (!ft_is_converter((*fmt)[i]))
+				i = main_loop(*fmt, i, op);
+			op->converter = (*fmt)[i];
 			ft_switch(op, ap);
 			ft_all_to_zero(op);
 		}
 		else
 		{
-			write(1, &fmt[i], 1);
+			write(1, *fmt + i, 1);
 			op->size++;
 		}
 		i++;
 	}
+	ft_delete(&(*fmt));
 	return (op->size);
 }
 
@@ -95,20 +104,21 @@ int				ft_printf(const char *format, ...)
 	i = 0;
 	if (!(op = ft_init_struct()))
 		return (-1);
-	if (ft_check_error(format, &fmt) == 0)
+	if (!(ft_check_error(format, &fmt)))
 		return (0);
 	if (!ft_memchr(format, '%', ft_strlen((char*)format)))
 	{
 		ft_putstr((char*)format);
 		va_end(ap);
-		ft_free_struct(op, fmt);
+		ft_delete(&fmt);
+		ft_free_struct(op);
 		return (ft_strlen((char*)format));
 	}
 	i = ((char*)ft_memchr(format, '%', ft_strlen(format)) - format);
-	ft_write_til_percent(fmt, i);
-	ft_core_printf(fmt, i, op, ap);
+	ft_write_til_percent(format, i);
+	ft_core_printf(&fmt, i, op, ap);
 	i += op->size;
 	va_end(ap);
-	ft_free_struct(op, fmt);
+	ft_free_struct(op);
 	return (i);
 }
