@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/09 11:01:46 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/10 14:49:28 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ typedef struct	s_option
 	int				is_a_negative_width;
 }				t_op;
 
-
-
 /*
 ** -------------------------- Function Definiton ----------------------------
 */
@@ -68,7 +66,7 @@ void			ft_4_u(t_op *option, va_list ap);
 void			ft_all_to_zero(t_op *option);
 void			ft_change(t_op *op, char **str, size_t i, va_list ap);
 void			ft_display(t_op *option);
-void			ft_free_struct(t_op *op);
+void			ft_free_struct(t_op *op, char *fmt);
 void			ft_insert_stars(char **fmt, size_t i, t_op *op, va_list ap);
 void			ft_set_flag(t_op *option);
 void			ft_set_precision(t_op *option);

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:31:43 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/09 15:10:23 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/10 14:42:57 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,7 @@ int				ft_printf(const char *format, ...)
 	{
 		ft_putstr((char*)format);
 		va_end(ap);
-		ft_delete(&fmt);
-		ft_free_struct(op);
+		ft_free_struct(op, fmt);
 		return (ft_strlen((char*)format));
 	}
 	i = ((char*)ft_memchr(format, '%', ft_strlen(format)) - format);
@@ -119,6 +118,6 @@ int				ft_printf(const char *format, ...)
 	ft_core_printf(&fmt, i, op, ap);
 	i += op->size;
 	va_end(ap);
-	ft_free_struct(op);
+	free(op);
 	return (i);
 }

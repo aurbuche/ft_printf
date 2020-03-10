@@ -6,10 +6,9 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:27:42 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/09 09:23:40 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/10 14:49:57 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef _LIBFT_H
 # define _LIBFT_H
@@ -45,7 +44,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strncpy(char *dest, const char *src, unsigned int n);
 char	*ft_strnstr(const char *haystack, const char *neddle, size_t len);
 char	*ft_strndup(const char *str, size_t n);
-char    *strnfdup(char *str, int len);
+char	*strnfdup(char *str, int len);
 char	*ft_strnjoin(char *s1, char const *s2, size_t len);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
