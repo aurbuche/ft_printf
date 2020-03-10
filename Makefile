@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
-#    Updated: 2020/03/09 09:54:17 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/10 16:49:16 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,11 +71,14 @@ $(OBJ_PATH):
 
 clean :
 				@${RM} ${OBJ}
-				@echo "\033[38;2;165;38;10mDeleting objects file...\t\033[38;2;0;128;0mDONE\033[0m"
+				@${RM} libft/*.o
+				@echo "\033[38;2;165;38;10mDeleting objects file...\t\t\033[38;2;0;128;0mDONE\033[0m"
 
 fclean :		clean
 				@${RM} ${NAME}
-				@echo "\033[38;2;165;38;10mDeleting ft_printf.a...\t\t\033[38;2;0;128;0mDONE\033[0m"
+				@${RM} libft/libft.a
+				@echo "\033[38;2;165;38;10mDeleting libft.a...\t\t\t\033[38;2;0;128;0mDONE\033[0m"
+				@echo "\033[38;2;165;38;10mDeleting libtprintf.a...\t\t\033[38;2;0;128;0mDONE\033[0m"
 				
 re :			fclean all
 .PHONY :		all clean fclean re
