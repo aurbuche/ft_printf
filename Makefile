@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 10:26:14 by aurbuche          #+#    #+#              #
-#    Updated: 2020/03/10 16:49:16 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/10 17:33:58 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,11 +53,12 @@ all : $(OBJ_PATH) ${NAME}
 
 $(NAME) : $(OBJ) $(HEADER)
 				@echo "\033[0m"
-				ar rcs $(NAME) $(OBJ)
+				ar rcus $(NAME) $(OBJ)
 				@echo "\033[0m"
-				@echo "\033[38;2;0;128;0mCompiling ft_printf.a...\tDONE"
+				@echo "\033[38;2;0;128;0mCompiling libftprintf.a...\tDONE"
 
 $(OBJ_PATH)%.o: $(SRCS_PATH)%.c $(HEADER) Makefile
+				@make -C libft NAME=../libftprintf.a
 				@${CC} ${CFLAGS}  -c $< -o $@
 				@echo "\033[38;2;250;240;197mCompiling objects file...$<"
 				@echo "\033[38;2;0;128;0mDone"
