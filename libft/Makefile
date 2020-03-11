@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/10 15:28:27 by aurbuche          #+#    #+#              #
-#    Updated: 2020/03/10 16:58:14 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/11 15:49:42 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,11 @@ SRCS_LIB		=		ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 						ft_itoa_base.c ft_itoa_p_base.c ft_delete.c ft_strfjoin.c ft_strncpy.c\
 						ft_cchr.c ft_strcmp.c
 						
-OBJ				=		${SRCS_LIB:.c=.o}
+OBJ_NAME		=		$(SRCS_LIB:.c=.o)
+
+OBJ				=		$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
+OBJ_PATH		=		obj/
 
 NAME			=		libft.a
 
@@ -33,18 +37,22 @@ RM				=		rm -rf
 
 HEADER			=		libft.h
 
-$(NAME) : $(OBJ)
+all :	$(OBJ_PATH) ${NAME}
+
+$(NAME) : $(OBJ) $(HEADER)
 				@echo "\033[0m"
-				ar rcs ${NAME} ${OBJ}
+				@ar rcs $(NAME) $(OBJ)
 				@echo "\033[0m"
 				@echo "\033[38;2;0;128;0mCompiling libft.a...\tDONE"
 
-all :                   ${NAME}
-
-%.o: %.c $(HEADER)
+$(OBJ_PATH)%.o:	$(SRCS_PATH)%.c $(HEADER) Makefile
 				@${CC} ${CFLAGS} -c $< -o $@
-				@echo "\033[38;2;250;240;197mCompiling objects file...$<"
+				@echo "\033[38;2;250;240;197mCompiling objects file...libft/$<"
 				@echo "\033[38;2;0;128;0mDone"
+
+$(OBJ_PATH):
+				mkdir -p obj/ 2> /dev/null
+
 clean :
 				@${RM} -f *.o
 				@echo "\033[38;2;165;38;10mDeleting objects file...\t\033[38;2;0;128;0mDONE"

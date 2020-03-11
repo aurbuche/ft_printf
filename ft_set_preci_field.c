@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:39:48 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/10 14:41:25 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/11 14:26:03 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			ft_preci(t_op *op)
 
 void			ft_set_preci_field(t_op *op)
 {
-	if (op->zero && op->preci >= 0)
+	if (op->zero && op->preci >= 0 && op->converter != 'c')
 		op->zero = 0;
 	if (op->preci != -1 && op->converter == 's' && op->width == -1)
 	{

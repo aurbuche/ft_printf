@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:30:24 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/03/10 14:49:28 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/11 10:05:18 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int				ft_loop(char *fmt, size_t i, t_op *option, va_list ap);
 int				ft_is_converter(char c);
 int				ft_find_flag(char *str, size_t n, t_op *option);
 int				ft_find_converter(char c, t_op *op);
+int				ft_printf(const char *format, ...);
 void			ft_switch(t_op *option, va_list ap);
 void			ft_4_alpha(t_op *option, va_list ap);
 void			ft_4_c(t_op *option, va_list ap);

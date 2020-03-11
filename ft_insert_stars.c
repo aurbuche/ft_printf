@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 14:32:28 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/11 15:28:49 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void			ft_insert_stars(char **fmt, size_t i, t_op *op, va_list ap)
 	int		tmp;
 
 	tmp = 0;
-	op->width = 0;
-	op->preci = -1;
 	while ((*fmt)[i])
 	{
 		if ((*fmt)[i] == '%' && !op->percent)

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:47:27 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/09 13:03:17 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/11 13:43:42 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		ft_di2(t_op *op, va_list ap)
 		op->neg = 1;
 		op->buffer = ft_itoa(i);
 	}
-	else if (i == -2147483648 && op->preci > 0)
+	else if (i == -2147483648 && (op->preci > 0 || op->width > 0))
 	{
 		op->buffer = ft_strdup("2147483648");
 		op->neg = 1;
