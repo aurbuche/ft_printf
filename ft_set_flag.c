@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 11:19:29 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/11 14:01:49 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/12 16:04:26 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void		ft_set_flag(t_op *op)
 {
+	if (op->is_a_negative_width && op->is_a_negative_precision
+		&& op->preci > op->width)
+		op->width = op->preci;
 	if (op->is_a_negative_precision && op->converter != 's')
 		op->preci = -op->preci;
 	if (op->width != -1 && op->preci == -1)

@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:39:48 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/11 14:26:03 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/12 15:36:34 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void			ft_set_preci_field(t_op *op)
 	{
 		op->rprint = ft_strndup(op->buffer, op->preci);
 	}
-	else
+	else if (op->converter != 'c')
 	{
 		ft_preci(op);
 	}

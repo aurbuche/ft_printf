@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 11:35:31 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/11 13:58:09 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/12 15:10:30 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void		ft_set_field(t_op *op)
 
 	i = 0;
 	tmp = ft_strlen(op->buffer);
+	if (tmp == 0 && op->converter == 'c' && op->buffer[0] != '%')
+	{
+		op->size++;
+		op->width--;
+	}
 	if (op->neg)
 		tmp++;
 	if (op->width >= (ssize_t)tmp)

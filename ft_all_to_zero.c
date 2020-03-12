@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:19:04 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:56 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/12 15:19:32 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_all_to_zero(t_op *op)
 {
 	op->percent = 0;
-	op->preci = 0;
 	op->neg = 0;
 	op->zero = 0;
 	op->preci = -1;

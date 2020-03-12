@@ -6,7 +6,7 @@
 /*   By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:59:38 by aurbuche          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:57 by aurbuche         ###   ########lyon.fr   */
+/*   Updated: 2020/03/12 15:34:20 by aurbuche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_switch(t_op *op, va_list ap)
 {
 	if (op->converter == 's')
+	{
 		ft_4_alpha(op, ap);
+	}
 	else if (op->converter == 'c' || op->converter == '%')
 		ft_4_c(op, ap);
 	if (op->converter == 'd' || op->converter == 'i')

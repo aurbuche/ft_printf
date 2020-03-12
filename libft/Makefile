@@ -6,7 +6,7 @@
 #    By: aurbuche <aurbuche@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/10 15:28:27 by aurbuche          #+#    #+#              #
-#    Updated: 2020/03/11 15:49:42 by aurbuche         ###   ########lyon.fr    #
+#    Updated: 2020/03/12 13:14:02 by aurbuche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ $(OBJ_PATH)%.o:	$(SRCS_PATH)%.c $(HEADER) Makefile
 				@echo "\033[38;2;0;128;0mDone"
 
 $(OBJ_PATH):
-				mkdir -p obj/ 2> /dev/null
+				@mkdir -p obj/ 2> /dev/null
 
 clean :
 				@${RM} -f *.o
